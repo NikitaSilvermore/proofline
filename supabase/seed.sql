@@ -112,9 +112,9 @@ begin
       ('00000000-0000-0000-0000-0000000000a8'::uuid,'Ben Osei','ben.osei@example.com','win_clients','active',150,5000::numeric,4,5,8,1,3000::numeric,'green', array['Milestone earned yesterday'], true),
       ('00000000-0000-0000-0000-0000000000a9'::uuid,'David Park','david.park@example.com','grow_audience','active',210,5500::numeric,6,7,9,3,9000::numeric,'green', array['Case study draft ready for review'], true),
       ('00000000-0000-0000-0000-0000000000aa'::uuid,'Emma Riley','emma.riley@example.com','paid_speaker','active',270,5000::numeric,6,7,9,2,12000::numeric,'green', array['On pace for milestone 7 this month'], false)
-    ) as t(id uuid, name text, email text, track text, status text, enrolled_days int,
-           monthly_revenue numeric, done_ms int, current_ms int, weeks int, last_gap int,
-           value_total numeric, rag text, reasons text[], harvest boolean)
+    ) as t(id, name, email, track, status, enrolled_days,
+           monthly_revenue, done_ms, current_ms, weeks, last_gap,
+           value_total, rag, reasons, harvest)
   loop
     insert into students (id, name, email, track, status, token, enrolled_at, intake_completed_at, consent)
     values (
