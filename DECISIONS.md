@@ -2,6 +2,27 @@
 
 Log anything that deviates from or clarifies BUILD_SPEC.md. Newest first.
 
+## 2026-07-02 — Milestone 2: schema + seeds
+
+- **RLS enforcement model (clarifies §7).** RLS is ON for every table; the anon
+  key can read/write nothing. Console access is gated by `is_team()` (a logged-in
+  Supabase user whose email is in the new `team_allowlist` table). Students never
+  log in — their `/intake`, `/p`, `/checkin` routes are served by server code that
+  validates the signed token and uses the **service-role** key (which bypasses
+  RLS). The server only ever selects the single row matching the token, so a
+  student can only reach their own data — satisfying §7's guarantee while keeping
+  v1 simple. Token-scoped RLS at the database layer can be added later if needed.
+- **Added `team_allowlist` table** (not in §4) to hold the console allowlist as
+  data rather than hardcoding emails in SQL. Seeded with Nikita; Makenna's email
+  is a placeholder — update it.
+- **Added `unique (track, position)` on `milestone_templates`** so reference-data
+  seeding is idempotent (`on conflict`). §4 only specified a serial PK.
+- **`on delete cascade`** added to child foreign keys (baselines, milestones,
+  checkins, flags, events) so the §7 deletion/scrub path is clean.
+- **Fake student = "Jordan Ellis"** (paid_speaker, 3 weeks in) to line up with the
+  dashboard demo for the Milestone 4 progress page.
+- **Fake-clock helper** added now (`src/lib/clock.ts`) per §11's "write it early".
+
 ## 2026-07-02 — Milestone 1: repo + deploy skeleton
 
 - **Spec file renamed** `proofline_v1_build_spec.md` → `BUILD_SPEC.md` to match the

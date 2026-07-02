@@ -32,6 +32,19 @@ one-time connect step needs your Vercel account:
 > **Deploy first, build second** (BUILD_SPEC.md §8) — get the live URL working now
 > so deployment is never the last-mile surprise.
 
+## Database (Supabase)
+
+Run these once in the Supabase dashboard → **SQL Editor** (paste → Run):
+
+1. [`supabase/schema.sql`](supabase/schema.sql) — tables, RLS, milestone templates,
+   console allowlist. Idempotent — safe to re-run.
+2. [`supabase/seed.sql`](supabase/seed.sql) — one fake test student ("Jordan
+   Ellis"). Idempotent.
+
+Both are safe to run twice (Milestone 2 DoD). A clean second run returns
+"Success. No rows returned" with no errors. Edit the allowlist emails at the
+bottom of `schema.sql` to match your real team.
+
 ## Project layout
 
 ```

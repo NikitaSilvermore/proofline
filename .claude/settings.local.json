@@ -8,7 +8,24 @@
       "Bash(npm install *)",
       "Bash(npm run *)",
       "Bash(git add *)",
-      "Bash(git commit -q -m ' *)"
+      "Bash(git commit -q -m ' *)",
+      "Bash(git config *)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(command -v winget.exe)",
+      "Bash(npx --no-install vercel --version)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(git ls-remote *)",
+      "Bash(npm view *)",
+      "WebFetch(domain:proofline-rosy.vercel.app)",
+      "Bash(command -v psql)",
+      "Bash(psql --version)",
+      "Bash(echo \"psql: yes \\($\\(psql --version\\)\\)\")",
+      "Bash(command -v docker)",
+      "Bash(grep -oiE \"Jordan joined NLS[^<]{0,400}\" /c/Users/Nikita_2/Desktop/Proofline/design-reference/nls_student_dashboard_demo.html)",
+      "Bash(python -)"
     ]
   }
 }
