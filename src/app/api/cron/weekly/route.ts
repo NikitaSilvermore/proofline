@@ -24,10 +24,17 @@ export async function GET(req: Request) {
     return new Response("Unauthorized", { status: 401 });
   }
 
+  // Optional fake clock. Accepts full ISO ("2026-07-06T12:00:00Z"), a
+  // space-separated variant, or date-only ("2026-07-06"). Omit it to use real time.
+  let now = new Date();
   const nowParam = url.searchParams.get("now");
-  const now = nowParam ? new Date(nowParam) : new Date();
-  if (Number.isNaN(now.getTime())) {
-    return new Response("Bad 'now' parameter", { status: 400 });
+  if (nowParam) {
+    const cleaned = nowParam.trim().replace(" ", "T");
+    const parsed = new Date(/^\d{4}-\d{2}-\d{2}$/.test(cleaned) ? cleaned + "T12:00:00Z" : cleaned);
+    if (Number.isNaN(parsed.getTime())) {
+      return new Response(`Bad 'now' parameter: "${nowParam}". Try 2026-07-06`, { status: 400 });
+    }
+    now = parsed;
   }
 
   const db = createServiceClient();
