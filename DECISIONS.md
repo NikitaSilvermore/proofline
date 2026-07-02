@@ -2,6 +2,26 @@
 
 Log anything that deviates from or clarifies BUILD_SPEC.md. Newest first.
 
+## 2026-07-02 — Milestone 5: check-in loop
+
+- **RAG engine `src/lib/rag.ts`** implements §5 verbatim and is pure/deterministic.
+  Verified with 10 unit scenarios (green/amber/red for each rule) via Node
+  type-stripping. A "missed" check-in = a `sent_at`-set row with no `completed_at`.
+- **`recomputeFlags` (`src/lib/flags-service.ts`)** is shared by the submit action
+  and the cron so both apply identical rules; it upserts the `flags` row.
+- **Auto-earned milestone:** first `value_confirmed > 0` earns the first *payoff*
+  milestone (e.g. paid_speaker "First paid gig"), logs `milestone_earned`, and
+  promotes the next milestone to `current` (§6.2).
+- **Cron `/api/cron/weekly`** inserts a "sent" check-in per active student then
+  recomputes all flags. Auth: `Authorization: Bearer $CRON_SECRET` (Vercel adds it)
+  **or** `?secret=$CRON_SECRET`. Fake-clock testing: `?now=<ISO>` stamps `sent_at`,
+  so two calls simulate two consecutive Mondays without waiting (the §8.5 DoD).
+- **The GHL/email send is deferred to Milestone 7** — the cron creates rows and
+  flips flags today; §6.2's actual send is a TODO in the route.
+- **Cron schedule `0 12 * * 1` (UTC)** ≈ Mondays 08:00 ET during EDT. During EST
+  (winter) this is 07:00 ET; acceptable for the pilot. Revisit if exact 08:00 ET
+  year-round matters.
+
 ## 2026-07-02 — Milestone 4: progress page
 
 - **Every number on `/p/[token]` is derived from real columns** (`src/lib/progress.ts`),

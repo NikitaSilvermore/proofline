@@ -56,7 +56,25 @@ bottom of `schema.sql` to match your real team.
 - **Progress page** (week-1 empty states): `/p/demo-fresh-token-0002` — Sam, after
   he completes intake.
 
+- **Weekly check-in**: `/checkin/demo-jordan-token-0001` — 5 questions → celebration
+  → back to the progress page.
+
 Re-run `supabase/seed.sql` after pulling Milestone 4 to load Jordan's fuller story.
+
+## Weekly cron (the loop)
+
+`GET /api/cron/weekly` inserts a "sent" check-in for each active student and
+recomputes every RAG flag. Protected by `CRON_SECRET`. Vercel runs it Mondays via
+`vercel.json`. To fire it manually / rehearse two Mondays with a **fake clock**:
+
+```
+# Monday one
+curl "https://<app>/api/cron/weekly?secret=$CRON_SECRET&now=2026-07-06T12:00:00Z"
+# Monday two (a week later)
+curl "https://<app>/api/cron/weekly?secret=$CRON_SECRET&now=2026-07-13T12:00:00Z"
+```
+
+Each returns JSON like `{ ok, students, sent, flagged, at }`.
 
 The intake server action needs `SUPABASE_SERVICE_ROLE_KEY` (the Supabase **Secret**
 key) set in the environment — locally in `.env.local`, and in Vercel.
