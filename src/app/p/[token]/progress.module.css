@@ -237,8 +237,10 @@
 }
 .rail {
   position: relative;
-  min-width: 760px;
-  height: 150px;
+  /* 8 nodes at ~104px wide need >104px between centres; 920px min-width gives
+     ~118px spacing so labels never overlap (the rail scrolls on narrow phones). */
+  min-width: 920px;
+  height: 168px;
 }
 .railTrack {
   position: absolute;
@@ -262,7 +264,7 @@
   position: absolute;
   top: 0;
   transform: translateX(-50%);
-  width: 130px;
+  width: 104px;
   text-align: center;
 }
 .nodeDot {
