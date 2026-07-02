@@ -90,3 +90,86 @@ values (
   now() - interval '1 day', null
 )
 on conflict (id) do nothing;
+
+-- ── Roster: 10 mixed-state students (Milestone 6 DoD: "12 mixed-state students")
+-- Together with Jordan (green) and Sam (fresh) this fills the console roster.
+-- Flags are seeded directly (§5 stores computed flags; the console reads the
+-- stored `reasons` verbatim). Child rows rebuilt each run for determinism.
+do $$
+declare
+  s record;
+  wk int;
+begin
+  for s in
+    select * from (values
+      ('00000000-0000-0000-0000-0000000000a1'::uuid,'Marcus Webb','marcus.webb@example.com','paid_speaker','active',60,5000::numeric,1,2,1,19,0::numeric,'red',   array['3 missed check-ins','instalment 2 of 4 due Friday'], false),
+      ('00000000-0000-0000-0000-0000000000a2'::uuid,'Priya Shah','priya.shah@example.com',null,'invited',9,null::numeric,0,0,0,0,0::numeric,'red',   array['Intake incomplete, day 9 — refund window'], false),
+      ('00000000-0000-0000-0000-0000000000a3'::uuid,'Dana Okafor','dana.okafor@example.com','win_clients','active',180,4000::numeric,4,5,6,2,3000::numeric,'red',   array['Confidence dropped 8 to 3 in two weeks','blocker "stage nerves"'], false),
+      ('00000000-0000-0000-0000-0000000000a4'::uuid,'Tom Callahan','tom.callahan@example.com','paid_speaker','active',90,4000::numeric,2,3,5,8,1000::numeric,'amber', array['Missed last week''s check-in'], false),
+      ('00000000-0000-0000-0000-0000000000a5'::uuid,'Aisha Bello','aisha.bello@example.com','sell_programme','active',240,5000::numeric,5,6,6,1,0::numeric,'amber', array['No stages pitched in 3 weeks','milestone 6 stalled'], false),
+      ('00000000-0000-0000-0000-0000000000a6'::uuid,'Ryan Kessler','ryan.kessler@example.com','paid_speaker','active',60,3500::numeric,2,3,7,2,800::numeric,'amber', array['Blocker "finding stages" two weeks running'], false),
+      ('00000000-0000-0000-0000-0000000000a7'::uuid,'Sofia Marin','sofia.marin@example.com','paid_speaker','active',330,6000::numeric,7,8,8,1,15000::numeric,'green', array['Renewal conversation ready — numbers attached'], true),
+      ('00000000-0000-0000-0000-0000000000a8'::uuid,'Ben Osei','ben.osei@example.com','win_clients','active',150,5000::numeric,4,5,8,1,3000::numeric,'green', array['Milestone earned yesterday'], true),
+      ('00000000-0000-0000-0000-0000000000a9'::uuid,'David Park','david.park@example.com','grow_audience','active',210,5500::numeric,6,7,9,3,9000::numeric,'green', array['Case study draft ready for review'], true),
+      ('00000000-0000-0000-0000-0000000000aa'::uuid,'Emma Riley','emma.riley@example.com','paid_speaker','active',270,5000::numeric,6,7,9,2,12000::numeric,'green', array['On pace for milestone 7 this month'], false)
+    ) as t(id uuid, name text, email text, track text, status text, enrolled_days int,
+           monthly_revenue numeric, done_ms int, current_ms int, weeks int, last_gap int,
+           value_total numeric, rag text, reasons text[], harvest boolean)
+  loop
+    insert into students (id, name, email, track, status, token, enrolled_at, intake_completed_at, consent)
+    values (
+      s.id, s.name, s.email, s.track, s.status,
+      'demo-' || replace(lower(s.name), ' ', '-'),
+      now() - make_interval(days => s.enrolled_days),
+      case when s.monthly_revenue is null then null else now() - make_interval(days => s.enrolled_days - 2) end,
+      jsonb_build_object('programme_use', true, 'team_visible', true, 'public_optin', true)
+    )
+    on conflict (id) do nothing;
+
+    if s.monthly_revenue is not null then
+      insert into baselines (student_id, monthly_revenue, paid_gigs_12mo, stage_confidence,
+                             target_monthly, blocker, own_words, locked_at)
+      values (s.id, s.monthly_revenue, 0, 4, s.monthly_revenue * 2, 'Finding stages',
+              'Starting out — here to change the numbers.',
+              now() - make_interval(days => s.enrolled_days - 2))
+      on conflict (student_id) do nothing;
+    end if;
+
+    delete from milestones where student_id = s.id;
+    insert into milestones (student_id, position, label, layer, state, progress_pct, achieved_at)
+    select s.id, position, label, layer,
+      case when position <= s.done_ms then 'done'
+           when position = s.current_ms then 'current' else 'todo' end,
+      case when position <= s.done_ms then 100
+           when position = s.current_ms then 50 else 0 end,
+      case when position <= s.done_ms then now() - make_interval(days => s.enrolled_days - position * 3) else null end
+    from milestone_templates
+    where track in ('shared', coalesce(s.track, 'paid_speaker'));
+
+    delete from checkins where student_id = s.id;
+    if s.weeks > 0 then
+      for wk in 1..s.weeks loop
+        insert into checkins (student_id, week_no, sent_at, completed_at,
+                              pitched_count, value_confirmed, confidence, win_text, blocker)
+        values (s.id, wk,
+          now() - make_interval(days => s.last_gap + (s.weeks - wk) * 7),
+          now() - make_interval(days => s.last_gap + (s.weeks - wk) * 7),
+          3, case when wk = s.weeks then s.value_total else 0 end,
+          least(10, 3 + wk), null, null);
+      end loop;
+    end if;
+
+    insert into flags (student_id, rag, reasons, computed_at)
+    values (s.id, s.rag, s.reasons, now() - interval '12 hours')
+    on conflict (student_id) do update
+      set rag = excluded.rag, reasons = excluded.reasons, computed_at = excluded.computed_at;
+
+    delete from events where student_id = s.id;
+    if s.harvest then
+      insert into events (student_id, type, payload, created_at)
+      values (s.id, 'milestone_earned',
+              jsonb_build_object('label', 'Milestone ' || s.done_ms || ' earned'),
+              now() - interval '2 days');
+    end if;
+  end loop;
+end $$;

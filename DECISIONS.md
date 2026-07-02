@@ -2,6 +2,28 @@
 
 Log anything that deviates from or clarifies BUILD_SPEC.md. Newest first.
 
+## 2026-07-02 — Milestone 6: team console
+
+- **Auth: Supabase magic-link + email allowlist** (§2, §7). `/console/login` sends
+  an OTP link → `/auth/callback` exchanges it → `/console` gates on `getUser()` AND
+  membership in `team_allowlist`. `middleware.ts` refreshes the session on
+  `/console` + `/auth`. Non-allowlisted users get a "not on the list" screen.
+- **Console reads run server-side via the service client after the gate**; the
+  allowlist check is the security boundary. `src/lib/console.ts` builds the view
+  model (stat strip, needs-attention, harvest, roster) — unit-tested (11 scenarios).
+- **Actions** (`src/app/console/actions.ts`, all `requireTeam()`-gated): nudge and
+  request-testimonial log events (GHL send is Milestone 7); mark-next-milestone is
+  the manual toggle (§6.3); draft-case-study interpolates baseline + latest numbers
+  + own_words + best win into editable text and logs `case_study_drafted`.
+- **Harvest queue** = students with a `milestone_earned` event in the last 14 days
+  and no later `testimonial_requested` (§6.3).
+- **Roster flags are seeded directly** so the mixed-state demo renders immediately.
+  `reasons` is stored verbatim and shown in the "Why" column. Note: running the
+  weekly cron recomputes flags from real data, which can change the seeded colours —
+  view the console right after seeding to see the intended red/amber/green mix.
+- **12-student roster** seeded (Jordan + Sam + 10) via a procedural block, each with
+  baseline, milestone rail, check-ins, and a flag.
+
 ## 2026-07-02 — Milestone 5: check-in loop
 
 - **RAG engine `src/lib/rag.ts`** implements §5 verbatim and is pure/deterministic.

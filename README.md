@@ -61,6 +61,18 @@ bottom of `schema.sql` to match your real team.
 
 Re-run `supabase/seed.sql` after pulling Milestone 4 to load Jordan's fuller story.
 
+## Team console
+
+`/console` — magic-link login at `/console/login`, restricted to emails in
+`team_allowlist`. Requires Supabase Auth config (see below). Shows the stat strip,
+needs-attention, harvest queue, and the RAG roster with filters and actions
+(nudge, request testimonial, mark milestone, draft case study).
+
+**Supabase Auth setup (one time):** in Supabase → Authentication → URL Configuration,
+set **Site URL** to your Vercel URL and add these **Redirect URLs**:
+`https://<app>.vercel.app/auth/callback` and `http://localhost:3000/auth/callback`.
+Make sure your email is in `team_allowlist` (seeded with the owner's email).
+
 ## Weekly cron (the loop)
 
 `GET /api/cron/weekly` inserts a "sent" check-in for each active student and
