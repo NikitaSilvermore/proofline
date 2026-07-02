@@ -51,6 +51,12 @@ bottom of `schema.sql` to match your real team.
   hasn't done intake yet. Complete it to create a baseline + milestone rail.
 - **Locked intake** (already done): `/intake/demo-jordan-token-0001` — Jordan Ellis,
   shows the read-only locked baseline.
+- **Progress page** (rich): `/p/demo-jordan-token-0001` — Jordan's dashboard, built
+  from his baseline + 9 check-ins.
+- **Progress page** (week-1 empty states): `/p/demo-fresh-token-0002` — Sam, after
+  he completes intake.
+
+Re-run `supabase/seed.sql` after pulling Milestone 4 to load Jordan's fuller story.
 
 The intake server action needs `SUPABASE_SERVICE_ROLE_KEY` (the Supabase **Secret**
 key) set in the environment — locally in `.env.local`, and in Vercel.

@@ -2,6 +2,26 @@
 
 Log anything that deviates from or clarifies BUILD_SPEC.md. Newest first.
 
+## 2026-07-02 — Milestone 4: progress page
+
+- **Every number on `/p/[token]` is derived from real columns** (`src/lib/progress.ts`),
+  never invented. Given the §4 schema, the three ledger cards are: **Confirmed from
+  the stage** (Σ `checkins.value_confirmed`, $0 → total), **Stage confidence**
+  (baseline → latest check-in), and **Milestones earned** (count of `done`). The
+  demo's "paid gigs booked / fee per gig" cards aren't derivable from the schema, so
+  these truthful equivalents replace them.
+- **Chart = cumulative confirmed value by week**, always starting from a $0 baseline
+  point — so a student with a single check-in still draws a clean two-point line
+  (the §8.4 "one point must not look broken" requirement). No check-ins → an explicit
+  empty-state card instead of a chart.
+- **Week-1 empty states** throughout (hero, chart, wins, story) so a freshly-enrolled
+  student never sees a broken page.
+- **Check-in card links to `/checkin/[token]`** (built in Milestone 5); the demo's
+  in-page check-in modal is deferred to that milestone.
+- **Jordan's seed enriched** into a 9-week story (rising confidence, three paid
+  bookings, 5 of 8 milestones) so his page recreates the dashboard demo. His child
+  rows are rebuilt each seed run (delete-then-insert) for deterministic re-runs.
+
 ## 2026-07-02 — Milestone 2: schema + seeds
 
 - **RLS enforcement model (clarifies §7).** RLS is ON for every table; the anon
