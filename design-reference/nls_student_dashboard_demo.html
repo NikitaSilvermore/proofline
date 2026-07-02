@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordan · NLS Mentorship — Your Progress</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1A2B;
+    --ink-2:#16263C;
+    --ink-3:#1E3049;
+    --paper:#F6F7F5;
+    --card:#FFFFFF;
+    --gold:#C6A15B;
+    --gold-deep:#A8863F;
+    --gold-soft:#F3EAD8;
+    --green:#177A53;
+    --green-soft:#E4F2EB;
+    --text:#24344D;
+    --muted:#64748B;
+    --line:#E4E7EC;
+    --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+    --body:"Schibsted Grotesk", -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono:"Spline Sans Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  button{font-family:var(--body); cursor:pointer;}
+  button:focus-visible, a:focus-visible, input:focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:2px;
+  }
+
+  /* ---------- demo ribbon ---------- */
+  .ribbon{
+    background:var(--gold-soft);
+    color:var(--gold-deep);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    text-align:center;
+    padding:7px 12px;
+    border-bottom:1px solid #E8DCC2;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    background:linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    color:#EDF1F7;
+    padding:0 clamp(20px, 5vw, 56px);
+  }
+  .masthead-inner{
+    max-width:1080px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0; gap:16px; flex-wrap:wrap;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .monogram{
+    width:42px; height:42px; border-radius:10px;
+    background:transparent;
+    border:1.5px solid var(--gold);
+    color:var(--gold);
+    display:grid; place-items:center;
+    font-family:var(--display); font-weight:800; font-size:15px; letter-spacing:.04em;
+  }
+  .brand-name{font-family:var(--display); font-weight:700; font-size:17px; letter-spacing:.01em;}
+  .brand-sub{font-size:12px; color:#9FB0C6; letter-spacing:.08em; text-transform:uppercase;}
+  .masthead-right{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .chip{
+    display:inline-flex; align-items:center; gap:7px;
+    border:1px solid rgba(198,161,91,.45);
+    color:#E8D9B8;
+    border-radius:999px;
+    padding:6px 13px;
+    font-size:12.5px; font-weight:600; letter-spacing:.02em;
+    white-space:nowrap;
+  }
+  .chip .dot{width:7px; height:7px; border-radius:50%; background:var(--gold);}
+  .avatar{
+    width:38px; height:38px; border-radius:50%;
+    background:var(--gold);
+    color:var(--ink);
+    display:grid; place-items:center;
+    font-family:var(--display); font-weight:800; font-size:14px;
+  }
+
+  /* ---------- hero ---------- */
+  main{max-width:1080px; margin:0 auto; padding:0 clamp(20px, 5vw, 56px) 72px;}
+  .hero{padding:52px 0 36px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--gold-deep);
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:clamp(34px, 5.4vw, 56px);
+    line-height:1.04;
+    letter-spacing:-.015em;
+    color:var(--ink);
+    max-width:15ch;
+  }
+  h1 .gold{color:var(--gold-deep);}
+  .hero-sub{margin-top:14px; color:var(--muted); font-size:17px; max-width:52ch;}
+
+  /* ---------- ledger cards ---------- */
+  .ledger{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+    margin-top:34px;
+  }
+  .ledger-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:20px 22px 18px;
+    position:relative;
+  }
+  .ledger-label{font-size:13px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted);}
+  .ledger-row{display:flex; align-items:baseline; gap:12px; margin-top:12px; flex-wrap:wrap;}
+  .was{
+    font-family:var(--mono); font-size:15px; font-weight:500;
+    color:#9AA6B8; text-decoration:line-through; text-decoration-color:#C9D2DE;
+  }
+  .was-tag{font-size:11px; color:#9AA6B8; display:block; margin-top:2px; font-family:var(--body);}
+  .arrow{color:var(--gold); font-size:15px;}
+  .now{
+    font-family:var(--mono); font-weight:700;
+    font-size:clamp(26px, 3vw, 32px);
+    color:var(--ink);
+    letter-spacing:-.01em;
+  }
+  .delta{
+    display:inline-block;
+    background:var(--green-soft); color:var(--green);
+    font-size:12.5px; font-weight:700;
+    border-radius:999px; padding:4px 10px;
+    margin-top:12px;
+    font-family:var(--mono);
+  }
+
+  /* ---------- section scaffolding ---------- */
+  .section{margin-top:56px;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:18px; flex-wrap:wrap;}
+  h2{font-family:var(--display); font-weight:700; font-size:22px; color:var(--ink); letter-spacing:-.01em;}
+  .section-note{font-size:13px; color:var(--muted);}
+
+  /* ---------- journey rail (signature) ---------- */
+  .rail-wrap{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:34px 30px 22px;
+    overflow-x:auto;
+  }
+  .rail{
+    position:relative;
+    min-width:760px;
+    height:150px;
+  }
+  .rail-track{
+    position:absolute; top:34px; left:0; right:0;
+    height:3px; background:var(--line); border-radius:2px;
+  }
+  .rail-fill{
+    position:absolute; top:34px; left:0;
+    height:3px; width:0%;
+    background:linear-gradient(90deg, var(--gold-deep), var(--gold));
+    border-radius:2px;
+    transition:width 1.2s cubic-bezier(.2,.7,.2,1);
+  }
+  .node{
+    position:absolute; top:0;
+    transform:translateX(-50%);
+    width:130px;
+    text-align:center;
+  }
+  .node-dot{
+    width:26px; height:26px; border-radius:50%;
+    margin:22px auto 10px;
+    display:grid; place-items:center;
+    background:var(--paper);
+    border:2px solid var(--line);
+    color:transparent;
+    font-size:13px;
+    position:relative; z-index:2;
+  }
+  .node.done .node-dot{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--ink);
+    font-weight:800;
+  }
+  .node.current .node-dot{
+    background:var(--card);
+    border-color:var(--gold);
+    box-shadow:0 0 0 0 rgba(198,161,91,.5);
+    animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(198,161,91,.45);}
+    70%{box-shadow:0 0 0 12px rgba(198,161,91,0);}
+    100%{box-shadow:0 0 0 0 rgba(198,161,91,0);}
+  }
+  .node-month{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:#9AA6B8; text-transform:uppercase;}
+  .node-label{font-size:12.5px; font-weight:600; color:var(--text); line-height:1.3; margin-top:3px;}
+  .node.todo .node-label{color:#9AA6B8; font-weight:500;}
+  .node-prog{
+    display:inline-block; margin-top:5px;
+    font-family:var(--mono); font-size:11px; font-weight:600;
+    color:var(--gold-deep);
+    background:var(--gold-soft);
+    padding:2px 8px; border-radius:999px;
+  }
+
+  /* ---------- two-column band ---------- */
+  .grid2{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:14px;
+  }
+  .panel{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:24px;
+  }
+  .panel h3{font-family:var(--display); font-weight:700; font-size:17px; color:var(--ink);}
+  .panel-sub{font-size:13px; color:var(--muted); margin-top:3px;}
+
+  /* chart */
+  .chart-box{margin-top:18px;}
+  .chart-caption{font-size:12px; color:var(--muted); margin-top:10px; font-family:var(--mono);}
+
+  /* check-in card */
+  .checkin{
+    background:linear-gradient(160deg, var(--ink) 0%, var(--ink-3) 100%);
+    color:#EDF1F7;
+    border:none;
+    display:flex; flex-direction:column;
+  }
+  .checkin h3{color:#fff;}
+  .checkin .panel-sub{color:#9FB0C6;}
+  .due-chip{
+    align-self:flex-start;
+    font-family:var(--mono); font-size:11px; font-weight:600;
+    letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold);
+    border:1px solid rgba(198,161,91,.5);
+    padding:4px 10px; border-radius:999px;
+    margin-bottom:14px;
+  }
+  .streak-line{
+    margin-top:18px;
+    display:flex; align-items:center; gap:10px;
+    font-size:13.5px; color:#C6D1E0;
+  }
+  .streak-num{font-family:var(--mono); font-weight:700; color:var(--gold); font-size:18px;}
+  .checkin-btn{
+    margin-top:22px;
+    background:var(--gold);
+    color:var(--ink);
+    border:none;
+    border-radius:12px;
+    padding:15px 20px;
+    font-size:15.5px; font-weight:700;
+    letter-spacing:.01em;
+    transition:transform .12s ease, background .12s ease;
+    width:100%;
+  }
+  .checkin-btn:hover{background:#D4B26E; transform:translateY(-1px);}
+  .checkin-fine{margin-top:12px; font-size:12px; color:#8FA0B8;}
+  .checkin-done{
+    margin-top:22px;
+    background:rgba(23,122,83,.18);
+    border:1px solid rgba(120,200,165,.4);
+    color:#BFE7D4;
+    border-radius:12px;
+    padding:15px 18px;
+    font-size:14px; font-weight:600;
+    display:none;
+  }
+
+  /* ---------- wins ---------- */
+  .wins{display:flex; flex-direction:column; gap:10px;}
+  .win{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 20px;
+    display:flex; align-items:center; gap:16px;
+  }
+  .win-medal{
+    width:36px; height:36px; flex:0 0 36px;
+    border-radius:50%;
+    display:grid; place-items:center;
+    background:var(--gold-soft);
+    color:var(--gold-deep);
+    font-size:15px; font-weight:800;
+    font-family:var(--display);
+  }
+  .win.plain .win-medal{background:#EEF1F5; color:#7C8AA0;}
+  .win-body{flex:1;}
+  .win-title{font-weight:700; font-size:15px; color:var(--ink);}
+  .win-detail{font-size:13px; color:var(--muted); margin-top:2px;}
+  .win-date{font-family:var(--mono); font-size:12px; color:#9AA6B8; white-space:nowrap;}
+
+  /* ---------- story card ---------- */
+  .story{
+    background:linear-gradient(155deg, var(--ink) 0%, var(--ink-2) 70%);
+    border-radius:20px;
+    padding:clamp(28px, 4vw, 44px);
+    color:#EDF1F7;
+    position:relative;
+    overflow:hidden;
+  }
+  .story::after{
+    content:"";
+    position:absolute; top:-70px; right:-70px;
+    width:240px; height:240px; border-radius:50%;
+    background:radial-gradient(circle, rgba(198,161,91,.22), transparent 70%);
+  }
+  .story .eyebrow{color:var(--gold);}
+  .story-text{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(19px, 2.6vw, 25px);
+    line-height:1.42;
+    max-width:62ch;
+    letter-spacing:-.005em;
+  }
+  .story-text b{color:var(--gold); font-weight:700;}
+  .story-meta{
+    margin-top:18px; font-size:12.5px; color:#8FA0B8;
+    font-family:var(--mono);
+  }
+  .story-actions{margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;}
+  .btn-gold{
+    background:var(--gold); color:var(--ink);
+    border:none; border-radius:11px;
+    padding:13px 22px; font-size:14.5px; font-weight:700;
+    transition:background .12s ease, transform .12s ease;
+  }
+  .btn-gold:hover{background:#D4B26E; transform:translateY(-1px);}
+  .btn-quiet{
+    background:transparent; color:#B9C6D8;
+    border:1px solid rgba(185,198,216,.35);
+    border-radius:11px;
+    padding:13px 22px; font-size:14.5px; font-weight:600;
+  }
+  .btn-quiet:hover{border-color:#B9C6D8;}
+
+  /* ---------- footer ---------- */
+  footer{
+    max-width:1080px; margin:0 auto;
+    padding:26px clamp(20px,5vw,56px) 46px;
+    display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+    color:var(--muted); font-size:12.5px;
+  }
+  .lock{display:flex; align-items:center; gap:8px;}
+  .powered{font-family:var(--mono); letter-spacing:.08em; text-transform:uppercase; font-size:11px;}
+
+  /* ---------- modal ---------- */
+  .overlay{
+    position:fixed; inset:0;
+    background:rgba(14,26,43,.55);
+    backdrop-filter:blur(3px);
+    display:none;
+    align-items:center; justify-content:center;
+    padding:20px;
+    z-index:50;
+  }
+  .overlay.open{display:flex;}
+  .modal{
+    background:var(--card);
+    border-radius:22px;
+    width:100%; max-width:480px;
+    padding:32px 32px 28px;
+    position:relative;
+    animation:rise .28s cubic-bezier(.2,.7,.2,1);
+  }
+  @keyframes rise{from{transform:translateY(16px); opacity:0;} to{transform:translateY(0); opacity:1;}}
+  .modal-close{
+    position:absolute; top:16px; right:16px;
+    background:#EEF1F5; border:none; border-radius:50%;
+    width:32px; height:32px; font-size:15px; color:var(--muted);
+  }
+  .dots{display:flex; gap:6px; margin-bottom:22px;}
+  .dots span{width:26px; height:4px; border-radius:2px; background:var(--line); transition:background .2s;}
+  .dots span.on{background:var(--gold);}
+  .q-label{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:8px;}
+  .q-title{font-family:var(--display); font-weight:700; font-size:21px; color:var(--ink); line-height:1.25;}
+  .q-body{margin-top:20px;}
+  .num-input, .text-input{
+    width:100%;
+    border:1.5px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:17px;
+    font-family:var(--mono);
+    color:var(--ink);
+    background:var(--paper);
+  }
+  .text-input{font-family:var(--body); font-size:15.5px;}
+  .num-input:focus, .text-input:focus{border-color:var(--gold); outline:none;}
+  .slider-val{
+    font-family:var(--mono); font-weight:700; font-size:34px; color:var(--ink);
+    text-align:center; margin-bottom:6px;
+  }
+  .slider-scale{display:flex; justify-content:space-between; font-size:11px; color:#9AA6B8; margin-top:6px; font-family:var(--mono);}
+  input[type=range]{
+    width:100%; accent-color:var(--gold-deep); height:6px; cursor:pointer;
+  }
+  .chips{display:flex; gap:8px; flex-wrap:wrap;}
+  .chips button{
+    border:1.5px solid var(--line);
+    background:var(--card);
+    border-radius:999px;
+    padding:10px 16px;
+    font-size:14px; font-weight:600; color:var(--text);
+    transition:all .12s ease;
+  }
+  .chips button.sel{background:var(--ink); border-color:var(--ink); color:#fff;}
+  .modal-nav{margin-top:26px; display:flex; justify-content:space-between; align-items:center;}
+  .btn-back{background:none; border:none; color:var(--muted); font-size:14px; font-weight:600;}
+  .btn-next{
+    background:var(--ink); color:#fff;
+    border:none; border-radius:11px;
+    padding:13px 26px; font-size:15px; font-weight:700;
+    transition:transform .12s ease;
+  }
+  .btn-next:hover{transform:translateY(-1px);}
+  .timer-hint{font-family:var(--mono); font-size:11px; color:#9AA6B8; text-align:center; margin-top:16px;}
+
+  /* success state */
+  .success{text-align:center; display:none;}
+  .success .big-check{
+    width:64px; height:64px; margin:6px auto 18px;
+    border-radius:50%;
+    background:var(--gold);
+    display:grid; place-items:center;
+    color:var(--ink); font-size:28px; font-weight:800;
+  }
+  .success h4{font-family:var(--display); font-weight:800; font-size:24px; color:var(--ink);}
+  .success p{color:var(--muted); font-size:14.5px; margin-top:10px;}
+  .success .streak-bump{
+    margin:18px auto 0; display:inline-block;
+    font-family:var(--mono); font-weight:700; font-size:14px;
+    color:var(--gold-deep); background:var(--gold-soft);
+    padding:8px 16px; border-radius:999px;
+  }
+  .success .prog-bump{
+    display:block; margin-top:10px;
+    font-size:13px; color:var(--green); font-weight:600;
+  }
+
+  /* confetti */
+  .confetti{
+    position:fixed; width:9px; height:14px;
+    top:-20px; z-index:60; border-radius:2px;
+    pointer-events:none;
+    animation:fall linear forwards;
+  }
+  @keyframes fall{
+    to{transform:translateY(105vh) rotate(540deg); opacity:.15;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px){
+    .ledger{grid-template-columns:1fr;}
+    .grid2{grid-template-columns:1fr;}
+    .hero{padding-top:38px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="ribbon">Demo &middot; sample student data &middot; Proofline for NLS Mentorship</div>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <div class="monogram">NLS</div>
+      <div>
+        <div class="brand-name">NLS Mentorship</div>
+        <div class="brand-sub">Student progress</div>
+      </div>
+    </div>
+    <div class="masthead-right">
+      <span class="chip"><span class="dot"></span>5 of 8 milestones</span>
+      <span class="chip" id="headerStreak"><span class="dot"></span><span id="headerStreakNum">15</span>-week streak</span>
+      <div class="avatar" aria-label="Jordan Ellis">JE</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Your progress &middot; Jordan</div>
+    <h1>From $0 to <span class="gold" id="heroPct">$0</span> a stage.</h1>
+    <p class="hero-sub">Seven paid stages booked, five milestones down, revenue up 131%. Everything below is built from your baseline and your weekly check-ins — nothing here is a guess.</p>
+
+    <div class="ledger">
+      <div class="ledger-card">
+        <div class="ledger-label">Paid gigs booked</div>
+        <div class="ledger-row">
+          <span>
+            <span class="was">0</span>
+            <span class="was-tag">past 12 months</span>
+          </span>
+          <span class="arrow">&rarr;</span>
+          <span class="now" data-count="7">0</span>
+        </div>
+        <span class="delta">+7 stages</span>
+      </div>
+      <div class="ledger-card">
+        <div class="ledger-label">Fee per gig</div>
+        <div class="ledger-row">
+          <span>
+            <span class="was">$0</span>
+            <span class="was-tag">March baseline</span>
+          </span>
+          <span class="arrow">&rarr;</span>
+          <span class="now" data-count="2500" data-prefix="$">$0</span>
+        </div>
+        <span class="delta">Free &rarr; paid</span>
+      </div>
+      <div class="ledger-card">
+        <div class="ledger-label">Monthly revenue</div>
+        <div class="ledger-row">
+          <span>
+            <span class="was">$6,400</span>
+            <span class="was-tag">March baseline</span>
+          </span>
+          <span class="arrow">&rarr;</span>
+          <span class="now" data-count="14800" data-prefix="$">$0</span>
+        </div>
+        <span class="delta">+131%</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY RAIL -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Your milestones</h2>
+      <span class="section-note">Earned at your pace — nothing on this rail is given.</span>
+    </div>
+    <div class="rail-wrap">
+      <div class="rail">
+        <div class="rail-track"></div>
+        <div class="rail-fill" id="railFill"></div>
+
+        <div class="node done" style="left:5%">
+          <div class="node-dot">&#10003;</div>
+          <div class="node-month">Step 1</div>
+          <div class="node-label">Baseline set</div>
+        </div>
+        <div class="node done" style="left:18%">
+          <div class="node-dot">&#10003;</div>
+          <div class="node-month">Step 2</div>
+          <div class="node-label">Signature talk locked</div>
+        </div>
+        <div class="node done" style="left:31%">
+          <div class="node-dot">&#10003;</div>
+          <div class="node-month">Step 3</div>
+          <div class="node-label">Speaker reel live</div>
+        </div>
+        <div class="node done" style="left:44%">
+          <div class="node-dot">&#10003;</div>
+          <div class="node-month">Step 4</div>
+          <div class="node-label">First paid gig</div>
+        </div>
+        <div class="node done" style="left:57%">
+          <div class="node-dot">&#10003;</div>
+          <div class="node-month">Step 5</div>
+          <div class="node-label">First $2,500 stage</div>
+        </div>
+        <div class="node current" style="left:70%">
+          <div class="node-dot"></div>
+          <div class="node-month">Step 6</div>
+          <div class="node-label">3 stages a month</div>
+          <span class="node-prog" id="milestoneProg">78%</span>
+        </div>
+        <div class="node todo" style="left:83%">
+          <div class="node-dot"></div>
+          <div class="node-month">Step 7</div>
+          <div class="node-label">First $5k keynote</div>
+        </div>
+        <div class="node todo" style="left:95%">
+          <div class="node-dot"></div>
+          <div class="node-month">Step 8</div>
+          <div class="node-label">$20k months from stage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHART + CHECK-IN -->
+  <section class="section grid2">
+    <div class="panel">
+      <h3>Monthly revenue</h3>
+      <div class="panel-sub">March baseline to now</div>
+      <div class="chart-box">
+        <svg viewBox="0 0 560 240" width="100%" height="auto" role="img" aria-label="Revenue chart rising from 6.4k in March to 14.8k in July">
+          <defs>
+            <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#C6A15B" stop-opacity="0.28"/>
+              <stop offset="100%" stop-color="#C6A15B" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <!-- gridlines -->
+          <g stroke="#EDF0F4" stroke-width="1">
+            <line x1="40" y1="30"  x2="545" y2="30"/>
+            <line x1="40" y1="80"  x2="545" y2="80"/>
+            <line x1="40" y1="130" x2="545" y2="130"/>
+            <line x1="40" y1="180" x2="545" y2="180"/>
+          </g>
+          <g font-family="Spline Sans Mono, monospace" font-size="11" fill="#9AA6B8">
+            <text x="6" y="34">$16k</text>
+            <text x="6" y="84">$12k</text>
+            <text x="10" y="134">$8k</text>
+            <text x="10" y="184">$4k</text>
+          </g>
+          <!-- area + line: Mar 6.4, Apr 7.2, May 10.5, Jun 12.1, Jul 14.8 -->
+          <path d="M60,150 L180,140 L300,99 L420,79 L540,45 L540,205 L60,205 Z" fill="url(#fillGrad)"/>
+          <path d="M60,150 L180,140 L300,99 L420,79 L540,45" fill="none" stroke="#0E1A2B" stroke-width="2.5" stroke-linecap="round"/>
+          <g fill="#0E1A2B">
+            <circle cx="60" cy="150" r="4"/>
+            <circle cx="180" cy="140" r="4"/>
+            <circle cx="300" cy="99" r="4"/>
+            <circle cx="420" cy="79" r="4"/>
+          </g>
+          <circle cx="540" cy="45" r="6.5" fill="#C6A15B" stroke="#fff" stroke-width="2.5"/>
+          <g font-family="Spline Sans Mono, monospace" font-size="11.5" fill="#64748B" text-anchor="middle">
+            <text x="60" y="226">Mar</text>
+            <text x="180" y="226">Apr</text>
+            <text x="300" y="226">May</text>
+            <text x="420" y="226">Jun</text>
+            <text x="540" y="226" fill="#A8863F" font-weight="700">Jul</text>
+          </g>
+          <text x="540" y="28" text-anchor="middle" font-family="Spline Sans Mono, monospace" font-size="13" font-weight="700" fill="#A8863F">$14.8k</text>
+        </svg>
+      </div>
+      <div class="chart-caption">Plotted from 15 weekly check-ins &middot; 45 seconds each</div>
+    </div>
+
+    <div class="panel checkin">
+      <span class="due-chip">Week 18 &middot; open now</span>
+      <h3>This week's check-in</h3>
+      <p class="panel-sub">Five quick questions. Your answers update everything on this page — and Team NLS sees them the moment you're done.</p>
+      <div class="streak-line">
+        <span class="streak-num" id="cardStreakNum">15</span>
+        <span>weeks in a row. Longest streak in your cohort.</span>
+      </div>
+      <button class="checkin-btn" id="openCheckin">Start check-in &middot; 45 seconds</button>
+      <div class="checkin-done" id="checkinDone">Week 18 logged &#10003; &nbsp;See you Monday.</div>
+      <p class="checkin-fine">No logins. This link arrives by email or WhatsApp every Monday.</p>
+    </div>
+  </section>
+
+  <!-- WINS -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Recent wins</h2>
+      <span class="section-note">Captured the moment they happened</span>
+    </div>
+    <div class="wins">
+      <div class="win">
+        <div class="win-medal">5</div>
+        <div class="win-body">
+          <div class="win-title">First $2,500 stage — Milestone 5 earned</div>
+          <div class="win-detail">Tampa Bay chamber keynote, confirmed at full fee. Your fee four months ago: $0.</div>
+        </div>
+        <div class="win-date">9 Jun</div>
+      </div>
+      <div class="win">
+        <div class="win-medal">4</div>
+        <div class="win-body">
+          <div class="win-title">First paid gig — Milestone 4 earned</div>
+          <div class="win-detail">$1,200 for the women-in-business summit breakout. Team NLS was notified the day it landed.</div>
+        </div>
+        <div class="win-date">31 May</div>
+      </div>
+      <div class="win plain">
+        <div class="win-medal">&#8599;</div>
+        <div class="win-body">
+          <div class="win-title">Biggest room to date — 400 seats</div>
+          <div class="win-detail">From your week 13 check-in: "Three discovery calls booked before I left the venue."</div>
+        </div>
+        <div class="win-date">18 May</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section">
+    <div class="story">
+      <div class="eyebrow">Your story so far</div>
+      <p class="story-text">
+        When Jordan joined NLS in March, speaking hadn't paid a cent — revenue was <b>$6,400 a month</b> and stage confidence sat at 4 out of 10.
+        Four months in: <b>seven paid stages at $2,500 a gig</b>, revenue at $14,800 — up 131% — and five milestones earned.
+        Next on the rail: three stages a month, every month.
+      </p>
+      <div class="story-meta">Drafted automatically from your baseline + 15 weekly check-ins. Nothing added, nothing invented.</div>
+      <div class="story-actions">
+        <button class="btn-gold" id="shareWin">Share this win</button>
+        <button class="btn-quiet">Maybe later</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="lock">
+    <svg width="13" height="15" viewBox="0 0 13 15" fill="none" aria-hidden="true"><rect x="1" y="6" width="11" height="8" rx="2" stroke="#64748B" stroke-width="1.4"/><path d="M3.5 6V4.5a3 3 0 016 0V6" stroke="#64748B" stroke-width="1.4"/></svg>
+    Only you and the NLS support team can see this page.
+  </div>
+  <div class="powered">Powered by Proofline</div>
+</footer>
+
+<!-- ---------- CHECK-IN MODAL ---------- -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Weekly check-in">
+  <div class="modal">
+    <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
+
+    <div id="stepsWrap">
+      <div class="dots" id="dots">
+        <span class="on"></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="step" data-step="1">
+        <div class="q-label">Question 1 of 5</div>
+        <div class="q-title">How many stages did you pitch this week?</div>
+        <div class="q-body">
+          <input class="num-input" type="text" inputmode="numeric" placeholder="12" value="12" aria-label="Stages pitched this week">
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step" data-step="2" hidden>
+        <div class="q-label">Question 2 of 5</div>
+        <div class="q-title">Gigs booked this week — total fees confirmed?</div>
+        <div class="q-body">
+          <input class="num-input" type="text" inputmode="numeric" placeholder="$ 0 is a fine answer" value="$ 2,500" aria-label="Fees confirmed this week">
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step" data-step="3" hidden>
+        <div class="q-label">Question 3 of 5</div>
+        <div class="q-title">Stage confidence this week?</div>
+        <div class="q-body">
+          <div class="slider-val" id="sliderVal">8</div>
+          <input type="range" min="1" max="10" value="8" id="confSlider" aria-label="Stage confidence from 1 to 10">
+          <div class="slider-scale"><span>1 &middot; shaky</span><span>10 &middot; unstoppable</span></div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step" data-step="4" hidden>
+        <div class="q-label">Question 4 of 5</div>
+        <div class="q-title">Biggest win of the week?</div>
+        <div class="q-body">
+          <input class="text-input" type="text" placeholder="One line is plenty" value="Booked the Tampa chamber keynote — $2,500, from one follow-up." aria-label="Biggest win of the week">
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step" data-step="5" hidden>
+        <div class="q-label">Question 5 of 5</div>
+        <div class="q-title">Anything slowing you down?</div>
+        <div class="q-body">
+          <div class="chips" id="blockerChips">
+            <button type="button" class="sel">Nothing</button>
+            <button type="button">Finding stages</button>
+            <button type="button">Getting replies</button>
+            <button type="button">Fee talks</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-nav">
+        <button class="btn-back" id="btnBack" style="visibility:hidden">Back</button>
+        <button class="btn-next" id="btnNext">Next</button>
+      </div>
+      <div class="timer-hint">Average completion: 45 seconds</div>
+    </div>
+
+    <!-- Success -->
+    <div class="success" id="successView">
+      <div class="big-check">&#10003;</div>
+      <h4>Week 18 logged.</h4>
+      <p>Your page just updated — and Team NLS can already see this week's numbers.</p>
+      <span class="streak-bump">Streak: 15 &rarr; 16 weeks</span>
+      <span class="prog-bump">Milestone 6 &middot; 3 stages a month: 78% &rarr; 81%</span>
+      <div style="margin-top:26px">
+        <button class="btn-next" id="btnFinish">Done — see you Monday</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---------- count-up animation ----------
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function countUp(el){
+    const target = parseInt(el.dataset.count, 10);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    if(reduceMotion){ el.textContent = prefix + target.toLocaleString() + suffix; return; }
+    const dur = 1100;
+    const start = performance.now();
+    function tick(now){
+      const p = Math.min((now - start)/dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(target * eased).toLocaleString() + suffix;
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  document.querySelectorAll('.now').forEach(countUp);
+
+  // hero fee count-up
+  (function(){
+    const el = document.getElementById('heroPct');
+    if(reduceMotion){ el.textContent = '$2,500'; return; }
+    const start = performance.now();
+    function tick(now){
+      const p = Math.min((now - start)/1100, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = '$' + Math.round(2500 * eased).toLocaleString();
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+
+  // rail fill (5.5 of 8 nodes ≈ 70% position)
+  requestAnimationFrame(()=>{ document.getElementById('railFill').style.width = '70%'; });
+
+  // ---------- modal logic ----------
+  const overlay = document.getElementById('overlay');
+  const steps = [...document.querySelectorAll('.step')];
+  const dots = [...document.querySelectorAll('#dots span')];
+  const btnNext = document.getElementById('btnNext');
+  const btnBack = document.getElementById('btnBack');
+  const stepsWrap = document.getElementById('stepsWrap');
+  const successView = document.getElementById('successView');
+  let cur = 0;
+
+  function showStep(i){
+    steps.forEach((s, idx)=> s.hidden = idx !== i);
+    dots.forEach((d, idx)=> d.classList.toggle('on', idx <= i));
+    btnBack.style.visibility = i === 0 ? 'hidden' : 'visible';
+    btnNext.textContent = i === steps.length - 1 ? 'Submit check-in' : 'Next';
+    cur = i;
+  }
+
+  document.getElementById('openCheckin').addEventListener('click', ()=>{
+    overlay.classList.add('open');
+    stepsWrap.style.display = 'block';
+    successView.style.display = 'none';
+    showStep(0);
+  });
+  document.getElementById('closeModal').addEventListener('click', ()=> overlay.classList.remove('open'));
+  overlay.addEventListener('click', (e)=>{ if(e.target === overlay) overlay.classList.remove('open'); });
+
+  btnBack.addEventListener('click', ()=> showStep(Math.max(0, cur - 1)));
+  btnNext.addEventListener('click', ()=>{
+    if(cur < steps.length - 1){ showStep(cur + 1); }
+    else { submitCheckin(); }
+  });
+
+  // slider live value
+  const slider = document.getElementById('confSlider');
+  slider.addEventListener('input', ()=> document.getElementById('sliderVal').textContent = slider.value);
+
+  // chips
+  document.getElementById('blockerChips').addEventListener('click', (e)=>{
+    if(e.target.tagName !== 'BUTTON') return;
+    [...e.currentTarget.children].forEach(b=> b.classList.remove('sel'));
+    e.target.classList.add('sel');
+  });
+
+  // ---------- submit + celebration ----------
+  function submitCheckin(){
+    stepsWrap.style.display = 'none';
+    successView.style.display = 'block';
+    // update streak everywhere
+    document.getElementById('headerStreakNum').textContent = '16';
+    document.getElementById('cardStreakNum').textContent = '16';
+    document.getElementById('milestoneProg').textContent = '81%';
+    // swap check-in button for done state
+    document.getElementById('openCheckin').style.display = 'none';
+    document.getElementById('checkinDone').style.display = 'block';
+    if(!reduceMotion) confettiBurst();
+  }
+
+  document.getElementById('btnFinish').addEventListener('click', ()=> overlay.classList.remove('open'));
+
+  function confettiBurst(){
+    const colors = ['#C6A15B', '#0E1A2B', '#177A53', '#E8D9B8', '#A8863F'];
+    for(let i = 0; i < 70; i++){
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.animationDuration = (1.6 + Math.random() * 1.6) + 's';
+      c.style.animationDelay = (Math.random() * .4) + 's';
+      c.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+      document.body.appendChild(c);
+      setTimeout(()=> c.remove(), 4200);
+    }
+  }
+
+  // share button — demo acknowledgement
+  document.getElementById('shareWin').addEventListener('click', function(){
+    this.textContent = 'Sent to Team NLS \u2713';
+    this.disabled = true;
+    this.style.opacity = .85;
+  });
+</script>
+</body>
+</html>

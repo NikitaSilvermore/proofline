@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens mirrored as CSS variables so ported demo markup can reference
+   them 1:1 during the build (BUILD_SPEC.md §2). Fonts are loaded in layout.tsx. */
+:root {
+  --ink: #0e1a2b;
+  --ink-2: #16263c;
+  --ink-3: #1e3049;
+  --paper: #f6f7f5;
+  --card: #ffffff;
+  --gold: #c6a15b;
+  --gold-deep: #a8863f;
+  --gold-soft: #f3ead8;
+  --green: #177a53;
+  --green-soft: #e4f2eb;
+  --amber: #b9791b;
+  --amber-soft: #f8eedc;
+  --red: #b8433a;
+  --red-soft: #f8e8e6;
+  --text: #24344d;
+  --muted: #64748b;
+  --line: #e4e7ec;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Schibsted Grotesk", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "Spline Sans Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+body {
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NLS Mentorship — Set Your Baseline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1A2B;
+    --ink-2:#16263C;
+    --paper:#F6F7F5;
+    --card:#FFFFFF;
+    --gold:#C6A15B;
+    --gold-deep:#A8863F;
+    --gold-soft:#F3EAD8;
+    --green:#177A53;
+    --text:#24344D;
+    --muted:#64748B;
+    --line:#E4E7EC;
+    --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+    --body:"Schibsted Grotesk", -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono:"Spline Sans Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex; flex-direction:column;
+  }
+  button{font-family:var(--body); cursor:pointer;}
+  button:focus-visible, input:focus-visible, textarea:focus-visible, label:focus-within{
+    outline:3px solid var(--gold); outline-offset:2px;
+  }
+
+  .ribbon{
+    background:var(--gold-soft); color:var(--gold-deep);
+    font-family:var(--mono); font-size:11px;
+    letter-spacing:.14em; text-transform:uppercase; text-align:center;
+    padding:7px 12px; border-bottom:1px solid #E8DCC2;
+  }
+
+  .masthead{
+    background:linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    color:#EDF1F7;
+    padding:0 clamp(20px, 4vw, 48px);
+  }
+  .masthead-inner{
+    max-width:760px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:15px 0;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .monogram{
+    width:38px; height:38px; border-radius:9px;
+    border:1.5px solid var(--gold); color:var(--gold);
+    display:grid; place-items:center;
+    font-family:var(--display); font-weight:800; font-size:13px;
+  }
+  .brand-name{font-family:var(--display); font-weight:700; font-size:15.5px;}
+  .brand-sub{font-size:11px; color:#9FB0C6; letter-spacing:.08em; text-transform:uppercase;}
+  .step-count{font-family:var(--mono); font-size:12px; color:#C6D1E0;}
+
+  /* ---------- wizard ---------- */
+  .stage{
+    flex:1;
+    display:flex; align-items:flex-start; justify-content:center;
+    padding:clamp(28px, 5vh, 56px) clamp(20px, 4vw, 48px) 60px;
+  }
+  .wizard{width:100%; max-width:640px;}
+
+  .bar{
+    height:5px; background:var(--line); border-radius:3px; overflow:hidden;
+    margin-bottom:34px;
+  }
+  .bar-fill{
+    height:100%; width:12%;
+    background:linear-gradient(90deg, var(--gold-deep), var(--gold));
+    border-radius:3px;
+    transition:width .4s cubic-bezier(.2,.7,.2,1);
+  }
+
+  .step{animation:rise .3s cubic-bezier(.2,.7,.2,1);}
+  @keyframes rise{from{transform:translateY(12px); opacity:0;} to{transform:translateY(0); opacity:1;}}
+
+  .q-label{
+    font-family:var(--mono); font-size:11.5px; font-weight:600;
+    letter-spacing:.15em; text-transform:uppercase; color:var(--gold-deep);
+    margin-bottom:12px;
+  }
+  h1, .q-title{
+    font-family:var(--display); font-weight:800;
+    font-size:clamp(26px, 4.4vw, 38px);
+    line-height:1.1; letter-spacing:-.015em; color:var(--ink);
+  }
+  .q-help{margin-top:12px; color:var(--muted); font-size:15.5px; max-width:52ch;}
+  .q-body{margin-top:30px;}
+
+  .big-input{
+    width:100%;
+    border:none; border-bottom:2.5px solid var(--line);
+    background:transparent;
+    padding:6px 2px 12px;
+    font-family:var(--mono); font-weight:600;
+    font-size:clamp(30px, 5vw, 42px);
+    color:var(--ink);
+    letter-spacing:-.01em;
+  }
+  .big-input:focus{outline:none; border-color:var(--gold);}
+  .big-input::placeholder{color:#C4CCD8;}
+  .input-hint{font-size:13px; color:var(--muted); margin-top:12px; font-family:var(--mono);}
+
+  textarea{
+    width:100%;
+    border:1.5px solid var(--line);
+    border-radius:14px;
+    background:var(--card);
+    padding:18px;
+    font-family:var(--body);
+    font-size:17px; line-height:1.55;
+    color:var(--ink);
+    resize:vertical; min-height:120px;
+  }
+  textarea:focus{outline:none; border-color:var(--gold);}
+
+  .slider-val{
+    font-family:var(--mono); font-weight:700; font-size:56px; color:var(--ink);
+    text-align:center; line-height:1;
+  }
+  .slider-word{
+    text-align:center; font-size:14px; color:var(--gold-deep); font-weight:600;
+    margin:6px 0 22px; min-height:20px;
+  }
+  input[type=range]{width:100%; accent-color:var(--gold-deep); height:6px; cursor:pointer;}
+  .slider-scale{display:flex; justify-content:space-between; font-size:11.5px; color:#9AA6B8; margin-top:8px; font-family:var(--mono);}
+
+  .chips{display:flex; gap:10px; flex-wrap:wrap;}
+  .chips button{
+    border:1.5px solid var(--line); background:var(--card);
+    border-radius:999px; padding:13px 22px;
+    font-size:15px; font-weight:600; color:var(--text);
+    transition:all .12s ease;
+  }
+  .chips button.sel{background:var(--ink); border-color:var(--ink); color:#fff;}
+
+  .consent{display:flex; flex-direction:column; gap:14px;}
+  .consent label{
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--card);
+    border:1.5px solid var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+    font-size:14.5px; color:var(--text);
+    cursor:pointer;
+    transition:border-color .12s ease;
+  }
+  .consent label:has(input:checked){border-color:var(--gold);}
+  .consent input{margin-top:3px; accent-color:var(--gold-deep); width:17px; height:17px; flex:0 0 17px;}
+
+  .nav{
+    margin-top:38px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .btn-back{background:none; border:none; color:var(--muted); font-size:14.5px; font-weight:600;}
+  .btn-next{
+    background:var(--ink); color:#fff;
+    border:none; border-radius:12px;
+    padding:16px 34px;
+    font-size:16px; font-weight:700;
+    transition:transform .12s ease;
+  }
+  .btn-next:hover{transform:translateY(-1px);}
+  .btn-next.gold{background:var(--gold); color:var(--ink);}
+  .time-hint{font-family:var(--mono); font-size:11.5px; color:#9AA6B8; text-align:center; margin-top:18px;}
+
+  /* welcome specifics */
+  .welcome-points{margin-top:26px; display:flex; flex-direction:column; gap:12px;}
+  .wp{display:flex; gap:12px; align-items:flex-start; font-size:15px; color:var(--text);}
+  .wp .n{
+    font-family:var(--mono); font-weight:700; font-size:12px;
+    color:var(--gold-deep); background:var(--gold-soft);
+    border-radius:999px; padding:3px 10px; margin-top:1px;
+    white-space:nowrap;
+  }
+
+  /* ---------- baseline stamp (finale) ---------- */
+  .stamp-wrap{display:none; text-align:center;}
+  .stamp{
+    margin:0 auto;
+    max-width:520px;
+    background:linear-gradient(155deg, var(--ink) 0%, var(--ink-2) 75%);
+    border-radius:22px;
+    padding:clamp(30px, 5vw, 46px);
+    color:#EDF1F7;
+    text-align:left;
+    position:relative;
+    overflow:hidden;
+    animation:stampIn .5s cubic-bezier(.2,.9,.3,1.15);
+  }
+  @keyframes stampIn{from{transform:scale(.92); opacity:0;} to{transform:scale(1); opacity:1;}}
+  .stamp::after{
+    content:"";
+    position:absolute; top:-60px; right:-60px;
+    width:210px; height:210px; border-radius:50%;
+    background:radial-gradient(circle, rgba(198,161,91,.22), transparent 70%);
+  }
+  .seal{
+    width:58px; height:58px; border-radius:50%;
+    border:2px solid var(--gold);
+    color:var(--gold);
+    display:grid; place-items:center;
+    font-family:var(--display); font-weight:800; font-size:11px;
+    letter-spacing:.06em;
+    margin-bottom:22px;
+  }
+  .stamp-eyebrow{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--gold);
+  }
+  .stamp h2{
+    font-family:var(--display); font-weight:800;
+    font-size:clamp(24px, 3.6vw, 32px);
+    color:#fff; margin-top:10px; letter-spacing:-.01em;
+  }
+  .stamp-rows{margin-top:24px; display:flex; flex-direction:column; gap:10px;}
+  .srow{
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-bottom:1px solid rgba(228,231,236,.14);
+    padding-bottom:9px;
+    font-size:14px; color:#B9C6D8;
+  }
+  .srow b{font-family:var(--mono); font-size:16px; color:#fff; font-weight:700;}
+  .stamp-quote{
+    margin-top:22px;
+    font-family:var(--display); font-weight:600;
+    font-size:16.5px; line-height:1.5; color:#EDF1F7;
+    border-left:3px solid var(--gold);
+    padding-left:16px;
+  }
+  .stamp-meta{margin-top:20px; font-family:var(--mono); font-size:12px; color:#8FA0B8;}
+  .stamp-next{
+    margin:26px auto 0; max-width:520px;
+    font-size:14.5px; color:var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce){*{animation:none !important; transition:none !important;}}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Demo &middot; Jordan's day-one intake &middot; 2 March 2026</div>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <div class="monogram">NLS</div>
+      <div>
+        <div class="brand-name">NLS Mentorship</div>
+        <div class="brand-sub">Baseline intake</div>
+      </div>
+    </div>
+    <div class="step-count" id="stepCount">1 of 8</div>
+  </div>
+</header>
+
+<div class="stage">
+  <div class="wizard">
+    <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+
+    <!-- STEP 1: welcome -->
+    <div class="step" data-step="1">
+      <div class="q-label">Welcome to NLS, Jordan</div>
+      <h1>The most important five minutes of your first month.</h1>
+      <p class="q-help">Before anything else, we capture exactly where you're starting from. Here's why it matters:</p>
+      <div class="welcome-points">
+        <div class="wp"><span class="n">01</span><span>Twelve months from now, you'll see precisely how far you've come — in your numbers, not your memory.</span></div>
+        <div class="wp"><span class="n">02</span><span>Your milestones get set against <em>your</em> starting point. Nobody else's.</span></div>
+        <div class="wp"><span class="n">03</span><span>Honest numbers only. This isn't a test — a modest baseline just makes the climb look bigger.</span></div>
+      </div>
+      <div class="nav">
+        <span></span>
+        <button class="btn-next" data-next>Set my baseline</button>
+      </div>
+      <div class="time-hint">7 questions &middot; about 5 minutes &middot; saves as you go</div>
+    </div>
+
+    <!-- STEP 2: revenue -->
+    <div class="step" data-step="2" hidden>
+      <div class="q-label">Question 1 &middot; Where you are</div>
+      <div class="q-title">What's your monthly revenue right now?</div>
+      <p class="q-help">Average of the last three months is perfect. Ballpark honesty beats precise optimism.</p>
+      <div class="q-body">
+        <input class="big-input" type="text" inputmode="numeric" value="$ 6,400" aria-label="Current monthly revenue">
+        <div class="input-hint">USD / month</div>
+      </div>
+      <div class="nav">
+        <button class="btn-back" data-back>Back</button>
+        <button class="btn-next" data-next>Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: speaking history -->
+    <div class="step" data-step="3" hidden>
+      <div class="q-label">Question 2 &middot; Where you are</div>
+      <div class="q-title">How many paid speaking gigs in the last 12 months?</div>
+      <p class="q-help">Free stages count for experience — not for this number. We're marking the money line.</p>
+      <div class="q-body">
+        <div class="slider-val"><span id="closeVal">0</span></div>
+        <div class="slider-word" id="closeWord">Not yet paid — that changes now</div>
+        <input type="range" min="0" max="10" value="0" id="closeSlider" aria-label="Paid speaking gigs in the last twelve months">
+        <div class="slider-scale"><span>0 &middot; not yet</span><span>10+ &middot; working speaker</span></div>
+      </div>
+      <div class="nav">
+        <button class="btn-back" data-back>Back</button>
+        <button class="btn-next" data-next>Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: track -->
+    <div class="step" data-step="track" hidden>
+      <div class="q-label">Question 3 &middot; What it's all for</div>
+      <div class="q-title">When you're on a stage — what's it for?</div>
+      <p class="q-help">Every NLS student masters the same craft: the talk, the assets, getting booked. What the stage converts into is yours. This choice shapes the bottom half of your milestone rail.</p>
+      <div class="q-body">
+        <div class="chips" id="trackChips">
+          <button type="button" class="sel">Get paid to speak</button>
+          <button type="button">Win clients</button>
+          <button type="button">Sell my programme</button>
+          <button type="button">Raise funds</button>
+          <button type="button">Grow my audience</button>
+        </div>
+      </div>
+      <div class="nav">
+        <button class="btn-back" data-back>Back</button>
+        <button class="btn-next" data-next>Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 5: confidence -->
+    <div class="step" data-step="4" hidden>
+      <div class="q-label">Question 4 &middot; Where you are</div>
+      <div class="q-title">How confident are you on stage, today?</div>
+      <p class="q-help">Gut answer. You'll score this same question every week — watching it climb is half the fun.</p>
+      <div class="q-body">
+        <div class="slider-val" id="confVal">4</div>
+        <div class="slider-word" id="confWord">Finding your feet</div>
+        <input type="range" min="1" max="10" value="4" id="confSlider" aria-label="Pitch confidence from 1 to 10">
+        <div class="slider-scale"><span>1 &middot; shaky</span><span>10 &middot; unstoppable</span></div>
+      </div>
+      <div class="nav">
+        <button class="btn-back" data-back>Back</button>
+        <button class="btn-next" data-next>Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 5: target -->
+    <div class="step" data-step="5" hidden>
+      <div class="q-label">Question 5 &middot; Where you're going</div>
+      <div class="q-title">Twelve months from now — what's your monthly revenue target?</div>
+      <p class="q-help">Fees plus business won from the stage. This sets the top of your milestone rail — ambitious and real.</p>
+      <div class="q-body">
+        <input class="big-input" type="text" inputmode="numeric" value="$ 20,000" aria-label="Twelve month monthly revenue target">
+        <div class="input-hint">USD / month &middot; by March 2027</div>
+      </div>
+      <div class="nav">
+        <button class="btn-back" data-back>Back</button>
+        <button class="btn-next" data-next>Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 6: blocker -->
+    <div class="step" data-step="6" hidden>
+      <div class="q-label">Question 6 &middot; Where you're going</div>
+      <div class="q-title">What's the biggest thing in your way right now?</div>
+      <p class="q-help">Pick the one that stings. Team NLS sees this on day one.</p>
+      <div class="q-body">
+        <div class="chips" id="blockerChips">
+          <button type="button" class="sel">Finding stages</button>
+          <button type="button">Getting booked</button>
+          <button type="button">My talk</button>
+          <button type="button">Fees</button>
+          <button type="button">Stage nerves</button>
+          <button type="button">Time</button>
+        </div>
+      </div>
+      <div class="nav">
+        <button class="btn-back" data-back>Back</button>
+        <button class="btn-next" data-next>Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 7: own words -->
+    <div class="step" data-step="7" hidden>
+      <div class="q-label">Question 7 &middot; In your own words</div>
+      <div class="q-title">Describe where you are right now. Honestly.</div>
+      <p class="q-help">A line or two. These exact words become the opening of your success story — the "before" you'll read back in twelve months.</p>
+      <div class="q-body">
+        <textarea aria-label="Where you are right now, in your own words">I've spoken free twice and loved every second — but I've never been paid for it, and I don't know where the real stages are.</textarea>
+      </div>
+      <div class="nav">
+        <button class="btn-back" data-back>Back</button>
+        <button class="btn-next" data-next>Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 8: consent -->
+    <div class="step" data-step="8" hidden>
+      <div class="q-label">Last step &middot; Your data, your rules</div>
+      <div class="q-title">Before we lock it in.</div>
+      <p class="q-help">Plain-English permissions — no small print.</p>
+      <div class="q-body consent">
+        <label><input type="checkbox" checked> My answers and weekly check-ins are used to run <b>my</b> programme — tracking my progress and building my milestones.</label>
+        <label><input type="checkbox" checked> Team NLS can see my progress page, so they can support me and step in if I stall.</label>
+        <label><input type="checkbox" checked> Nothing about me is ever shared publicly unless I approve it first, in writing. I can export or delete my data any time.</label>
+      </div>
+      <div class="nav">
+        <button class="btn-back" data-back>Back</button>
+        <button class="btn-next gold" id="lockBtn">Lock my baseline</button>
+      </div>
+    </div>
+
+    <!-- FINALE: stamp -->
+    <div class="stamp-wrap" id="stampWrap">
+      <div class="stamp">
+        <div class="seal">NLS</div>
+        <div class="stamp-eyebrow">Baseline &middot; locked 2 March 2026</div>
+        <h2>Day one.</h2>
+        <div class="stamp-rows">
+          <div class="srow"><span>Monthly revenue</span><b>$6,400</b></div>
+          <div class="srow"><span>Paid gigs, last 12 months</span><b>0</b></div>
+          <div class="srow"><span>Stage confidence</span><b>4 / 10</b></div>
+          <div class="srow"><span>Twelve-month target</span><b>$20,000 / mo</b></div>
+          <div class="srow"><span>Track</span><b>Paid speaker</b></div>
+          <div class="srow"><span>Biggest blocker</span><b>Finding stages</b></div>
+        </div>
+        <div class="stamp-quote">"I've spoken free twice and loved every second — but I've never been paid for it."</div>
+        <div class="stamp-meta">These numbers can't be edited later. That's the point.</div>
+      </div>
+      <p class="stamp-next">Your progress page is live. Your first check-in lands Monday morning — 45 seconds, from your inbox.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const steps = [...document.querySelectorAll('.step')];
+  const barFill = document.getElementById('barFill');
+  const stepCount = document.getElementById('stepCount');
+  const stampWrap = document.getElementById('stampWrap');
+  let cur = 0;
+
+  function show(i){
+    steps.forEach((s, idx)=> s.hidden = idx !== i);
+    barFill.style.width = ((i + 1) / (steps.length + 1) * 100) + '%';
+    stepCount.textContent = (i + 1) + ' of ' + steps.length;
+    cur = i;
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  document.querySelectorAll('[data-next]').forEach(b=>{
+    b.addEventListener('click', ()=>{ if(cur < steps.length - 1) show(cur + 1); });
+  });
+  document.querySelectorAll('[data-back]').forEach(b=>{
+    b.addEventListener('click', ()=>{ if(cur > 0) show(cur - 1); });
+  });
+
+  // paid-gigs slider
+  const closeSlider = document.getElementById('closeSlider');
+  const closeWords = ['Not yet paid — that changes now','One — the seal is broken','A couple — the door is open','A few — momentum starting','Getting booked — now for the fees','Working the circuit','Working the circuit','Regularly booked — now scale the fee','Regularly booked — now scale the fee','A busy speaker already','A busy speaker already'];
+  closeSlider.addEventListener('input', ()=>{
+    document.getElementById('closeVal').textContent = closeSlider.value + (closeSlider.value === '10' ? '+' : '');
+    document.getElementById('closeWord').textContent = closeWords[closeSlider.value];
+  });
+
+  // confidence slider
+  const confSlider = document.getElementById('confSlider');
+  const confWords = {1:'Rough waters',2:'Rough waters',3:'Finding your feet',4:'Finding your feet',5:'Steady, building',6:'Steady, building',7:'Warming up nicely',8:'Owning the room',9:'Owning the room',10:'Unstoppable'};
+  confSlider.addEventListener('input', ()=>{
+    document.getElementById('confVal').textContent = confSlider.value;
+    document.getElementById('confWord').textContent = confWords[confSlider.value];
+  });
+
+  // chips (track + blocker)
+  ['trackChips','blockerChips'].forEach(id=>{
+    document.getElementById(id).addEventListener('click', (e)=>{
+      if(e.target.tagName !== 'BUTTON') return;
+      [...e.currentTarget.children].forEach(b=> b.classList.remove('sel'));
+      e.target.classList.add('sel');
+    });
+  });
+
+  // lock baseline
+  document.getElementById('lockBtn').addEventListener('click', ()=>{
+    steps.forEach(s=> s.hidden = true);
+    document.querySelector('.bar').style.display = 'none';
+    stampWrap.style.display = 'block';
+    stepCount.textContent = 'Complete';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+</script>
+</body>
+</html>

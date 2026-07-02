@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NLS Mentorship — Support Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1A2B;
+    --ink-2:#16263C;
+    --paper:#F6F7F5;
+    --card:#FFFFFF;
+    --gold:#C6A15B;
+    --gold-deep:#A8863F;
+    --gold-soft:#F3EAD8;
+    --green:#177A53;
+    --green-soft:#E4F2EB;
+    --amber:#B9791B;
+    --amber-soft:#F8EEDC;
+    --red:#B8433A;
+    --red-soft:#F8E8E6;
+    --text:#24344D;
+    --muted:#64748B;
+    --line:#E4E7EC;
+    --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+    --body:"Schibsted Grotesk", -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono:"Spline Sans Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:var(--body);
+    font-size:15.5px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  button{font-family:var(--body); cursor:pointer;}
+  button:focus-visible{outline:3px solid var(--gold); outline-offset:2px;}
+
+  .ribbon{
+    background:var(--gold-soft); color:var(--gold-deep);
+    font-family:var(--mono); font-size:11px;
+    letter-spacing:.14em; text-transform:uppercase; text-align:center;
+    padding:7px 12px; border-bottom:1px solid #E8DCC2;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    background:linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    color:#EDF1F7;
+    padding:0 clamp(20px, 4vw, 48px);
+  }
+  .masthead-inner{
+    max-width:1180px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 0; gap:14px; flex-wrap:wrap;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .monogram{
+    width:40px; height:40px; border-radius:10px;
+    border:1.5px solid var(--gold); color:var(--gold);
+    display:grid; place-items:center;
+    font-family:var(--display); font-weight:800; font-size:14px;
+  }
+  .brand-name{font-family:var(--display); font-weight:700; font-size:16px;}
+  .brand-sub{font-size:11.5px; color:#9FB0C6; letter-spacing:.08em; text-transform:uppercase;}
+  .date-chip{
+    font-family:var(--mono); font-size:12px; color:#C6D1E0;
+    border:1px solid rgba(198,161,91,.4); border-radius:999px; padding:6px 14px;
+  }
+
+  main{max-width:1180px; margin:0 auto; padding:34px clamp(20px, 4vw, 48px) 64px;}
+
+  .page-head{display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  h1{font-family:var(--display); font-weight:800; font-size:clamp(26px, 3.4vw, 34px); color:var(--ink); letter-spacing:-.01em;}
+  .page-sub{color:var(--muted); font-size:14px;}
+
+  /* ---------- stat strip ---------- */
+  .stats{
+    display:grid; grid-template-columns:repeat(5, 1fr);
+    gap:12px; margin-top:24px;
+  }
+  .stat{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:14px; padding:16px 18px;
+  }
+  .stat-num{font-family:var(--mono); font-weight:700; font-size:26px; color:var(--ink);}
+  .stat-label{font-size:12px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-top:3px;}
+  .stat.red   .stat-num{color:var(--red);}
+  .stat.amber .stat-num{color:var(--amber);}
+  .stat.green .stat-num{color:var(--green);}
+
+  /* ---------- attention + harvest grid ---------- */
+  .band{display:grid; grid-template-columns:1.7fr 1fr; gap:14px; margin-top:34px; align-items:start;}
+  h2{font-family:var(--display); font-weight:700; font-size:19px; color:var(--ink);}
+  .band-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px;}
+  .band-note{font-size:12.5px; color:var(--muted);}
+
+  .attn-stack{display:flex; flex-direction:column; gap:10px;}
+  .attn{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--red);
+    border-radius:14px;
+    padding:16px 18px;
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .attn .avatar{
+    width:38px; height:38px; flex:0 0 38px; border-radius:50%;
+    display:grid; place-items:center;
+    background:var(--red-soft); color:var(--red);
+    font-family:var(--display); font-weight:800; font-size:13px;
+  }
+  .attn-body{flex:1;}
+  .attn-name{font-weight:700; color:var(--ink); font-size:15px;}
+  .attn-name .mo{font-family:var(--mono); font-size:11.5px; color:var(--muted); font-weight:500; margin-left:8px;}
+  .attn-reason{font-size:13.5px; color:var(--red); font-weight:600; margin-top:2px;}
+  .attn-context{font-size:13px; color:var(--muted); margin-top:3px;}
+  .attn-actions{display:flex; flex-direction:column; gap:6px;}
+  .btn-sm{
+    border:1.5px solid var(--line); background:var(--card);
+    border-radius:9px; padding:8px 14px;
+    font-size:12.5px; font-weight:700; color:var(--ink);
+    white-space:nowrap; transition:all .12s ease;
+  }
+  .btn-sm:hover{border-color:var(--ink);}
+  .btn-sm.primary{background:var(--ink); border-color:var(--ink); color:#fff;}
+  .btn-sm.done{background:var(--green-soft); border-color:var(--green-soft); color:var(--green); cursor:default;}
+
+  /* harvest */
+  .harvest{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:16px; padding:20px;
+  }
+  .harvest-item{
+    padding:13px 0;
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; gap:12px;
+  }
+  .harvest-item:last-child{border-bottom:none; padding-bottom:2px;}
+  .medal{
+    width:32px; height:32px; flex:0 0 32px; border-radius:50%;
+    background:var(--gold-soft); color:var(--gold-deep);
+    display:grid; place-items:center;
+    font-family:var(--display); font-weight:800; font-size:13px;
+  }
+  .harvest-body{flex:1;}
+  .harvest-name{font-weight:700; font-size:14px; color:var(--ink);}
+  .harvest-detail{font-size:12.5px; color:var(--muted); margin-top:1px;}
+  .harvest-note{
+    margin-top:14px; font-size:12px; color:var(--gold-deep);
+    font-family:var(--mono);
+  }
+
+  /* ---------- roster ---------- */
+  .roster-section{margin-top:40px;}
+  .roster-head{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:14px;}
+  .filters{display:flex; gap:8px; flex-wrap:wrap;}
+  .filters button{
+    border:1.5px solid var(--line); background:var(--card);
+    border-radius:999px; padding:8px 16px;
+    font-size:13px; font-weight:600; color:var(--text);
+    transition:all .12s ease;
+  }
+  .filters button.on{background:var(--ink); border-color:var(--ink); color:#fff;}
+  .filters .cnt{font-family:var(--mono); font-size:11.5px; opacity:.7; margin-left:5px;}
+
+  .table-wrap{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:16px; overflow-x:auto;
+  }
+  table{width:100%; border-collapse:collapse; min-width:860px;}
+  thead th{
+    text-align:left;
+    font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted);
+    padding:14px 16px;
+    border-bottom:1px solid var(--line);
+    white-space:nowrap;
+  }
+  tbody td{
+    padding:13px 16px;
+    border-bottom:1px solid #F0F2F5;
+    font-size:14px;
+    white-space:nowrap;
+    vertical-align:middle;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#FAFBF9;}
+  .stu{display:flex; align-items:center; gap:10px; font-weight:600; color:var(--ink);}
+  .stu .av{
+    width:30px; height:30px; border-radius:50%;
+    display:grid; place-items:center;
+    background:#EEF1F5; color:#586A85;
+    font-family:var(--display); font-weight:700; font-size:11px;
+  }
+  .mono{font-family:var(--mono); font-size:13px;}
+  .pos{color:var(--green); font-weight:700;}
+  .neg{color:var(--red); font-weight:700;}
+  .flat{color:var(--muted);}
+  .status{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:12.5px; font-weight:700;
+    border-radius:999px; padding:5px 12px;
+  }
+  .status .d{width:7px; height:7px; border-radius:50%;}
+  .status.green{background:var(--green-soft); color:var(--green);}
+  .status.green .d{background:var(--green);}
+  .status.amber{background:var(--amber-soft); color:var(--amber);}
+  .status.amber .d{background:var(--amber);}
+  .status.red{background:var(--red-soft); color:var(--red);}
+  .status.red .d{background:var(--red);}
+  .why{font-size:12px; color:var(--muted); white-space:normal; max-width:220px;}
+  .stale{color:var(--red); font-weight:600;}
+
+  footer{
+    max-width:1180px; margin:0 auto;
+    padding:26px clamp(20px,4vw,48px) 44px;
+    display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+    color:var(--muted); font-size:12.5px;
+  }
+  .powered{font-family:var(--mono); letter-spacing:.08em; text-transform:uppercase; font-size:11px;}
+
+  @media (prefers-reduced-motion: reduce){*{animation:none !important; transition:none !important;}}
+  @media (max-width: 900px){
+    .stats{grid-template-columns:repeat(2, 1fr);}
+    .band{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="ribbon">Demo &middot; sample data &middot; Proofline for NLS Mentorship — support console</div>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <div class="monogram">NLS</div>
+      <div>
+        <div class="brand-name">NLS Mentorship</div>
+        <div class="brand-sub">Support console</div>
+      </div>
+    </div>
+    <div class="date-chip">Thu 2 Jul &middot; 47 active students</div>
+  </div>
+</header>
+
+<main>
+
+  <div class="page-head">
+    <h1>Today, in thirty seconds.</h1>
+    <span class="page-sub">Reds first. Everything else is on track.</span>
+  </div>
+
+  <!-- STAT STRIP -->
+  <div class="stats">
+    <div class="stat red"><div class="stat-num">3</div><div class="stat-label">Needs attention</div></div>
+    <div class="stat amber"><div class="stat-num">6</div><div class="stat-label">Watch list</div></div>
+    <div class="stat green"><div class="stat-num">38</div><div class="stat-label">On track</div></div>
+    <div class="stat"><div class="stat-num">84%</div><div class="stat-label">Check-in response</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Milestones this week</div></div>
+  </div>
+
+  <!-- ATTENTION + HARVEST -->
+  <div class="band">
+    <div>
+      <div class="band-head">
+        <h2>Needs attention</h2>
+        <span class="band-note">Why each student is red — and what to do</span>
+      </div>
+      <div class="attn-stack">
+
+        <div class="attn">
+          <div class="avatar">MW</div>
+          <div class="attn-body">
+            <div class="attn-name">Marcus Webb <span class="mo">Month 2 of 12</span></div>
+            <div class="attn-reason">3 missed check-ins &middot; last heard from 19 days ago</div>
+            <div class="attn-context">Streak was 5 weeks, then silence from week 5. Instalment 2 of 4 due Friday.</div>
+          </div>
+          <div class="attn-actions">
+            <button class="btn-sm primary nudge">Send nudge</button>
+            <button class="btn-sm">View student</button>
+          </div>
+        </div>
+
+        <div class="attn">
+          <div class="avatar">PS</div>
+          <div class="attn-body">
+            <div class="attn-name">Priya Shah <span class="mo">Month 1 of 12</span></div>
+            <div class="attn-reason">Paid 9 days ago &middot; intake never completed</div>
+            <div class="attn-context">Never started. This is the refund window — a two-minute welcome call usually fixes it.</div>
+          </div>
+          <div class="attn-actions">
+            <button class="btn-sm primary nudge">Send nudge</button>
+            <button class="btn-sm">View student</button>
+          </div>
+        </div>
+
+        <div class="attn">
+          <div class="avatar">DO</div>
+          <div class="attn-body">
+            <div class="attn-name">Dana Okafor <span class="mo">Month 6 of 12</span></div>
+            <div class="attn-reason">Confidence dropped 8 &rarr; 3 in two weeks &middot; blocker: "stage nerves"</div>
+            <div class="attn-context">Still checking in every week — the numbers caught the wobble before the silence did.</div>
+          </div>
+          <div class="attn-actions">
+            <button class="btn-sm primary nudge">Message</button>
+            <button class="btn-sm">View student</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="band-head">
+        <h2>Wins to harvest</h2>
+        <span class="band-note">Ask while it's hot</span>
+      </div>
+      <div class="harvest">
+        <div class="harvest-item">
+          <div class="medal">7</div>
+          <div class="harvest-body">
+            <div class="harvest-name">Sofia Marin</div>
+            <div class="harvest-detail">First $5,000 keynote &middot; milestone 7 &middot; Tuesday</div>
+          </div>
+          <button class="btn-sm ask">Request testimonial</button>
+        </div>
+        <div class="harvest-item">
+          <div class="medal">4</div>
+          <div class="harvest-body">
+            <div class="harvest-name">Ben Osei</div>
+            <div class="harvest-detail">First paid gig &middot; milestone 4 &middot; yesterday</div>
+          </div>
+          <button class="btn-sm ask">Request testimonial</button>
+        </div>
+        <div class="harvest-item">
+          <div class="medal">&#10003;</div>
+          <div class="harvest-body">
+            <div class="harvest-name">David Park</div>
+            <div class="harvest-detail">Case study drafted from 28 check-ins &middot; +91%</div>
+          </div>
+          <button class="btn-sm ask">Review draft</button>
+        </div>
+        <div class="harvest-note">9 metric-backed testimonials collected this month</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROSTER -->
+  <section class="roster-section">
+    <div class="roster-head">
+      <h2>Full roster</h2>
+      <div class="filters" id="filters">
+        <button class="on" data-f="all">All <span class="cnt">47</span></button>
+        <button data-f="red">Red <span class="cnt">3</span></button>
+        <button data-f="amber">Amber <span class="cnt">6</span></button>
+        <button data-f="green">Green <span class="cnt">38</span></button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Month</th>
+            <th>Streak</th>
+            <th>Last check-in</th>
+            <th>Vs baseline</th>
+            <th>Milestones</th>
+            <th>Status</th>
+            <th>Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-status="red">
+            <td><span class="stu"><span class="av">MW</span>Marcus Webb</span></td>
+            <td class="mono">2 / 12</td>
+            <td class="mono">0 wk</td>
+            <td class="mono stale">19d ago</td>
+            <td class="mono neg">&minus;8%</td>
+            <td class="mono">1 / 8</td>
+            <td><span class="status red"><span class="d"></span>Red</span></td>
+            <td class="why">3 missed check-ins; instalment due Fri</td>
+          </tr>
+          <tr data-status="red">
+            <td><span class="stu"><span class="av">PS</span>Priya Shah</span></td>
+            <td class="mono">1 / 12</td>
+            <td class="mono">&mdash;</td>
+            <td class="mono stale">Never</td>
+            <td class="mono flat">no baseline</td>
+            <td class="mono">0 / 8</td>
+            <td><span class="status red"><span class="d"></span>Red</span></td>
+            <td class="why">Intake incomplete, day 9 — refund window</td>
+          </tr>
+          <tr data-status="red">
+            <td><span class="stu"><span class="av">DO</span>Dana Okafor</span></td>
+            <td class="mono">6 / 12</td>
+            <td class="mono">24 wk</td>
+            <td class="mono">2d ago</td>
+            <td class="mono pos">+64%</td>
+            <td class="mono">4 / 8</td>
+            <td><span class="status red"><span class="d"></span>Red</span></td>
+            <td class="why">Confidence 8 &rarr; 3; blocker "stage nerves" &times;2 wks</td>
+          </tr>
+          <tr data-status="amber">
+            <td><span class="stu"><span class="av">TC</span>Tom Callahan</span></td>
+            <td class="mono">3 / 12</td>
+            <td class="mono">9 wk</td>
+            <td class="mono stale">8d ago</td>
+            <td class="mono pos">+22%</td>
+            <td class="mono">2 / 8</td>
+            <td><span class="status amber"><span class="d"></span>Amber</span></td>
+            <td class="why">Missed last week's check-in</td>
+          </tr>
+          <tr data-status="amber">
+            <td><span class="stu"><span class="av">AB</span>Aisha Bello</span></td>
+            <td class="mono">8 / 12</td>
+            <td class="mono">31 wk</td>
+            <td class="mono">1d ago</td>
+            <td class="mono flat">flat 4 wks</td>
+            <td class="mono">5 / 8</td>
+            <td><span class="status amber"><span class="d"></span>Amber</span></td>
+            <td class="why">No stages pitched in 3 weeks; milestone 6 stalled</td>
+          </tr>
+          <tr data-status="amber">
+            <td><span class="stu"><span class="av">RK</span>Ryan Kessler</span></td>
+            <td class="mono">2 / 12</td>
+            <td class="mono">7 wk</td>
+            <td class="mono">2d ago</td>
+            <td class="mono pos">+15%</td>
+            <td class="mono">2 / 8</td>
+            <td><span class="status amber"><span class="d"></span>Amber</span></td>
+            <td class="why">Blocker "finding stages" two weeks running</td>
+          </tr>
+          <tr data-status="green">
+            <td><span class="stu"><span class="av">JE</span>Jordan Ellis</span></td>
+            <td class="mono">4 / 12</td>
+            <td class="mono">16 wk</td>
+            <td class="mono">Just now</td>
+            <td class="mono pos">+131%</td>
+            <td class="mono">5 / 8</td>
+            <td><span class="status green"><span class="d"></span>Green</span></td>
+            <td class="why">Week 18 logged; milestone 6 at 81%</td>
+          </tr>
+          <tr data-status="green">
+            <td><span class="stu"><span class="av">SM</span>Sofia Marin</span></td>
+            <td class="mono">11 / 12</td>
+            <td class="mono">44 wk</td>
+            <td class="mono">1d ago</td>
+            <td class="mono pos">+212%</td>
+            <td class="mono">7 / 8</td>
+            <td><span class="status green"><span class="d"></span>Green</span></td>
+            <td class="why">Renewal conversation ready — numbers attached</td>
+          </tr>
+          <tr data-status="green">
+            <td><span class="stu"><span class="av">BO</span>Ben Osei</span></td>
+            <td class="mono">5 / 12</td>
+            <td class="mono">19 wk</td>
+            <td class="mono">1d ago</td>
+            <td class="mono pos">+58%</td>
+            <td class="mono">4 / 8</td>
+            <td><span class="status green"><span class="d"></span>Green</span></td>
+            <td class="why">Milestone 4 earned yesterday</td>
+          </tr>
+          <tr data-status="green">
+            <td><span class="stu"><span class="av">DP</span>David Park</span></td>
+            <td class="mono">7 / 12</td>
+            <td class="mono">27 wk</td>
+            <td class="mono">3d ago</td>
+            <td class="mono pos">+91%</td>
+            <td class="mono">6 / 8</td>
+            <td><span class="status green"><span class="d"></span>Green</span></td>
+            <td class="why">Case study draft ready for review</td>
+          </tr>
+          <tr data-status="green">
+            <td><span class="stu"><span class="av">LT</span>Lucy Tran</span></td>
+            <td class="mono">1 / 12</td>
+            <td class="mono">1 wk</td>
+            <td class="mono">3d ago</td>
+            <td class="mono flat">baseline set</td>
+            <td class="mono">1 / 8</td>
+            <td><span class="status green"><span class="d"></span>Green</span></td>
+            <td class="why">Day 6 — intake done, first check-in in</td>
+          </tr>
+          <tr data-status="green">
+            <td><span class="stu"><span class="av">ER</span>Emma Riley</span></td>
+            <td class="mono">9 / 12</td>
+            <td class="mono">36 wk</td>
+            <td class="mono">2d ago</td>
+            <td class="mono pos">+140%</td>
+            <td class="mono">6 / 8</td>
+            <td><span class="status green"><span class="d"></span>Green</span></td>
+            <td class="why">On pace for milestone 7 this month</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:12px; font-size:12.5px; color:var(--muted);">Showing 12 of 47 — sample data. Reds always sort to the top.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div>One page. Thirty seconds a day. No meetings.</div>
+  <div class="powered">Powered by Proofline</div>
+</footer>
+
+<script>
+  // filters
+  const filterBar = document.getElementById('filters');
+  filterBar.addEventListener('click', (e)=>{
+    if(e.target.closest('button') === null) return;
+    const btn = e.target.closest('button');
+    [...filterBar.children].forEach(b=> b.classList.remove('on'));
+    btn.classList.add('on');
+    const f = btn.dataset.f;
+    document.querySelectorAll('tbody tr').forEach(row=>{
+      row.style.display = (f === 'all' || row.dataset.status === f) ? '' : 'none';
+    });
+  });
+
+  // nudge + testimonial buttons
+  document.querySelectorAll('.nudge').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      b.textContent = 'Sent \u2713';
+      b.classList.remove('primary');
+      b.classList.add('done');
+      b.disabled = true;
+    });
+  });
+  document.querySelectorAll('.ask').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      b.textContent = 'Requested \u2713';
+      b.classList.add('done');
+      b.disabled = true;
+    });
+  });
+</script>
+</body>
+</html>
