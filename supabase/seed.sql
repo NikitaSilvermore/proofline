@@ -110,3 +110,22 @@ begin
         now() - interval '33 days');
   end if;
 end $$;
+
+-- 7. A FRESH student who has NOT done intake yet -------------------------------
+-- Use this one to test the intake wizard itself: /intake/demo-fresh-token-0002
+--   id:    00000000-0000-0000-0000-000000000002
+--   token: demo-fresh-token-0002
+insert into students (id, name, email, phone, track, status, token,
+                      enrolled_at, intake_completed_at)
+values (
+  '00000000-0000-0000-0000-000000000002',
+  'Sam Rivers',
+  'sam.rivers@example.com',
+  '+15557654321',
+  null,               -- track chosen during intake
+  'invited',          -- not yet active; intake not completed
+  'demo-fresh-token-0002',
+  now() - interval '1 day',
+  null
+)
+on conflict (id) do nothing;

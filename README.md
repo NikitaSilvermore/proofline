@@ -45,6 +45,16 @@ Both are safe to run twice (Milestone 2 DoD). A clean second run returns
 "Success. No rows returned" with no errors. Edit the allowlist emails at the
 bottom of `schema.sql` to match your real team.
 
+## Test links (from the seed)
+
+- **Intake wizard** (fresh student): `/intake/demo-fresh-token-0002` — Sam Rivers,
+  hasn't done intake yet. Complete it to create a baseline + milestone rail.
+- **Locked intake** (already done): `/intake/demo-jordan-token-0001` — Jordan Ellis,
+  shows the read-only locked baseline.
+
+The intake server action needs `SUPABASE_SERVICE_ROLE_KEY` (the Supabase **Secret**
+key) set in the environment — locally in `.env.local`, and in Vercel.
+
 ## Project layout
 
 ```
