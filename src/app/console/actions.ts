@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { createClient, createServiceClient } from "@/lib/supabase/server";
 import { formatMoney } from "@/lib/intake-options";
+import { sendMessage } from "@/lib/messaging";
 
 // All console actions are gated: the caller must be signed in AND on the email
 // allowlist (BUILD_SPEC.md §7). requireTeam throws otherwise.
@@ -22,14 +23,27 @@ async function requireTeam(): Promise<string> {
   return user.email;
 }
 
-// Nudge → log nudge_sent (GHL send wired in Milestone 7).
+// Nudge → send via the message rail (default "log" until a live rail is set).
+// sendMessage records the nudge_sent event itself.
 export async function nudgeStudent(studentId: string): Promise<void> {
   await requireTeam();
   const db = createServiceClient();
-  await db.from("events").insert({
-    student_id: studentId,
-    type: "nudge_sent",
-    payload: { channel: "ghl", at: new Date().toISOString() },
+  const { data: s } = await db
+    .from("students")
+    .select("token, ghl_contact_id, close_lead_id, close_contact_id, name, email, phone")
+    .eq("id", studentId)
+    .maybeSingle();
+
+  const base = (process.env.APP_BASE_URL ?? "").replace(/\/$/, "");
+  await sendMessage("nudge", {
+    studentId,
+    ghlContactId: s?.ghl_contact_id ?? null,
+    closeLeadId: s?.close_lead_id ?? null,
+    closeContactId: s?.close_contact_id ?? null,
+    name: s?.name ?? null,
+    email: s?.email ?? null,
+    phone: s?.phone ?? null,
+    link: s?.token ? `${base}/checkin/${s.token}` : null,
   });
   revalidatePath("/console");
 }

@@ -20,6 +20,8 @@ create extension if not exists pgcrypto;
 create table if not exists students (
   id uuid primary key default gen_random_uuid(),
   ghl_contact_id text unique,
+  close_lead_id text,                     -- Close CRM lead id (enrolment + sending)
+  close_contact_id text,                  -- Close CRM contact id
   name text not null,
   email text not null,
   phone text,
@@ -49,6 +51,11 @@ create table if not exists milestone_templates (
   label text not null,
   layer text check (layer in ('craft','payoff'))
 );
+-- Backfill Close columns on databases created before Close support was added.
+alter table students add column if not exists close_lead_id text;
+alter table students add column if not exists close_contact_id text;
+create index if not exists ix_students_close_lead on students (close_lead_id);
+
 -- Natural key so reference-data seeding is idempotent.
 create unique index if not exists ux_milestone_templates_track_pos
   on milestone_templates (track, position);

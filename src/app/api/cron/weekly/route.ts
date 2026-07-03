@@ -1,5 +1,10 @@
 import { createServiceClient } from "@/lib/supabase/server";
 import { recomputeFlags } from "@/lib/flags-service";
+import { sendMessage } from "@/lib/messaging";
+
+function baseUrl(req: Request): string {
+  return (process.env.APP_BASE_URL ?? new URL(req.url).origin).replace(/\/$/, "");
+}
 
 // Weekly loop (BUILD_SPEC.md §6.2). Mondays 08:00 ET via Vercel Cron: for each
 // active student, insert a "sent" check-in row, then recompute every active
@@ -41,10 +46,20 @@ export async function GET(req: Request) {
 
   const { data: students } = await db
     .from("students")
-    .select("id, intake_completed_at")
+    .select("id, token, ghl_contact_id, close_lead_id, close_contact_id, name, email, phone, intake_completed_at")
     .eq("status", "active");
 
-  const active = (students ?? []) as { id: string; intake_completed_at: string | null }[];
+  const active = (students ?? []) as {
+    id: string;
+    token: string;
+    ghl_contact_id: string | null;
+    close_lead_id: string | null;
+    close_contact_id: string | null;
+    name: string | null;
+    email: string | null;
+    phone: string | null;
+    intake_completed_at: string | null;
+  }[];
 
   let sent = 0;
   for (const s of active) {
@@ -63,8 +78,20 @@ export async function GET(req: Request) {
       week_no: maxWeek + 1,
       sent_at: now.toISOString(),
     });
-    if (!error) sent++;
-    // TODO (Milestone 7): trigger GHL send of APP_BASE_URL/checkin/<token>.
+    if (error) continue;
+    sent++;
+
+    // Deliver the check-in link (default provider "log" — nothing sends live yet).
+    await sendMessage("weekly_checkin", {
+      studentId: s.id,
+      ghlContactId: s.ghl_contact_id,
+      closeLeadId: s.close_lead_id,
+      closeContactId: s.close_contact_id,
+      name: s.name,
+      email: s.email,
+      phone: s.phone,
+      link: `${baseUrl(req)}/checkin/${s.token}`,
+    });
   }
 
   // Recompute flags for everyone active (catches new misses, streak drops, etc.).

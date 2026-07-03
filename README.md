@@ -73,6 +73,32 @@ set **Site URL** to your Vercel URL and add these **Redirect URLs**:
 `https://<app>.vercel.app/auth/callback` and `http://localhost:3000/auth/callback`.
 Make sure your email is in `team_allowlist` (seeded with the owner's email).
 
+## Messaging + enrolment (Close CRM)
+
+Proofline is CRM-agnostic; the current rail is **Close (close.com)** as CRM + sender.
+Nothing sends live until `MESSAGING_PROVIDER=close` and the `CLOSE_*` env are set —
+the default `log` provider only records intent to the `events` table.
+
+**Enrolment:** `POST /api/webhooks/close` creates the student + token and sends the
+intake invite. Point a Close webhook (lead enters "Purchased") at this URL.
+
+**Go-live checklist (when ready):**
+1. Run the updated `supabase/schema.sql` (adds `close_lead_id`/`close_contact_id`).
+2. In Vercel env: `MESSAGING_PROVIDER=close`, `CLOSE_API_KEY`, `CLOSE_SENDER`,
+   `CLOSE_SIGNING_KEY`, and `MESSAGING_CHANNEL=email` (or `sms`/`both` +
+   `CLOSE_SMS_NUMBER` once 10DLC is registered).
+3. In Close, create a webhook subscription → URL `https://<app>/api/webhooks/close`.
+
+**Test the enrolment plumbing without Close** (no live messages — provider `log`):
+set `CLOSE_WEBHOOK_SECRET` in Vercel, then:
+```
+curl -X POST "https://<app>/api/webhooks/close?secret=$CLOSE_WEBHOOK_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"data":{"lead":{"id":"lead_test","display_name":"Test Student",
+       "contacts":[{"id":"cont_test","emails":[{"email":"you@example.com"}]}]}}}'
+```
+Returns `{ ok, student_id, token, intake_url }` — open the `intake_url` to continue.
+
 ## Weekly cron (the loop)
 
 `GET /api/cron/weekly` inserts a "sent" check-in for each active student and

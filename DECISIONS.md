@@ -2,6 +2,33 @@
 
 Log anything that deviates from or clarifies BUILD_SPEC.md. Newest first.
 
+## 2026-07-03 — Milestone 7: messaging + enrolment (Close CRM)
+
+- **CRM switched from GHL to Close (close.com)** at the user's request — they don't
+  have GHL access and are moving to Close as their CRM + sender. This is a §2
+  "delivery rail" swap, not an architecture change; GHL code is kept for reference.
+- **Message rail abstraction `src/lib/messaging.ts`**, provider chosen by
+  `MESSAGING_PROVIDER`: **log** (default — records intent, sends nothing external),
+  **close** (Close API: logs an outbound email and/or SMS activity on the lead,
+  which Close sends from the connected NLS account), plus **ghl** and **resend**
+  (fallback) still present. `MESSAGING_CHANNEL` = email|sms|both for Close. Every
+  send is also logged to `events`. Default stays **log** so nothing sends live until
+  the user sets `MESSAGING_PROVIDER=close` + `CLOSE_*` env.
+- **Enrolment webhook `/api/webhooks/close`** (§6.1 equivalent): verifies Close's
+  HMAC signature (`CLOSE_SIGNING_KEY`) or a shared secret for manual tests; creates
+  the student + token (`src/lib/token.ts`); idempotent by `close_lead_id`; sends the
+  intake invite via the rail.
+- **Students gained `close_lead_id` / `close_contact_id`** (idempotent
+  `alter table … add column if not exists` in schema.sql). Cron + nudge pass these
+  through so Close can address the right lead.
+- **US students** → SMS needs 10DLC registration (a US carrier requirement, tool-
+  independent); Close guides that setup. Recommendation to the user: **email-only
+  first**, add SMS post-registration. `MESSAGING_CHANNEL=email` by default.
+- **Live connection deferred by choice** — plumbing built now; the §8.7 DoD (a real
+  enrolment produces a live intake email, no human touch) completes once Close env +
+  webhook are configured. Checklist in README.
+- **Status write-back (§6.4)** remains a deferred nice-to-have.
+
 ## 2026-07-02 — Milestone 6: team console
 
 - **Auth: Supabase magic-link + email allowlist** (§2, §7). `/console/login` sends
