@@ -58,7 +58,7 @@ export default function Console({ view }: { view: ConsoleView }) {
 
   return (
     <div className={styles.page}>
-      <div className={styles.ribbon}>Proofline for NLS Mentorship &middot; Support console</div>
+      <div className={styles.ribbon}>Milestamp for NLS Mentorship &middot; Support console</div>
 
       <header className={styles.masthead}>
         <div className={styles.mastheadInner}>
@@ -271,7 +271,7 @@ export default function Console({ view }: { view: ConsoleView }) {
 
       <footer className={styles.footer}>
         <div>One page. Thirty seconds a day. No meetings.</div>
-        <div className={styles.powered}>Powered by Proofline</div>
+        <div className={styles.powered}>Powered by Milestamp</div>
       </footer>
 
       {draft && (

@@ -42,7 +42,7 @@ export default function Home() {
             color: "#fff",
           }}
         >
-          Proofline
+          Milestamp
         </h1>
         <p
           style={{

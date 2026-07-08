@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Proofline",
+  title: "Milestamp",
   description: "NLS Mentorship pilot — progress, proof, and payoff.",
 };
 

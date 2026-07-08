@@ -357,7 +357,7 @@ export default async function ProgressPage({
           </svg>
           Only you and the NLS support team can see this page.
         </div>
-        <div className={styles.powered}>Powered by Proofline</div>
+        <div className={styles.powered}>Powered by Milestamp</div>
       </footer>
     </div>
   );
