@@ -28,8 +28,10 @@
 }
 
 body {
-  background: var(--paper);
-  color: var(--text);
+  /* Midnight & Brass: the app's default ground is deep ink. Individual page
+     shells (.page) paint their own richer backgrounds on top. */
+  background: #0a1119;
+  color: #eef2f8;
   font-family: var(--body);
   -webkit-font-smoothing: antialiased;
 }
