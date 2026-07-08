@@ -20,7 +20,8 @@
   --rag-green-bg: rgba(23, 122, 83, 0.2);
   --lift: 0 20px 50px -28px rgba(0, 0, 0, 0.7);
   background:
-    radial-gradient(80% 45% at 82% -8%, rgba(198, 161, 91, 0.13), transparent 60%),
+    radial-gradient(70% 40% at 82% -6%, rgba(198, 161, 91, 0.22), transparent 60%),
+    radial-gradient(50% 34% at 8% 4%, rgba(216, 185, 120, 0.1), transparent 60%),
     linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
   background-attachment: fixed;
   color: var(--ink-text);
@@ -140,6 +141,7 @@
   font-size: clamp(26px, 3.4vw, 34px);
   color: #fff;
   letter-spacing: -0.015em;
+  text-shadow: 0 0 34px rgba(216, 185, 120, 0.22);
 }
 .pageSub {
   color: var(--ink-muted);
@@ -158,6 +160,7 @@
   border-radius: 14px;
   padding: 18px 20px;
   backdrop-filter: blur(6px);
+  box-shadow: 0 10px 34px -22px rgba(216, 185, 120, 0.35);
 }
 .statNum {
   font-family: var(--mono);
@@ -165,6 +168,7 @@
   font-size: 27px;
   color: #fff;
   font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 22px rgba(216, 185, 120, 0.28);
 }
 .statLabel {
   font-size: 11px;
@@ -176,12 +180,15 @@
 }
 .stat.red .statNum {
   color: var(--rag-red);
+  text-shadow: 0 0 24px rgba(240, 163, 163, 0.5);
 }
 .stat.amber .statNum {
   color: var(--rag-amber);
+  text-shadow: 0 0 24px rgba(230, 190, 116, 0.5);
 }
 .stat.green .statNum {
   color: var(--rag-green);
+  text-shadow: 0 0 24px rgba(110, 224, 172, 0.5);
 }
 
 .band {
@@ -223,6 +230,7 @@
   gap: 14px;
   align-items: flex-start;
   backdrop-filter: blur(6px);
+  box-shadow: -8px 0 30px -20px rgba(240, 163, 163, 0.7), 0 14px 40px -30px rgba(0, 0, 0, 0.6);
 }
 .attnAvatar {
   width: 38px;
@@ -236,6 +244,7 @@
   font-family: var(--display);
   font-weight: 800;
   font-size: 13px;
+  box-shadow: 0 0 18px -4px rgba(240, 163, 163, 0.6);
 }
 .attnBody {
   flex: 1;
@@ -286,7 +295,7 @@
   background: linear-gradient(160deg, var(--brass), var(--brass-deep));
   border-color: var(--brass);
   color: var(--bg-1);
-  box-shadow: 0 0 18px -8px rgba(216, 185, 120, 0.8);
+  box-shadow: 0 0 26px -6px rgba(216, 185, 120, 0.9);
 }
 .btnSm.done {
   background: var(--rag-green-bg);
@@ -324,7 +333,7 @@
   font-family: var(--display);
   font-weight: 800;
   font-size: 13px;
-  box-shadow: 0 0 14px -4px rgba(216, 185, 120, 0.7);
+  box-shadow: 0 0 22px -2px rgba(216, 185, 120, 0.85);
 }
 .harvestBody {
   flex: 1;
@@ -380,6 +389,7 @@
   background: linear-gradient(160deg, var(--brass), var(--brass-deep));
   border-color: var(--brass);
   color: var(--bg-1);
+  box-shadow: 0 0 22px -6px rgba(216, 185, 120, 0.85);
 }
 .filters .cnt {
   font-family: var(--mono);
@@ -487,23 +497,29 @@
 .status.green {
   background: var(--rag-green-bg);
   color: var(--rag-green);
+  box-shadow: 0 0 18px -6px rgba(110, 224, 172, 0.6);
 }
 .status.green :global(.d) {
   background: var(--rag-green);
+  box-shadow: 0 0 8px 1px rgba(110, 224, 172, 0.9);
 }
 .status.amber {
   background: var(--rag-amber-bg);
   color: var(--rag-amber);
+  box-shadow: 0 0 18px -6px rgba(230, 190, 116, 0.6);
 }
 .status.amber :global(.d) {
   background: var(--rag-amber);
+  box-shadow: 0 0 8px 1px rgba(230, 190, 116, 0.9);
 }
 .status.red {
   background: var(--rag-red-bg);
   color: var(--rag-red);
+  box-shadow: 0 0 18px -6px rgba(240, 163, 163, 0.6);
 }
 .status.red :global(.d) {
   background: var(--rag-red);
+  box-shadow: 0 0 8px 1px rgba(240, 163, 163, 0.9);
 }
 .status.none {
   background: rgba(255, 255, 255, 0.06);
