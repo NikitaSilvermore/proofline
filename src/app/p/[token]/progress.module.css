@@ -1,20 +1,26 @@
-/* Student progress — "The Dossier" treatment (premium elevation of the demo).
-   A private achievement report: warm paper, cards that lift, precious gold,
-   editorial type. Brand tokens from globals.css; page-scoped refinements here.
-   Single deliberate light visual world. */
+/* Student progress — "Midnight & Brass" treatment. A luxe dark dossier: deep
+   ink ground, glowing brass/gold, glassy panels. Deliberate single dark visual
+   world. Brand tokens from globals.css; page-scoped here. */
 
 .page {
-  --paper-warm: #f3f0ea;
-  --paper-warm-2: #efebe3;
-  --hair: rgba(14, 26, 43, 0.08);
-  --hair-soft: rgba(14, 26, 43, 0.05);
-  --lift: 0 1px 2px rgba(14, 26, 43, 0.04), 0 10px 30px -16px rgba(14, 26, 43, 0.18);
-  --lift-sm: 0 1px 2px rgba(14, 26, 43, 0.04), 0 6px 18px -12px rgba(14, 26, 43, 0.14);
+  --bg-0: #0a1119;
+  --bg-1: #0e1a2b;
+  --glass: rgba(255, 255, 255, 0.035);
+  --glass-2: rgba(255, 255, 255, 0.05);
+  --hair: rgba(198, 161, 91, 0.16);
+  --hair-soft: rgba(255, 255, 255, 0.07);
+  --ink-text: #eef2f8;
+  --ink-muted: #92a2b8;
+  --ink-faint: #6b7d95;
+  --brass: #d8b978;
+  --brass-deep: #c6a15b;
+  --lift: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 50px -24px rgba(0, 0, 0, 0.7);
   background:
-    radial-gradient(120% 60% at 50% -10%, rgba(198, 161, 91, 0.1), transparent 60%),
-    linear-gradient(180deg, var(--paper-warm) 0%, var(--paper-warm-2) 100%);
+    radial-gradient(90% 50% at 78% -8%, rgba(198, 161, 91, 0.16), transparent 60%),
+    radial-gradient(70% 40% at 10% 8%, rgba(30, 48, 73, 0.55), transparent 60%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
   background-attachment: fixed;
-  color: var(--text);
+  color: var(--ink-text);
   font-size: 16px;
   line-height: 1.55;
   min-height: 100vh;
@@ -22,22 +28,24 @@
 
 .ribbon {
   background: transparent;
-  color: var(--gold-deep);
+  color: var(--brass);
   font-family: var(--mono);
   font-size: 10.5px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   text-align: center;
-  padding: 9px 12px 7px;
+  padding: 11px 12px 9px;
+  opacity: 0.85;
 }
 
 /* ── masthead ─────────────────────────────────────────────────────────────── */
 .masthead {
-  background: linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
-  color: #edf1f7;
+  background: rgba(10, 17, 25, 0.5);
+  backdrop-filter: blur(10px);
+  color: var(--ink-text);
   padding: 0 clamp(20px, 5vw, 56px);
   position: relative;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.28);
+  border-bottom: 1px solid var(--hair);
 }
 .masthead::after {
   content: "";
@@ -46,8 +54,8 @@
   right: 0;
   bottom: -1px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  opacity: 0.5;
+  background: linear-gradient(90deg, transparent, var(--brass), transparent);
+  opacity: 0.6;
 }
 .mastheadInner {
   max-width: 1080px;
@@ -68,25 +76,27 @@
   width: 44px;
   height: 44px;
   border-radius: 11px;
-  border: 1px solid rgba(198, 161, 91, 0.55);
-  color: var(--gold);
+  border: 1px solid rgba(216, 185, 120, 0.5);
+  color: var(--brass);
   display: grid;
   place-items: center;
   font-family: var(--display);
   font-weight: 800;
   font-size: 14px;
   letter-spacing: 0.06em;
-  background: radial-gradient(120% 120% at 30% 20%, rgba(198, 161, 91, 0.16), transparent 70%);
+  background: radial-gradient(120% 120% at 30% 20%, rgba(216, 185, 120, 0.2), transparent 70%);
+  box-shadow: 0 0 20px -6px rgba(216, 185, 120, 0.4);
 }
 .brandName {
   font-family: var(--display);
   font-weight: 700;
   font-size: 17px;
   letter-spacing: 0.01em;
+  color: #fff;
 }
 .brandSub {
   font-size: 10.5px;
-  color: #9fb0c6;
+  color: var(--ink-faint);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-top: 1px;
@@ -101,8 +111,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(198, 161, 91, 0.35);
-  color: #ecdfc2;
+  border: 1px solid rgba(216, 185, 120, 0.32);
+  color: #ecdcb6;
   border-radius: 999px;
   padding: 7px 14px;
   font-family: var(--mono);
@@ -111,89 +121,93 @@
   letter-spacing: 0.02em;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
+  background: rgba(216, 185, 120, 0.05);
 }
 .chip .dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.18);
+  background: var(--brass);
+  box-shadow: 0 0 8px 1px rgba(216, 185, 120, 0.7);
 }
 .avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(160deg, var(--gold) 0%, var(--gold-deep) 100%);
-  color: var(--ink);
+  background: linear-gradient(160deg, var(--brass) 0%, var(--brass-deep) 100%);
+  color: var(--bg-1);
   display: grid;
   place-items: center;
   font-family: var(--display);
   font-weight: 800;
   font-size: 14px;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 22px -6px rgba(216, 185, 120, 0.7);
 }
 
 /* ── layout + hero ────────────────────────────────────────────────────────── */
 .main {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 5vw, 56px) 88px;
+  padding: 0 clamp(20px, 5vw, 56px) 96px;
 }
 .hero {
-  padding: clamp(48px, 8vw, 76px) 0 40px;
+  padding: clamp(52px, 9vw, 92px) 0 44px;
 }
 .eyebrow {
   font-family: var(--mono);
   font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold-deep);
-  margin-bottom: 20px;
+  color: var(--brass);
+  margin-bottom: 22px;
   display: inline-flex;
   align-items: center;
   gap: 12px;
 }
 .eyebrow::before {
   content: "";
-  width: 26px;
+  width: 28px;
   height: 1px;
-  background: var(--gold);
+  background: var(--brass);
+  box-shadow: 0 0 8px rgba(216, 185, 120, 0.8);
 }
 .h1 {
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(38px, 6.2vw, 68px);
-  line-height: 1.01;
-  letter-spacing: -0.025em;
-  color: var(--ink);
+  font-size: clamp(40px, 6.6vw, 74px);
+  line-height: 1;
+  letter-spacing: -0.028em;
+  color: #fff;
   max-width: 16ch;
   text-wrap: balance;
 }
 .h1 .gold {
-  color: var(--gold-deep);
+  color: var(--brass);
+  text-shadow: 0 0 32px rgba(216, 185, 120, 0.45);
 }
 .heroSub {
-  margin-top: 20px;
-  color: var(--muted);
+  margin-top: 22px;
+  color: var(--ink-muted);
   font-size: 17.5px;
-  line-height: 1.6;
+  line-height: 1.62;
   max-width: 54ch;
 }
 
-/* ── ledger: hairline-separated columns, not boxy cards ───────────────────── */
+/* ── ledger: glass panel, hairline columns ────────────────────────────────── */
 .ledger {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 44px;
-  background: var(--card);
-  border: 1px solid var(--hair);
+  margin-top: 48px;
+  background: var(--glass);
+  border: 1px solid var(--hair-soft);
   border-radius: 20px;
   box-shadow: var(--lift);
   overflow: hidden;
+  backdrop-filter: blur(6px);
 }
 .ledgerCard {
-  padding: 26px 28px 24px;
+  padding: 28px 30px 26px;
   position: relative;
 }
 .ledgerCard + .ledgerCard {
@@ -203,9 +217,9 @@
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink-faint);
 }
 .ledgerRow {
   display: flex;
@@ -218,26 +232,26 @@
   font-family: var(--mono);
   font-size: 14px;
   font-weight: 500;
-  color: #a8b0bd;
+  color: #5f7089;
   text-decoration: line-through;
-  text-decoration-color: #d3d8e0;
+  text-decoration-color: #3c4a5e;
 }
 .wasTag {
   font-size: 10.5px;
-  color: #a8b0bd;
+  color: #5f7089;
   display: block;
   margin-top: 3px;
   letter-spacing: 0.02em;
 }
 .arrow {
-  color: var(--gold);
+  color: var(--brass);
   font-size: 14px;
 }
 .now {
   font-family: var(--mono);
   font-weight: 700;
   font-size: clamp(28px, 3.2vw, 36px);
-  color: var(--ink);
+  color: #fff;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
@@ -245,8 +259,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--green-soft);
-  color: var(--green);
+  background: rgba(23, 122, 83, 0.18);
+  color: #6ee0ac;
   font-size: 12px;
   font-weight: 700;
   border-radius: 999px;
@@ -254,53 +268,56 @@
   margin-top: 16px;
   font-family: var(--mono);
   letter-spacing: 0.02em;
+  border: 1px solid rgba(110, 224, 172, 0.2);
 }
 .deltaMuted {
-  background: #eef1f5;
-  color: #7c8aa0;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ink-faint);
+  border-color: var(--hair-soft);
 }
 
 /* ── sections ─────────────────────────────────────────────────────────────── */
 .section {
-  margin-top: 68px;
+  margin-top: 72px;
 }
 .sectionHead {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--hair);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--hair-soft);
 }
 .h2 {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 24px;
-  color: var(--ink);
+  font-size: 25px;
+  color: #fff;
   letter-spacing: -0.015em;
 }
 .sectionNote {
   font-size: 12.5px;
-  color: var(--muted);
+  color: var(--ink-faint);
   font-family: var(--mono);
   letter-spacing: 0.02em;
 }
 
 /* ── milestone rail ───────────────────────────────────────────────────────── */
 .railWrap {
-  background: var(--card);
-  border: 1px solid var(--hair);
+  background: var(--glass);
+  border: 1px solid var(--hair-soft);
   border-radius: 20px;
-  padding: 40px 34px 26px;
+  padding: 42px 34px 28px;
   overflow-x: auto;
   box-shadow: var(--lift);
+  backdrop-filter: blur(6px);
 }
 .rail {
   position: relative;
   min-width: 920px;
-  height: 172px;
+  height: 176px;
 }
 .railTrack {
   position: absolute;
@@ -308,16 +325,16 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 12px);
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0 6px, transparent 6px 12px);
 }
 .railFill {
   position: absolute;
   top: 34px;
   left: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--gold-deep), var(--gold));
-  box-shadow: 0 0 8px rgba(198, 161, 91, 0.5);
-  animation: railGrow 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  background: linear-gradient(90deg, var(--brass-deep), var(--brass));
+  box-shadow: 0 0 14px 1px rgba(216, 185, 120, 0.75);
+  animation: railGrow 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 @keyframes railGrow {
   from {
@@ -338,52 +355,52 @@
   margin: 20px auto 12px;
   display: grid;
   place-items: center;
-  background: var(--paper-warm);
-  border: 1.5px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
   color: transparent;
   font-size: 13px;
   position: relative;
   z-index: 2;
 }
 .node.done .nodeDot {
-  background: linear-gradient(160deg, var(--gold) 0%, var(--gold-deep) 100%);
-  border-color: var(--gold-deep);
-  color: var(--ink);
+  background: linear-gradient(160deg, var(--brass) 0%, var(--brass-deep) 100%);
+  border-color: var(--brass);
+  color: var(--bg-1);
   font-weight: 800;
-  box-shadow: 0 4px 12px -4px rgba(168, 134, 63, 0.55);
+  box-shadow: 0 0 18px -2px rgba(216, 185, 120, 0.8);
 }
 .node.current .nodeDot {
-  background: var(--card);
-  border-color: var(--gold);
+  background: var(--bg-1);
+  border-color: var(--brass);
   animation: pulse 2.6s infinite;
 }
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(198, 161, 91, 0.5);
+    box-shadow: 0 0 0 0 rgba(216, 185, 120, 0.55);
   }
   70% {
-    box-shadow: 0 0 0 14px rgba(198, 161, 91, 0);
+    box-shadow: 0 0 0 14px rgba(216, 185, 120, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(198, 161, 91, 0);
+    box-shadow: 0 0 0 0 rgba(216, 185, 120, 0);
   }
 }
 .nodeMonth {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: #a2adbd;
+  color: var(--ink-faint);
   text-transform: uppercase;
 }
 .nodeLabel {
   font-size: 12.5px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--ink-text);
   line-height: 1.3;
   margin-top: 4px;
 }
 .node.todo .nodeLabel {
-  color: #9aa6b8;
+  color: var(--ink-faint);
   font-weight: 500;
 }
 .nodeProg {
@@ -392,8 +409,8 @@
   font-family: var(--mono);
   font-size: 10.5px;
   font-weight: 700;
-  color: var(--gold-deep);
-  background: var(--gold-soft);
+  color: var(--brass);
+  background: rgba(216, 185, 120, 0.12);
   padding: 2px 9px;
   border-radius: 999px;
   font-variant-numeric: tabular-nums;
@@ -406,22 +423,23 @@
   gap: 16px;
 }
 .panel {
-  background: var(--card);
-  border: 1px solid var(--hair);
+  background: var(--glass);
+  border: 1px solid var(--hair-soft);
   border-radius: 20px;
   padding: 28px;
   box-shadow: var(--lift);
+  backdrop-filter: blur(6px);
 }
 .panel h3 {
   font-family: var(--display);
   font-weight: 700;
   font-size: 18px;
-  color: var(--ink);
+  color: #fff;
   letter-spacing: -0.01em;
 }
 .panelSub {
   font-size: 12.5px;
-  color: var(--muted);
+  color: var(--ink-faint);
   margin-top: 4px;
   font-family: var(--mono);
   letter-spacing: 0.02em;
@@ -431,44 +449,44 @@
 }
 .chartCaption {
   font-size: 11.5px;
-  color: var(--muted);
+  color: var(--ink-faint);
   margin-top: 14px;
   font-family: var(--mono);
   letter-spacing: 0.02em;
 }
 .chartEmpty {
   margin-top: 20px;
-  border: 1px dashed var(--line);
+  border: 1px dashed var(--hair-soft);
   border-radius: 16px;
   padding: 40px 22px;
   text-align: center;
-  color: var(--muted);
+  color: var(--ink-muted);
   font-size: 14px;
   line-height: 1.6;
 }
 
-/* check-in card — the one deep-ink moment in the flow */
+/* check-in card — brass-bordered black */
 .checkin {
-  background: linear-gradient(158deg, var(--ink) 0%, var(--ink-3) 100%);
-  color: #edf1f7;
-  border: none;
+  background: linear-gradient(158deg, #0c1723 0%, #05090f 100%);
+  color: var(--ink-text);
+  border: 1px solid rgba(216, 185, 120, 0.28);
   display: flex;
   flex-direction: column;
   border-radius: 20px;
   padding: 28px;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--lift);
+  box-shadow: var(--lift), 0 0 40px -20px rgba(216, 185, 120, 0.5);
 }
 .checkin::after {
   content: "";
   position: absolute;
   top: -70px;
   right: -70px;
-  width: 200px;
-  height: 200px;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(198, 161, 91, 0.2), transparent 70%);
+  background: radial-gradient(circle, rgba(216, 185, 120, 0.24), transparent 70%);
 }
 .checkin h3 {
   color: #fff;
@@ -478,7 +496,7 @@
   position: relative;
 }
 .checkin .panelSub {
-  color: #9fb0c6;
+  color: var(--ink-muted);
 }
 .dueChip {
   align-self: flex-start;
@@ -487,8 +505,8 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(198, 161, 91, 0.5);
+  color: var(--brass);
+  border: 1px solid rgba(216, 185, 120, 0.5);
   padding: 5px 12px;
   border-radius: 999px;
   margin-bottom: 16px;
@@ -499,19 +517,20 @@
   align-items: center;
   gap: 12px;
   font-size: 13.5px;
-  color: #c6d1e0;
+  color: var(--ink-muted);
 }
 .streakNum {
   font-family: var(--mono);
   font-weight: 700;
-  color: var(--gold);
+  color: var(--brass);
   font-size: 22px;
   font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 16px rgba(216, 185, 120, 0.5);
 }
 .checkinBtn {
   margin-top: 24px;
-  background: linear-gradient(160deg, var(--gold) 0%, var(--gold-deep) 100%);
-  color: var(--ink);
+  background: linear-gradient(160deg, var(--brass) 0%, var(--brass-deep) 100%);
+  color: var(--bg-1);
   border: none;
   border-radius: 13px;
   padding: 16px 20px;
@@ -522,27 +541,28 @@
   text-decoration: none;
   display: block;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 8px 20px -8px rgba(198, 161, 91, 0.6);
+  box-shadow: 0 0 30px -6px rgba(216, 185, 120, 0.8);
 }
 .checkinBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px -8px rgba(198, 161, 91, 0.7);
+  box-shadow: 0 0 40px -4px rgba(216, 185, 120, 0.95);
 }
 .checkinFine {
   margin-top: 14px;
   font-size: 11.5px;
-  color: #8fa0b8;
+  color: var(--ink-faint);
 }
 
 /* ── wins: hairline list ──────────────────────────────────────────────────── */
 .wins {
   display: flex;
   flex-direction: column;
-  background: var(--card);
-  border: 1px solid var(--hair);
+  background: var(--glass);
+  border: 1px solid var(--hair-soft);
   border-radius: 20px;
   box-shadow: var(--lift);
   overflow: hidden;
+  backdrop-filter: blur(6px);
 }
 .win {
   background: transparent;
@@ -558,7 +578,7 @@
   border-top: 1px solid var(--hair-soft);
 }
 .win:hover {
-  background: rgba(198, 161, 91, 0.04);
+  background: rgba(216, 185, 120, 0.06);
 }
 .winMedal {
   width: 40px;
@@ -567,16 +587,17 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: linear-gradient(160deg, var(--gold-soft), #ecdcbc);
-  color: var(--gold-deep);
+  background: linear-gradient(160deg, var(--brass), var(--brass-deep));
+  color: var(--bg-1);
   font-size: 16px;
   font-weight: 800;
   font-family: var(--display);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 16px -3px rgba(216, 185, 120, 0.7);
 }
 .win.plain .winMedal {
-  background: #eef1f5;
-  color: #7c8aa0;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ink-muted);
+  box-shadow: none;
 }
 .winBody {
   flex: 1;
@@ -584,74 +605,66 @@
 .winTitle {
   font-weight: 700;
   font-size: 15.5px;
-  color: var(--ink);
+  color: #fff;
   letter-spacing: -0.005em;
 }
 .winDetail {
   font-size: 13px;
-  color: var(--muted);
+  color: var(--ink-muted);
   margin-top: 3px;
 }
 .winDate {
   font-family: var(--mono);
   font-size: 12px;
-  color: #9aa6b8;
+  color: var(--ink-faint);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
 .emptyCard {
-  background: var(--card);
-  border: 1px dashed var(--line);
+  background: var(--glass);
+  border: 1px dashed var(--hair-soft);
   border-radius: 16px;
   padding: 34px 26px;
-  color: var(--muted);
+  color: var(--ink-muted);
   font-size: 14.5px;
   line-height: 1.6;
 }
 
 /* ── story ────────────────────────────────────────────────────────────────── */
 .story {
-  background: linear-gradient(155deg, var(--ink) 0%, var(--ink-2) 70%);
+  background:
+    radial-gradient(80% 120% at 90% 0%, rgba(216, 185, 120, 0.14), transparent 55%),
+    linear-gradient(155deg, #0c1723 0%, #05090f 75%);
+  border: 1px solid rgba(216, 185, 120, 0.22);
   border-radius: 22px;
-  padding: clamp(32px, 4.5vw, 52px);
-  color: #edf1f7;
+  padding: clamp(34px, 4.5vw, 56px);
+  color: var(--ink-text);
   position: relative;
   overflow: hidden;
-  box-shadow: var(--lift);
-}
-.story::after {
-  content: "";
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(198, 161, 91, 0.22), transparent 70%);
+  box-shadow: var(--lift), 0 0 60px -30px rgba(216, 185, 120, 0.5);
 }
 .story .eyebrow {
-  color: var(--gold);
-}
-.story .eyebrow::before {
-  background: var(--gold);
+  color: var(--brass);
 }
 .storyText {
   font-family: var(--display);
   font-weight: 600;
-  font-size: clamp(20px, 2.7vw, 27px);
+  font-size: clamp(20px, 2.8vw, 28px);
   line-height: 1.44;
   max-width: 60ch;
   letter-spacing: -0.01em;
   position: relative;
+  color: #f3f6fb;
 }
 .storyText b {
-  color: var(--gold);
+  color: var(--brass);
   font-weight: 700;
+  text-shadow: 0 0 20px rgba(216, 185, 120, 0.4);
 }
 .storyMeta {
   margin-top: 22px;
   font-size: 12px;
-  color: #8fa0b8;
+  color: var(--ink-faint);
   font-family: var(--mono);
   letter-spacing: 0.03em;
   position: relative;
@@ -660,29 +673,31 @@
 /* ── footer ───────────────────────────────────────────────────────────────── */
 .footer {
   max-width: 1080px;
-  margin: 0 auto;
-  padding: 32px clamp(20px, 5vw, 56px) 56px;
+  margin: 24px auto 0;
+  padding: 32px clamp(20px, 5vw, 56px) 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  color: var(--muted);
+  color: var(--ink-faint);
   font-size: 12.5px;
-  border-top: 1px solid var(--hair);
-  margin-top: 24px;
+  border-top: 1px solid var(--hair-soft);
 }
 .lock {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+.lock svg {
+  opacity: 0.6;
+}
 .powered {
   font-family: var(--mono);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-size: 10.5px;
-  color: var(--gold-deep);
+  color: var(--brass);
 }
 
 /* ── entrance motion ──────────────────────────────────────────────────────── */
@@ -702,7 +717,7 @@
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(16px);
   }
 }
 
@@ -724,6 +739,6 @@
     grid-template-columns: 1fr;
   }
   .hero {
-    padding-top: 44px;
+    padding-top: 52px;
   }
 }

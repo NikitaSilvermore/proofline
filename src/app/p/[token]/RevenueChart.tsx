@@ -49,19 +49,26 @@ export default function RevenueChart({
     >
       <defs>
         <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#C6A15B" stopOpacity="0.28" />
-          <stop offset="100%" stopColor="#C6A15B" stopOpacity="0" />
+          <stop offset="0%" stopColor="#D8B978" stopOpacity="0.34" />
+          <stop offset="100%" stopColor="#D8B978" stopOpacity="0" />
         </linearGradient>
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
       </defs>
 
       {/* gridlines + y labels */}
-      <g stroke="#EDF0F4" strokeWidth={1}>
+      <g stroke="rgba(255,255,255,0.09)" strokeWidth={1}>
         {gridVals.map((v, i) => {
           const gy = y(v);
           return <line key={i} x1={40} y1={gy} x2={545} y2={gy} />;
         })}
       </g>
-      <g fontFamily="Spline Sans Mono, monospace" fontSize={11} fill="#9AA6B8">
+      <g fontFamily="Spline Sans Mono, monospace" fontSize={11} fill="#6b7d95">
         {gridVals.map((v, i) => (
           <text key={i} x={6} y={y(v) + 4}>
             {money(Math.round(v))}
@@ -74,25 +81,26 @@ export default function RevenueChart({
       <polyline
         points={line}
         fill="none"
-        stroke="#0E1A2B"
+        stroke="#D8B978"
         strokeWidth={2.5}
         strokeLinecap="round"
         strokeLinejoin="round"
+        filter="url(#glow)"
       />
 
       {/* points */}
-      <g fill="#0E1A2B">
+      <g fill="#D8B978">
         {pts.slice(0, -1).map((p, i) => (
-          <circle key={i} cx={p.px} cy={p.py} r={4} />
+          <circle key={i} cx={p.px} cy={p.py} r={3.5} opacity={0.7} />
         ))}
       </g>
-      <circle cx={last.px} cy={last.py} r={6.5} fill="#C6A15B" stroke="#fff" strokeWidth={2.5} />
+      <circle cx={last.px} cy={last.py} r={6.5} fill="#D8B978" stroke="#0a1119" strokeWidth={2.5} filter="url(#glow)" />
 
       {/* x labels */}
       <g
         fontFamily="Spline Sans Mono, monospace"
         fontSize={11.5}
-        fill="#64748B"
+        fill="#6b7d95"
         textAnchor="middle"
       >
         {pts.map((p, i) => (
@@ -100,7 +108,7 @@ export default function RevenueChart({
             key={i}
             x={p.px}
             y={226}
-            fill={i === n - 1 ? "#A8863F" : "#64748B"}
+            fill={i === n - 1 ? "#D8B978" : "#6b7d95"}
             fontWeight={i === n - 1 ? 700 : 400}
           >
             {p.label}
@@ -114,7 +122,7 @@ export default function RevenueChart({
         fontFamily="Spline Sans Mono, monospace"
         fontSize={13}
         fontWeight={700}
-        fill="#A8863F"
+        fill="#D8B978"
       >
         {"$" + last.value.toLocaleString("en-US")}
       </text>
