@@ -1,33 +1,56 @@
-/* Weekly check-in — ported from the check-in modal + success state in
-   design-reference/nls_student_dashboard_demo.html, presented as a full page
-   (BUILD_SPEC.md §3, §6.2). Tokens from globals.css. */
+/* Weekly check-in — "Midnight & Brass" treatment (matches progress + intake). */
 
 .page {
+  --bg-0: #0a1119;
+  --bg-1: #0e1a2b;
+  --glass: rgba(255, 255, 255, 0.04);
+  --hair-soft: rgba(255, 255, 255, 0.09);
+  --ink-text: #eef2f8;
+  --ink-muted: #92a2b8;
+  --ink-faint: #6b7d95;
+  --brass: #d8b978;
+  --brass-deep: #c6a15b;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--paper);
-  color: var(--text);
+  background:
+    radial-gradient(90% 50% at 80% -8%, rgba(198, 161, 91, 0.16), transparent 60%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
+  background-attachment: fixed;
+  color: var(--ink-text);
   font-size: 16px;
   line-height: 1.55;
 }
 
 .ribbon {
-  background: var(--gold-soft);
-  color: var(--gold-deep);
+  background: transparent;
+  color: var(--brass);
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   text-align: center;
-  padding: 7px 12px;
-  border-bottom: 1px solid #e8dcc2;
+  padding: 11px 12px 9px;
+  opacity: 0.85;
 }
 
 .masthead {
-  background: linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
-  color: #edf1f7;
+  background: rgba(10, 17, 25, 0.5);
+  backdrop-filter: blur(10px);
+  color: var(--ink-text);
   padding: 0 clamp(20px, 4vw, 48px);
+  position: relative;
+  border-bottom: 1px solid rgba(198, 161, 91, 0.16);
+}
+.masthead::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brass), transparent);
+  opacity: 0.6;
 }
 .mastheadInner {
   max-width: 760px;
@@ -35,7 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 0;
+  padding: 16px 0;
 }
 .brand {
   display: flex;
@@ -43,32 +66,35 @@
   gap: 12px;
 }
 .monogram {
-  width: 38px;
-  height: 38px;
-  border-radius: 9px;
-  border: 1.5px solid var(--gold);
-  color: var(--gold);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(216, 185, 120, 0.5);
+  color: var(--brass);
   display: grid;
   place-items: center;
   font-family: var(--display);
   font-weight: 800;
   font-size: 13px;
+  background: radial-gradient(120% 120% at 30% 20%, rgba(216, 185, 120, 0.2), transparent 70%);
+  box-shadow: 0 0 20px -6px rgba(216, 185, 120, 0.4);
 }
 .brandName {
   font-family: var(--display);
   font-weight: 700;
   font-size: 15.5px;
+  color: #fff;
 }
 .brandSub {
-  font-size: 11px;
-  color: #9fb0c6;
-  letter-spacing: 0.08em;
+  font-size: 10.5px;
+  color: var(--ink-faint);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 .weekTag {
   font-family: var(--mono);
   font-size: 12px;
-  color: #c6d1e0;
+  color: var(--ink-muted);
 }
 
 .stage {
@@ -81,77 +107,86 @@
 .card {
   width: 100%;
   max-width: 520px;
-  background: var(--card);
-  border: 1px solid var(--line);
+  background: var(--glass);
+  border: 1px solid var(--hair-soft);
   border-radius: 22px;
-  padding: 32px 32px 28px;
+  padding: 34px 34px 30px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.8);
 }
 
 .dots {
   display: flex;
   gap: 6px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 .dots span {
   width: 26px;
   height: 4px;
   border-radius: 2px;
-  background: var(--line);
+  background: rgba(255, 255, 255, 0.1);
   transition: background 0.2s;
 }
 .dots span.on {
-  background: var(--gold);
+  background: var(--brass);
+  box-shadow: 0 0 8px rgba(216, 185, 120, 0.6);
 }
 
 .qLabel {
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold-deep);
-  margin-bottom: 8px;
+  color: var(--brass);
+  margin-bottom: 10px;
 }
 .qTitle {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 21px;
-  color: var(--ink);
+  font-size: 22px;
+  color: #fff;
   line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 .qBody {
-  margin-top: 20px;
+  margin-top: 22px;
 }
 .numInput,
 .textInput {
   width: 100%;
-  border: 1.5px solid var(--line);
+  border: 1px solid var(--hair-soft);
   border-radius: 12px;
-  padding: 14px 16px;
+  padding: 15px 16px;
   font-size: 17px;
   font-family: var(--mono);
-  color: var(--ink);
-  background: var(--paper);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.03);
 }
 .textInput {
   font-family: var(--body);
   font-size: 15.5px;
 }
+.numInput::placeholder,
+.textInput::placeholder {
+  color: var(--ink-faint);
+}
 .numInput:focus,
 .textInput:focus {
-  border-color: var(--gold);
+  border-color: var(--brass);
   outline: none;
 }
 .sliderVal {
   font-family: var(--mono);
   font-weight: 700;
-  font-size: 34px;
-  color: var(--ink);
+  font-size: 36px;
+  color: #fff;
   text-align: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  text-shadow: 0 0 20px rgba(216, 185, 120, 0.3);
 }
 .range {
   width: 100%;
-  accent-color: var(--gold-deep);
+  accent-color: var(--brass);
   height: 6px;
   cursor: pointer;
 }
@@ -159,8 +194,8 @@
   display: flex;
   justify-content: space-between;
   font-size: 11px;
-  color: #9aa6b8;
-  margin-top: 6px;
+  color: var(--ink-faint);
+  margin-top: 8px;
   font-family: var(--mono);
 }
 .chips {
@@ -169,25 +204,29 @@
   flex-wrap: wrap;
 }
 .chips button {
-  border: 1.5px solid var(--line);
-  background: var(--card);
+  border: 1px solid var(--hair-soft);
+  background: var(--glass);
   border-radius: 999px;
-  padding: 10px 16px;
+  padding: 11px 17px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--text);
-  transition: all 0.12s ease;
+  color: var(--ink-text);
+  transition: all 0.14s ease;
   cursor: pointer;
   font-family: var(--body);
 }
+.chips button:hover {
+  border-color: rgba(216, 185, 120, 0.5);
+}
 .chips button.sel {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #fff;
+  background: linear-gradient(160deg, var(--brass), var(--brass-deep));
+  border-color: var(--brass);
+  color: var(--bg-1);
+  box-shadow: 0 0 18px -6px rgba(216, 185, 120, 0.7);
 }
 
 .nav {
-  margin-top: 26px;
+  margin-top: 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -195,7 +234,7 @@
 .btnBack {
   background: none;
   border: none;
-  color: var(--muted);
+  color: var(--ink-muted);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -205,34 +244,37 @@
   visibility: hidden;
 }
 .btnNext {
-  background: var(--ink);
-  color: #fff;
+  background: linear-gradient(160deg, var(--brass) 0%, var(--brass-deep) 100%);
+  color: var(--bg-1);
   border: none;
-  border-radius: 11px;
-  padding: 13px 26px;
+  border-radius: 12px;
+  padding: 14px 28px;
   font-size: 15px;
   font-weight: 700;
-  transition: transform 0.12s ease;
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
   cursor: pointer;
   font-family: var(--body);
+  box-shadow: 0 0 26px -8px rgba(216, 185, 120, 0.8);
 }
 .btnNext:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 0 34px -6px rgba(216, 185, 120, 0.95);
 }
 .btnNext:disabled {
-  opacity: 0.55;
+  opacity: 0.4;
   cursor: default;
   transform: none;
+  box-shadow: none;
 }
 .timerHint {
   font-family: var(--mono);
   font-size: 11px;
-  color: #9aa6b8;
+  color: var(--ink-faint);
   text-align: center;
-  margin-top: 16px;
+  margin-top: 18px;
 }
 .errText {
-  color: var(--red);
+  color: #f0a3a3;
   font-size: 13.5px;
   margin-top: 12px;
 }
@@ -242,59 +284,61 @@
   text-align: center;
 }
 .bigCheck {
-  width: 64px;
-  height: 64px;
-  margin: 6px auto 18px;
+  width: 68px;
+  height: 68px;
+  margin: 6px auto 20px;
   border-radius: 50%;
-  background: var(--gold);
+  background: linear-gradient(160deg, var(--brass), var(--brass-deep));
   display: grid;
   place-items: center;
-  color: var(--ink);
-  font-size: 28px;
+  color: var(--bg-1);
+  font-size: 30px;
   font-weight: 800;
+  box-shadow: 0 0 40px -6px rgba(216, 185, 120, 0.9);
 }
 .success h4 {
   font-family: var(--display);
   font-weight: 800;
-  font-size: 24px;
-  color: var(--ink);
+  font-size: 25px;
+  color: #fff;
 }
 .success p {
-  color: var(--muted);
+  color: var(--ink-muted);
   font-size: 14.5px;
   margin-top: 10px;
 }
 .streakBump {
-  margin: 18px auto 0;
+  margin: 20px auto 0;
   display: inline-block;
   font-family: var(--mono);
   font-weight: 700;
   font-size: 14px;
-  color: var(--gold-deep);
-  background: var(--gold-soft);
+  color: var(--brass);
+  background: rgba(216, 185, 120, 0.12);
   padding: 8px 16px;
   border-radius: 999px;
 }
 .progBump {
   display: block;
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 13px;
-  color: var(--green);
+  color: #6ee0ac;
   font-weight: 600;
 }
 .finishBtn {
   margin-top: 26px;
-  background: var(--ink);
-  color: #fff;
+  background: linear-gradient(160deg, var(--brass), var(--brass-deep));
+  color: var(--bg-1);
   border: none;
-  border-radius: 11px;
-  padding: 13px 26px;
+  border-radius: 12px;
+  padding: 14px 28px;
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   font-family: var(--body);
   text-decoration: none;
   display: inline-block;
+  box-shadow: 0 0 28px -8px rgba(216, 185, 120, 0.8);
 }
 
 .confetti {

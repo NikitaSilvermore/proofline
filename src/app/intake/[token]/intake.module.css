@@ -1,32 +1,57 @@
-/* Ported verbatim from design-reference/nls_baseline_intake_demo.html — the
-   visual contract (BUILD_SPEC.md §11). Tokens come from globals.css :root. */
+/* Baseline intake — "Midnight & Brass" treatment (matches the progress page).
+   Luxe dark ground, glowing brass, glassy inputs. Tokens from globals.css. */
 
 .page {
+  --bg-0: #0a1119;
+  --bg-1: #0e1a2b;
+  --glass: rgba(255, 255, 255, 0.04);
+  --hair-soft: rgba(255, 255, 255, 0.09);
+  --ink-text: #eef2f8;
+  --ink-muted: #92a2b8;
+  --ink-faint: #6b7d95;
+  --brass: #d8b978;
+  --brass-deep: #c6a15b;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--paper);
-  color: var(--text);
+  background:
+    radial-gradient(90% 50% at 80% -8%, rgba(198, 161, 91, 0.16), transparent 60%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
+  background-attachment: fixed;
+  color: var(--ink-text);
   font-size: 16px;
   line-height: 1.55;
 }
 
 .ribbon {
-  background: var(--gold-soft);
-  color: var(--gold-deep);
+  background: transparent;
+  color: var(--brass);
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   text-align: center;
-  padding: 7px 12px;
-  border-bottom: 1px solid #e8dcc2;
+  padding: 11px 12px 9px;
+  opacity: 0.85;
 }
 
 .masthead {
-  background: linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
-  color: #edf1f7;
+  background: rgba(10, 17, 25, 0.5);
+  backdrop-filter: blur(10px);
+  color: var(--ink-text);
   padding: 0 clamp(20px, 4vw, 48px);
+  position: relative;
+  border-bottom: 1px solid rgba(198, 161, 91, 0.16);
+}
+.masthead::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brass), transparent);
+  opacity: 0.6;
 }
 .mastheadInner {
   max-width: 760px;
@@ -34,7 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 0;
+  padding: 16px 0;
 }
 .brand {
   display: flex;
@@ -42,32 +67,35 @@
   gap: 12px;
 }
 .monogram {
-  width: 38px;
-  height: 38px;
-  border-radius: 9px;
-  border: 1.5px solid var(--gold);
-  color: var(--gold);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(216, 185, 120, 0.5);
+  color: var(--brass);
   display: grid;
   place-items: center;
   font-family: var(--display);
   font-weight: 800;
   font-size: 13px;
+  background: radial-gradient(120% 120% at 30% 20%, rgba(216, 185, 120, 0.2), transparent 70%);
+  box-shadow: 0 0 20px -6px rgba(216, 185, 120, 0.4);
 }
 .brandName {
   font-family: var(--display);
   font-weight: 700;
   font-size: 15.5px;
+  color: #fff;
 }
 .brandSub {
-  font-size: 11px;
-  color: #9fb0c6;
-  letter-spacing: 0.08em;
+  font-size: 10.5px;
+  color: var(--ink-faint);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 .stepCount {
   font-family: var(--mono);
   font-size: 12px;
-  color: #c6d1e0;
+  color: var(--ink-muted);
 }
 
 .stage {
@@ -83,16 +111,17 @@
 }
 
 .bar {
-  height: 5px;
-  background: var(--line);
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 3px;
   overflow: hidden;
-  margin-bottom: 34px;
+  margin-bottom: 36px;
 }
 .barFill {
   height: 100%;
-  background: linear-gradient(90deg, var(--gold-deep), var(--gold));
+  background: linear-gradient(90deg, var(--brass-deep), var(--brass));
   border-radius: 3px;
+  box-shadow: 0 0 10px rgba(216, 185, 120, 0.6);
   transition: width 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
@@ -114,92 +143,98 @@
   font-family: var(--mono);
   font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold-deep);
-  margin-bottom: 12px;
+  color: var(--brass);
+  margin-bottom: 14px;
 }
 .qTitle {
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(26px, 4.4vw, 38px);
-  line-height: 1.1;
-  letter-spacing: -0.015em;
-  color: var(--ink);
+  font-size: clamp(27px, 4.6vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-wrap: balance;
 }
 .qHelp {
-  margin-top: 12px;
-  color: var(--muted);
+  margin-top: 14px;
+  color: var(--ink-muted);
   font-size: 15.5px;
+  line-height: 1.6;
   max-width: 52ch;
 }
 .qBody {
-  margin-top: 30px;
+  margin-top: 32px;
 }
 
 .bigInput {
   width: 100%;
   border: none;
-  border-bottom: 2.5px solid var(--line);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.16);
   background: transparent;
-  padding: 6px 2px 12px;
+  padding: 6px 2px 14px;
   font-family: var(--mono);
   font-weight: 600;
-  font-size: clamp(30px, 5vw, 42px);
-  color: var(--ink);
+  font-size: clamp(30px, 5vw, 44px);
+  color: #fff;
   letter-spacing: -0.01em;
 }
 .bigInput:focus {
   outline: none;
-  border-color: var(--gold);
+  border-color: var(--brass);
 }
 .bigInput::placeholder {
-  color: #c4ccd8;
+  color: #46586f;
 }
 .inputHint {
   font-size: 13px;
-  color: var(--muted);
-  margin-top: 12px;
+  color: var(--ink-faint);
+  margin-top: 14px;
   font-family: var(--mono);
 }
 
 .textarea {
   width: 100%;
-  border: 1.5px solid var(--line);
+  border: 1px solid var(--hair-soft);
   border-radius: 14px;
-  background: var(--card);
+  background: var(--glass);
   padding: 18px;
   font-family: var(--body);
   font-size: 17px;
   line-height: 1.55;
-  color: var(--ink);
+  color: #fff;
   resize: vertical;
-  min-height: 120px;
+  min-height: 130px;
+}
+.textarea::placeholder {
+  color: var(--ink-faint);
 }
 .textarea:focus {
   outline: none;
-  border-color: var(--gold);
+  border-color: var(--brass);
 }
 
 .sliderVal {
   font-family: var(--mono);
   font-weight: 700;
-  font-size: 56px;
-  color: var(--ink);
+  font-size: 58px;
+  color: #fff;
   text-align: center;
   line-height: 1;
+  text-shadow: 0 0 24px rgba(216, 185, 120, 0.3);
 }
 .sliderWord {
   text-align: center;
   font-size: 14px;
-  color: var(--gold-deep);
+  color: var(--brass);
   font-weight: 600;
-  margin: 6px 0 22px;
+  margin: 8px 0 24px;
   min-height: 20px;
 }
 .range {
   width: 100%;
-  accent-color: var(--gold-deep);
+  accent-color: var(--brass);
   height: 6px;
   cursor: pointer;
 }
@@ -207,8 +242,8 @@
   display: flex;
   justify-content: space-between;
   font-size: 11.5px;
-  color: #9aa6b8;
-  margin-top: 8px;
+  color: var(--ink-faint);
+  margin-top: 10px;
   font-family: var(--mono);
 }
 
@@ -218,21 +253,25 @@
   flex-wrap: wrap;
 }
 .chips button {
-  border: 1.5px solid var(--line);
-  background: var(--card);
+  border: 1px solid var(--hair-soft);
+  background: var(--glass);
   border-radius: 999px;
   padding: 13px 22px;
   font-size: 15px;
   font-weight: 600;
-  color: var(--text);
-  transition: all 0.12s ease;
+  color: var(--ink-text);
+  transition: all 0.14s ease;
   font-family: var(--body);
   cursor: pointer;
 }
+.chips button:hover {
+  border-color: rgba(216, 185, 120, 0.5);
+}
 .chips button.sel {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #fff;
+  background: linear-gradient(160deg, var(--brass), var(--brass-deep));
+  border-color: var(--brass);
+  color: var(--bg-1);
+  box-shadow: 0 0 20px -6px rgba(216, 185, 120, 0.7);
 }
 
 .consent {
@@ -244,28 +283,28 @@
   display: flex;
   gap: 14px;
   align-items: flex-start;
-  background: var(--card);
-  border: 1.5px solid var(--line);
+  background: var(--glass);
+  border: 1px solid var(--hair-soft);
   border-radius: 14px;
   padding: 16px 18px;
   font-size: 14.5px;
-  color: var(--text);
+  color: var(--ink-text);
   cursor: pointer;
-  transition: border-color 0.12s ease;
+  transition: border-color 0.14s ease;
 }
 .consent label:has(input:checked) {
-  border-color: var(--gold);
+  border-color: var(--brass);
 }
 .consent input {
   margin-top: 3px;
-  accent-color: var(--gold-deep);
+  accent-color: var(--brass);
   width: 17px;
   height: 17px;
   flex: 0 0 17px;
 }
 
 .nav {
-  margin-top: 38px;
+  margin-top: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -273,88 +312,98 @@
 .btnBack {
   background: none;
   border: none;
-  color: var(--muted);
+  color: var(--ink-muted);
   font-size: 14.5px;
   font-weight: 600;
   font-family: var(--body);
   cursor: pointer;
 }
+.btnBack:hover {
+  color: var(--ink-text);
+}
 .btnNext {
-  background: var(--ink);
-  color: #fff;
+  background: linear-gradient(160deg, var(--brass) 0%, var(--brass-deep) 100%);
+  color: var(--bg-1);
   border: none;
   border-radius: 12px;
   padding: 16px 34px;
   font-size: 16px;
   font-weight: 700;
-  transition: transform 0.12s ease;
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
   font-family: var(--body);
   cursor: pointer;
+  box-shadow: 0 0 28px -8px rgba(216, 185, 120, 0.8);
 }
 .btnNext:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 0 36px -6px rgba(216, 185, 120, 0.95);
 }
 .btnNext:disabled {
-  opacity: 0.55;
+  opacity: 0.4;
   cursor: default;
   transform: none;
+  box-shadow: none;
 }
 .btnNext.gold {
-  background: var(--gold);
-  color: var(--ink);
+  background: linear-gradient(160deg, var(--brass) 0%, var(--brass-deep) 100%);
+  color: var(--bg-1);
 }
 .timeHint {
   font-family: var(--mono);
   font-size: 11.5px;
-  color: #9aa6b8;
+  color: var(--ink-faint);
   text-align: center;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 .errText {
-  color: var(--red, #b8433a);
+  color: #f0a3a3;
   font-size: 14px;
   margin-top: 14px;
 }
 
 .welcomePoints {
-  margin-top: 26px;
+  margin-top: 28px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 .wp {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: flex-start;
   font-size: 15px;
-  color: var(--text);
+  color: var(--ink-text);
 }
 .wp .n {
   font-family: var(--mono);
   font-weight: 700;
   font-size: 12px;
-  color: var(--gold-deep);
-  background: var(--gold-soft);
+  color: var(--brass);
+  background: rgba(216, 185, 120, 0.12);
   border-radius: 999px;
   padding: 3px 10px;
   margin-top: 1px;
   white-space: nowrap;
 }
 
-/* baseline stamp (finale) */
+/* baseline stamp (finale) — deep black, brass-bordered */
 .stampWrap {
   text-align: center;
 }
 .stamp {
   margin: 0 auto;
   max-width: 520px;
-  background: linear-gradient(155deg, var(--ink) 0%, var(--ink-2) 75%);
+  background:
+    radial-gradient(80% 120% at 90% 0%, rgba(216, 185, 120, 0.16), transparent 55%),
+    linear-gradient(155deg, #0c1723 0%, #05090f 75%);
+  border: 1px solid rgba(216, 185, 120, 0.3);
   border-radius: 22px;
   padding: clamp(30px, 5vw, 46px);
-  color: #edf1f7;
+  color: var(--ink-text);
   text-align: left;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.8), 0 0 60px -28px rgba(216, 185, 120, 0.6);
   animation: stampIn 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.15);
 }
 @keyframes stampIn {
@@ -367,22 +416,12 @@
     opacity: 1;
   }
 }
-.stamp::after {
-  content: "";
-  position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 210px;
-  height: 210px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(198, 161, 91, 0.22), transparent 70%);
-}
 .seal {
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  border: 2px solid var(--gold);
-  color: var(--gold);
+  border: 2px solid var(--brass);
+  color: var(--brass);
   display: grid;
   place-items: center;
   font-family: var(--display);
@@ -390,13 +429,14 @@
   font-size: 11px;
   letter-spacing: 0.06em;
   margin-bottom: 22px;
+  box-shadow: 0 0 24px -6px rgba(216, 185, 120, 0.7);
 }
 .stampEyebrow {
   font-family: var(--mono);
   font-size: 11.5px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--brass);
 }
 .stamp h2 {
   font-family: var(--display);
@@ -416,16 +456,17 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  border-bottom: 1px solid rgba(228, 231, 236, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: 9px;
   font-size: 14px;
-  color: #b9c6d8;
+  color: var(--ink-muted);
 }
 .srow b {
   font-family: var(--mono);
   font-size: 16px;
   color: #fff;
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 .stampQuote {
   margin-top: 22px;
@@ -433,31 +474,32 @@
   font-weight: 600;
   font-size: 16.5px;
   line-height: 1.5;
-  color: #edf1f7;
-  border-left: 3px solid var(--gold);
+  color: var(--ink-text);
+  border-left: 3px solid var(--brass);
   padding-left: 16px;
 }
 .stampMeta {
   margin-top: 20px;
   font-family: var(--mono);
   font-size: 12px;
-  color: #8fa0b8;
+  color: var(--ink-faint);
 }
 .stampNext {
   margin: 26px auto 0;
   max-width: 520px;
   font-size: 14.5px;
-  color: var(--muted);
+  color: var(--ink-muted);
 }
 .stampCta {
   display: inline-block;
   margin-top: 20px;
-  background: var(--ink);
-  color: #fff;
+  background: linear-gradient(160deg, var(--brass), var(--brass-deep));
+  color: var(--bg-1);
   border-radius: 12px;
   padding: 14px 30px;
   font-weight: 700;
   text-decoration: none;
+  box-shadow: 0 0 28px -8px rgba(216, 185, 120, 0.8);
 }
 
 @media (prefers-reduced-motion: reduce) {
