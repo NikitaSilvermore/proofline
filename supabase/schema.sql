@@ -204,6 +204,7 @@ on conflict (track, position) do update
 -- 4. Console allowlist seed (BUILD_SPEC §7). Edit emails to match reality.
 -- ─────────────────────────────────────────────────────────────────────────────
 insert into team_allowlist (email, note) values
-  ('bryant.nikita@hotmail.com', 'Nikita — owner'),
-  ('makenna@example.com',       'Makenna — read access (update email)')
+  ('nikita.silvermore@gmail.com', 'Nikita — owner (primary; Hotmail blocks mail)'),
+  ('bryant.nikita@hotmail.com',   'Nikita — Hotmail (unreliable delivery)'),
+  ('makenna@example.com',         'Makenna — read access (update email)')
 on conflict (email) do nothing;
