@@ -1,7 +1,9 @@
-# Proofline — working notes for Claude Code
+# Proofline (product name: **Milestamp**) — working notes for Claude Code
 
 **Read [BUILD_SPEC.md](BUILD_SPEC.md) before any task.** It is the source of truth
-for scope, data model, routes, flows, and security.
+for scope, data model, routes, flows, and security. This file's "Current
+state" section is the session-to-session briefing — **update it whenever a
+milestone lands or the state changes.**
 
 - **Design reference lives in [`/design-reference/`](design-reference/).** The three
   demo HTML files are the pixel-level visual contract — port their tokens
@@ -25,3 +27,23 @@ GHL for delivery (Resend fallback) · Vercel + Vercel Cron.
 - `npm run dev` — local dev server
 - `npm run build` — production build (must pass before deploy)
 - `npm run lint` — lint
+
+## Current state (as of 2026-07-08)
+
+- **Product renamed to Milestamp** (repo/folder still "Proofline").
+- **§8 milestones 1–7 are DONE**: deploy skeleton, schema+seeds, intake,
+  progress page ("The Dossier" treatment), weekly check-in loop + cron,
+  team console (Supabase magic-link + `team_allowlist` gate), and
+  messaging/enrolment — **CRM swapped from GHL to Close (close.com)**, see
+  DECISIONS.md 2026-07-03. Message rail `src/lib/messaging.ts` defaults to
+  `MESSAGING_PROVIDER=log` (nothing sends live) until Close env +
+  `/api/webhooks/close` are configured; checklist in README.
+- **Design**: "Midnight & Brass" dark treatment applied across progress
+  page, intake/check-in wizards, console, and hello page.
+- **Known quirk**: Hotmail blocks/junks console magic-link mail — a Gmail
+  owner address was added to the allowlist; prefer Gmail for console login.
+- **Remaining**: wire Close live (env + webhook → §8.7 DoD: a real
+  enrolment produces a live intake email untouched), then **Milestone 8 —
+  dog-food week gate** (Nikita + Becky live one full weekly cycle; no real
+  NLS student before this passes). Status write-back (§6.4) still a
+  deferred nice-to-have; §10 deferrals unchanged.
