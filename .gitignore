@@ -29,3 +29,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# marketing render output (regenerable via marketing/make-cards.mjs)
+/marketing/cards/
