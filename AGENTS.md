@@ -65,6 +65,12 @@ without being asked.** The console carries extra glow (Nikita's request).
   `/checkin/demo-jordan-token-0001` · `/console`. Re-run `seed.sql` to reset the
   12 mixed-state roster (the weekly cron recomputes flags and can flip the seeded
   colours — reseed to see the intended demo).
+- **Sibling fork exists (2026-07-10): Milestamp ACL Recovery** — a full adaptation
+  for **The ACL Rehab Guy** (ACL rehab coaching; Nikita is a client, partial tear,
+  non-surgical) at `Desktop\milestamp-acl` / github.com/NikitaSilvermore/milestamp-acl
+  (private; own briefing in its `AGENTS.md`). Code complete, not yet deployed;
+  pitch kit in its `pitch/` drawer — **pitch waits until NLS students are live.**
+  Nothing in this repo changed; the NLS roadmap below is untouched.
 
 ## Roadmap — done and remaining
 
