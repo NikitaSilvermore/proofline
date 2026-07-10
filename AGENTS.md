@@ -123,6 +123,17 @@ without being asked.** The console carries extra glow (Nikita's request).
   domain quirk under Live state. `next@15.1.x` is CVE-blocked by Vercel; stay on
   the patched `15.5.x` line.
 
+## Marketing / posting kit
+
+`marketing/POSTING-KIT.md` + `marketing/captions.md` — the go-to-market kit.
+Two voices: **@milestamp** (product/brand IG + other platforms) and **nikita.hts**
+(Nikita's personal founder account — his audience is high-ticket coaches + top
+closers; NOT the Silvermore brand). Angle: build-in-public *and* product.
+**Hard rule: nothing posts until Milestamp is live with real NLS students**, and
+any student shown as "proof" must have ticked the intake public-sharing consent
+(`consent.public_optin`). Launch sequence + captions/carousels/reels are drafted
+with `[[slots]]` for real numbers.
+
 ## Working style with Nikita
 
 Non-technical, builds via guided steps — **explain like to a five-year-old**, with
