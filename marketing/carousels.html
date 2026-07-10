@@ -66,6 +66,24 @@
 
   /* signal list */
   .rowlist{display:flex; flex-direction:column; gap:0;}
+
+  /* quote card (single, nikita.hts) */
+  .quote .body{justify-content:center;}
+  .qmark{font-family:var(--display); font-weight:800; font-size:220px; line-height:.55; color:var(--brass); text-shadow:0 0 46px rgba(216,185,120,.55);}
+  .quote h1{font-size:90px; margin-top:10px;}
+  .quote .sub{font-size:36px; margin-top:44px; max-width:26ch;}
+
+  /* reel cover / title card */
+  .reelcover h1{font-size:120px;}
+  .cue{margin-top:44px; font-family:var(--mono); font-size:30px; color:var(--brass); letter-spacing:.1em; display:inline-flex; align-items:center; gap:14px;}
+
+  /* proof template */
+  .proof .statrow{display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid rgba(255,255,255,.1); padding:30px 0;}
+  .proof .statrow:first-of-type{border-top:1px solid rgba(255,255,255,.1);}
+  .proof .statlabel{font-size:33px; color:var(--muted);}
+  .proof .statval{font-family:var(--mono); font-weight:700; font-size:46px; color:#fff;}
+  .proof .statval .g{color:var(--brass);}
+  .proof .rows{margin-top:20px;}
 </style>
 </head>
 <body>
@@ -200,6 +218,96 @@
       <span class="btn">DM me MILESTAMP</span>
     </div>
     <div class="foot"><span class="handle">nikita.hts</span><span>built with Milestamp</span></div>
+  </div>
+
+</div>
+
+<div class="cap">Quote cards · nikita.hts · single posts (slides 13–15)</div>
+<div class="deck" id="deckQ">
+
+  <div class="slide quote">
+    <div class="top"><div class="wm"><span class="dot"></span><span class="name">MILESTAMP</span></div><div class="idx">—</div></div>
+    <div class="body">
+      <div class="qmark">&ldquo;</div>
+      <h1>Your next sale isn't a funnel problem.<br>It's a <span class="g">proof problem.</span></h1>
+      <div class="sub">Everyone talks about results marketing. Nobody has the plumbing for it. So I built it.</div>
+    </div>
+    <div class="foot"><span class="handle">nikita.hts</span><span>built with Milestamp</span></div>
+  </div>
+
+  <div class="slide quote">
+    <div class="top"><div class="wm"><span class="dot"></span><span class="name">MILESTAMP</span></div><div class="idx">—</div></div>
+    <div class="body">
+      <div class="qmark">&ldquo;</div>
+      <h1>One saved student is worth <span class="g">ten cold leads.</span></h1>
+      <div class="sub">Retention is cheaper than acquisition and nobody acts like it. Milestamp saves the ones you're losing in silence.</div>
+    </div>
+    <div class="foot"><span class="handle">nikita.hts</span><span>built with Milestamp</span></div>
+  </div>
+
+  <div class="slide quote">
+    <div class="top"><div class="wm"><span class="dot"></span><span class="name">MILESTAMP</span></div><div class="idx">—</div></div>
+    <div class="body">
+      <div class="qmark">&ldquo;</div>
+      <h1>The easiest offer to sell is one with <span class="g">receipts.</span></h1>
+      <div class="sub">Closers: if the coach you close for can't show live client results, that's a proof problem. Send them Milestamp.</div>
+    </div>
+    <div class="foot"><span class="handle">nikita.hts</span><span>for closers &amp; offer owners</span></div>
+  </div>
+
+</div>
+
+<div class="cap">Reel cover frames · title cards for screen-record reels (slides 16–18)</div>
+<div class="deck" id="deckR">
+
+  <div class="slide reelcover">
+    <div class="top"><div class="wm"><span class="dot"></span><span class="name">MILESTAMP</span></div><div class="idx">▶</div></div>
+    <div class="body">
+      <div class="eyebrow">Build in public</div>
+      <h1>I built the tool every coaching programme is <span class="g">missing.</span></h1>
+      <div class="cue">the story ↓</div>
+    </div>
+    <div class="foot"><span class="handle">nikita.hts</span><span>the making of Milestamp</span></div>
+  </div>
+
+  <div class="slide reelcover">
+    <div class="top"><div class="wm"><span class="dot"></span><span class="name">MILESTAMP</span></div><div class="idx">▶</div></div>
+    <div class="body">
+      <div class="eyebrow">Behind the design</div>
+      <h1>Coaching software shouldn't look like <span class="g">tax software.</span></h1>
+      <div class="cue">watch ↓</div>
+    </div>
+    <div class="foot"><span class="handle">nikita.hts</span><span>Midnight &amp; Brass</span></div>
+  </div>
+
+  <div class="slide reelcover">
+    <div class="top"><div class="wm"><span class="dot"></span><span class="name">MILESTAMP</span></div><div class="idx">▶</div></div>
+    <div class="body">
+      <div class="eyebrow">30 seconds a day</div>
+      <h1>See who's about to quit — <span class="g">before</span> they do.</h1>
+      <div class="cue">the console ↓</div>
+    </div>
+    <div class="foot"><span class="handle">@milestamp</span><span>the console, in 30 seconds</span></div>
+  </div>
+
+</div>
+
+<div class="cap">Proof template · @milestamp · fill [[slots]] with a real, consented student (slide 19)</div>
+<div class="deck" id="deckP">
+
+  <div class="slide proof">
+    <div class="top"><div class="wm"><span class="dot"></span><span class="name">MILESTAMP</span></div><div class="idx">★</div></div>
+    <div class="body">
+      <div class="eyebrow">A real Milestamp moment</div>
+      <h1>[[Name]], <span class="g">week [[N]].</span></h1>
+      <div class="rows">
+        <div class="statrow"><span class="statlabel">Confirmed from the stage</span><span class="statval">$0 &rarr; <span class="g">$[[X]]</span></span></div>
+        <div class="statrow"><span class="statlabel">Stage confidence</span><span class="statval">[[a]]/10 &rarr; <span class="g">[[b]]/10</span></span></div>
+        <div class="statrow"><span class="statlabel">Milestone earned</span><span class="statval g">[[milestone]]</span></div>
+      </div>
+      <div class="sub" style="margin-top:36px; font-size:32px;">Not a testimonial we chased. A win, logged live, with the numbers behind it.</div>
+    </div>
+    <div class="foot"><span class="handle">@milestamp</span><span>shared with consent</span></div>
   </div>
 
 </div>
