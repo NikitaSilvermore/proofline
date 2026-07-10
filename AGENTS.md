@@ -27,13 +27,21 @@ brass/gold, glassy panels) applied across every surface. The student progress
 page and its glowing revenue graph are **considered perfect — do not restyle them
 without being asked.** The console carries extra glow (Nikita's request).
 
-## Live state (as of 2026-07-08)
+## Live state (as of 2026-07-10)
 
 - **https://proofline-rosy.vercel.app** — LIVE. Vercel (team "silvermore", Hobby)
   auto-deploys every push to `main` of **github.com/NikitaSilvermore/proofline**.
   **Pushing to main IS deploying** — `npm run build` must be green first.
 - **§8 milestones 1–7 DONE**: deploy skeleton · schema+seeds · intake · progress
   page · weekly check-in loop + cron · team console · messaging/enrolment.
+- **Design & brand DONE**: renamed **Proofline → Milestamp** (visible name; repo
+  still "proofline"). **"Midnight & Brass" dark theme applied across every surface**
+  (progress, intake, check-in, console, hello) + a console **glow pass** (Nikita's
+  request). The **student progress page + its glowing graph are considered
+  perfect — do NOT restyle them.** Design was the pivot that clicked ("I fking
+  love it") after a subtle light version fell flat.
+- **Console login WORKS** end-to-end via Gmail (Resend SMTP). Marketing **posting
+  kit built** — see the Marketing section below.
 - **Email works via Resend as Supabase's custom SMTP.** Supabase's built-in
   emailer is unreliable (dropped mail to Hotmail *and* Gmail) — replaced it.
   Sender `onboarding@resend.dev` (Resend **test mode**: can only email the Resend
@@ -60,15 +68,20 @@ without being asked.** The console carries extra glow (Nikita's request).
 
 ## Roadmap — done and remaining
 
-- Milestones **1–7 ✅** (all built, deployed, mostly demonstrated live).
-- **Turn on student email sending ⬜** — the app logs messages but sends none.
-  To email real students: verify a domain in Resend (DNS records) → set Vercel env
-  `MESSAGING_PROVIDER=resend` (or `close`), `RESEND_API_KEY`, `RESEND_FROM` (or the
-  `CLOSE_*` set + point a Close webhook at `/api/webhooks/close`). Checklist in
-  README. Open question: is the student rail **Close** (CRM+sender, Nikita's pick)
-  or **Resend** (already wired for auth)? Confirm before wiring live.
+- Milestones **1–7 ✅** (all built, deployed, demonstrated live) + design/brand ✅.
+- **▶ NEXT SESSION STARTS HERE — turn on student email sending ⬜.** The app logs
+  messages but sends none (`MESSAGING_PROVIDER=log`). **Resend is already proven**
+  (it powers console-login email as Supabase SMTP), so the easy path is Resend for
+  students too: **verify a domain in Resend (DNS records) → in Resend switch the
+  sender from `onboarding@resend.dev` to `hello@<domain>` → set Vercel env
+  `MESSAGING_PROVIDER=resend`, `RESEND_API_KEY`, `RESEND_FROM`.** (Alt rail = Close:
+  `CLOSE_*` env + point a Close webhook at `/api/webhooks/close`; Nikita picked
+  Close as CRM+sender but Resend is the faster path.) **Open question to ask Nikita
+  first:** does he have DNS access for a domain to verify? US students → SMS needs
+  10DLC; recommend email-only to start.
 - **Milestone 8 — dog-food gate ⬜** — Nikita + Becky enrol via the real trigger
-  and live one full weekly cycle. **No real NLS student before this passes.**
+  and live one full weekly cycle. **No real NLS student before this passes.** This
+  also unlocks the first real **proof** marketing posts.
 - Status write-back (§6.4) — deferred nice-to-have. §10 deferrals unchanged.
 
 ## Architecture map
@@ -133,6 +146,14 @@ closers; NOT the Silvermore brand). Angle: build-in-public *and* product.
 any student shown as "proof" must have ticked the intake public-sharing consent
 (`consent.public_optin`). Launch sequence + captions/carousels/reels are drafted
 with `[[slots]]` for real numbers.
+
+**Rendered slide designs**: `marketing/carousels.html` is the on-brand (Midnight &
+Brass) source for **19 IG 4:5 slides** — 2 carousels (how-it-works, "5 signs a
+client is about to ghost"), 3 quote cards, 3 reel covers, 1 proof template. Render
+to PNGs with `node marketing/make-cards.mjs` → `marketing/cards/` (gitignored,
+regenerable; uses puppeteer-core + system Chrome). Nikita's verdict: "absolutely
+superb." Not-yet-done: live-app **screenshot** showcase cards (the glowing graph /
+console) — the best asset, but needs a real student + console access first.
 
 ## Working style with Nikita
 
