@@ -115,8 +115,11 @@ the emotional cost; no decision to change — revisit if response decays).
 
 **This week — blockers (mostly Nikita):**
 1. Get + read both agreements (T5); solicitor eyeball.
-2. Draft the two papers — Ted licence (£99, day-90 payment, Close access) +
-   Makenna one-pager (data/brand/case-study rights, non-replication). (N2/T1/T17)
+2. Draft the two papers (N2/T1/T17): **Ted licence DRAFTED ✅ 2026-07-11** →
+   `legal/Milestamp-Pilot-Licence-Agreement-DRAFT.docx` (+ cover email in
+   `legal/ted-cover-email.md`; blanks to fill: entity names/addresses, Ted +
+   Cassie surnames, payment method, governing law — then solicitor review).
+   **Makenna one-pager still to draft ⬜.**
 3. ~~Delete the sandbag line~~ ✅ done 2026-07-11. (T14)
 4. Vercel Hobby → paid plan. (T21)
 5. Book UKIPO + USPTO + attorney trademark searches. (T19)

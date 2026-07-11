@@ -146,10 +146,12 @@ console carries extra glow (Nikita's request).
   Summary of what's next:
 - **Nikita-side blockers (this week, need his identity — prep so his part is
   copy-paste):** get + read both agreements from Ted (his ↔ All Out Sales, and
-  All Out Sales ↔ NLS; solicitor eyeball for IP-assignment) ⬜ · draft the **two
-  papers** (Ted licence: £99, day-90 payment start, Close access; Makenna
-  one-pager: data/brand/case-study rights, non-replication) — **both signed
-  before student #1 enrols, no momentum exceptions** ⬜ · **Vercel Hobby → paid**
+  All Out Sales ↔ NLS; solicitor eyeball for IP-assignment) ⬜ · the **two
+  papers** — **Ted licence DRAFTED ✅** (`legal/Milestamp-Pilot-Licence-Agreement-DRAFT.docx`
+  + cover email `legal/ted-cover-email.md`; Nikita fills the yellow blanks +
+  solicitor review; regenerate from `legal/ted-agreement.html` via Word COM if
+  edited) · Makenna one-pager ⬜ — **both signed before student #1 enrols, no
+  momentum exceptions** · **Vercel Hobby → paid**
   (Hobby bans commercial use) ⬜ · book UKIPO + USPTO + attorney trademark
   searches (Milestone 9b hard-blocked until clear) ⬜.
 - **▶ Build side starts here — turn on student email sending ⬜** (= the "sends we
