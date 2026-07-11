@@ -102,6 +102,16 @@ console carries extra glow (Nikita's request).
   Milestamp domain). Vercel (team **"silvermore"**, Hobby) auto-deploys every push
   to `main` of **github.com/NikitaSilvermore/proofline**. **Pushing to main IS
   deploying** — `npm run build` must be green first.
+- **⚠ Vercel seat-block warning (discovered 2026-07-11 via wordhoard):** the
+  team's `milestamp-acl` project has ALL git deployments silently BLOCKED
+  ("commit author does not have contributing access", seatBlock
+  `TEAM_ACCESS_REQUIRED`) — same disease that froze wordhoard.day on a 3-day-old
+  build. Cause: commits authored `bryant.nikita@hotmail.com` don't map to a
+  member of the Pro team "silvermore". `proofline` itself deployed READY as of
+  2026-07-11 16:44 UTC, but verify after pushes; if it flips to BLOCKED, the fix
+  options live in the wordhoard `AGENTS.md` handoff (⚠ block at top): connect
+  GitHub↔Vercel login / add the hotmail email to the GitHub account, or a
+  one-off `npx vercel deploy --prod` (CLI authed on this machine).
 - **§8 milestones 1–7 DONE**: deploy skeleton · schema+seeds · intake · progress
   page · weekly check-in loop + cron · team console · messaging/enrolment.
 - **Design & brand DONE**: renamed **Proofline → Milestamp** (visible name only —
