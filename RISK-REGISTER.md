@@ -131,7 +131,9 @@ the emotional cost; no decision to change — revisit if response decays).
    **Makenna one-pager still to draft ⬜.**
 3. ~~Delete the sandbag line~~ ✅ done 2026-07-11. (T14)
 4. Vercel Hobby → paid plan. (T21)
-5. Book UKIPO + USPTO + attorney trademark searches. (T19)
+5. Book UKIPO + USPTO + attorney trademark searches. (T19) **First settle the
+   canonical spelling: PRICING.md writes "MileStamp" (capital S); the app, repo
+   and Ted agreement all render "Milestamp" — one form goes on the filing.**
 
 **Before more feature code ships (build side):**
 6. Wire the live rail: Close opportunity-won webhook (via Ted) + Resend sends we
