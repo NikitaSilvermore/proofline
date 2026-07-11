@@ -29,9 +29,12 @@ Post-context odds estimate: ~1-in-3 (was ~1-in-5/1-in-8), conditional on N1+N2 l
   students from the last two months; Jul–Aug 10–20 new/month; Sep–Nov projected
   30–40/month (treat projections as ceilings, plan on the floor). Measures refund
   rate, payment-plan drop-off, and testimonials with real n.
-- **Price exists: £99/month post-pilot** for the first coaches. Warm-four design
-  partners possibly **£33/month for the first 3 months**. Never free. **Payment for
-  NLS starts by day 90** even though measurement runs 6 months.
+- ~~Price: £99/month; warm four £33×3~~ **SUPERSEDED later the same day by
+  [PRICING.md](PRICING.md)**: three tiers Core $397 / Standard $797 / Signature
+  $2,497 (USD, flat per programme, unlimited students); **founding-partner rate
+  for NLS + first 10 = Standard at $397/mo**, list $797 stated in contract.
+  Still never free; **payment for NLS starts by day 90** even though measurement
+  runs 6 months.
 - **Warm four** (first external coaches, in order): **Forbes Riley** (separate
   discussion), **ACL Rehab** (Nikita healed his knee with them, knows the owner —
   fork already live), **Capital Closer** (taught Nikita closing; already on Close →
@@ -56,16 +59,18 @@ Post-context odds estimate: ~1-in-3 (was ~1-in-5/1-in-8), conditional on N1+N2 l
   together; any refund/drop-off improvement has three fathers. Pre-agree in writing
   what Milestamp uniquely owns (response rate, documented saves, testimonial
   count); report refund movement as joint.
-- **N4 — £99 contradicts proof-layer positioning. OPEN (judgment call — Nikita).**
-  £99 sounds like tracker pricing; survival math ≈ 40+ logos of hand-run deploys.
-  Alternative: per-active-student (£2–4/student/mo → NLS at 100 ≈ £250–400/mo,
-  grows with roster). Pick a lane consciously before external LOIs.
+- **N4 — pricing model. RESOLVED 2026-07-11 by [PRICING.md](PRICING.md).**
+  Per-student pricing **permanently rejected** (deactivate-to-save incentive
+  punches holes in the proof rail — documented CoachAccountable behaviour); flat
+  per-programme tiers won, at proof-layer (not tracker) price points: Core $397 /
+  Standard $797 / Signature $2,497. Survival math fixed too: ~10 Standard-list
+  logos ≈ the old 40+ at £99.
 
 ## Threat register (T1–T21, post-rebuttal status)
 
 | # | Threat | Status | Action / owner |
 |---|---|---|---|
-| T1 | No price anywhere → free forever [BOTH] | DOWNGRADED → N4 | £99 named; write into Ted paper with start date. Nikita+Claude draft |
+| T1 | No price anywhere → free forever [BOTH] | **CLOSED by PRICING.md** | Founding rate $397/mo (list $797) + day-90 start, written into the Ted paper |
 | T2 | Founder capacity 2–3 FTE vs ≤0.5 [BOTH] | **SURVIVES** — root risk | "Hermes"/AI-agent research = deferred scope (BUILD_SPEC §10). Only capacity-saving AI before day 90. Canary: a skipped Friday update |
 | T3 | Launch number unprovable in 90d/n≈25 [BOTH] | LARGELY KILLED | 6-month/~100-student pilot fixes n. Refund baseline still Makenna-gated (→ N2 paper). Payment still starts day 90 |
 | T4 | Check-in response decay [BOTH] | ACCEPTED — contingency ladder | Wk4 <60% → cut to 3 questions; wk6 → SMS-first + send-time test; wk8 <40% → human-touch reds only, redesign loop. Streak "stamp" reward: build. SMS first, WhatsApp after |
@@ -82,7 +87,7 @@ Post-context odds estimate: ~1-in-3 (was ~1-in-5/1-in-8), conditional on N1+N2 l
 | T15 | "Verified" = self-report + timestamp [BOTH] | CLOSED (policy) | No verification-flavoured language anywhere public until machinery exists |
 | T16 | Win cards = income claims (FTC) [A] | MOSTLY CLOSED | Cards = wins not money; translate money milestone labels in card copy ("Her biggest stage yet"); light disclosure line; don't forecast on virality |
 | T17 | Day-45 kill switch at worst week [A] | ACCEPTED — chain | Day 45 = health check; day 90 = kill-or-pay; measurement to month 6 AFTER money starts |
-| T18 | Tracker-price anchoring (Skool £99/Senja $30) [B] | FOLDED into N4 | Price in design-partner LOIs; watch the reaction |
+| T18 | Tracker-price anchoring (Skool/Senja) [B] | CLOSED by PRICING.md | Tiers priced above tracker shelf by design; "unlimited students, flat fee" is the anti-per-head contrast; price goes in design-partner LOIs |
 | T19 | Trademark unclear before public marks [B] | OPEN — action | UKIPO + USPTO + attorney knockout booked this month; win-cards/powered-by (Milestone 9b) HARD-BLOCKED until clear. Nikita |
 | T20 | Money-only schema doesn't generalise [A] | HALF-SURVIVES → build item | `value_confirmed` → generic `metric_value` + `metric_unit` per track (~2h) so knees/commissions/clients fit. Do before NLS go-live. Form→AI template generator = post-pilot (§10) |
 | T21 | Hygiene: GDPR rectification, WhatsApp promise, Vercel Hobby [A] | OPEN — actions | Audited-amendment path for baseline typos (superseded_by, never silent edit); Vercel → paid plan (Hobby bans commercial use); WhatsApp queued behind SMS |
@@ -101,8 +106,9 @@ the emotional cost; no decision to change — revisit if response decays).
    <40% at week 8 → core loop broken for this ICP; change mechanism.
 5. Day-45: ≥1 written, operator-acknowledged save AND ≥5 testimonials. Zero saves →
    stop selling operator economics.
-6. **NLS pays ≥£99/mo by day 90 post-go-live.** No payment → anchor is a
-   free-rider: freeze NLS at maintenance, move capacity to externals.
+6. **NLS pays the founding rate ($397/mo, PRICING.md §3) from day 91
+   post-go-live.** No payment → anchor is a free-rider: freeze NLS at
+   maintenance, move capacity to externals.
 7. Externals: 3 live conversations by ~15 Aug 2026; 1 signed LOI with a price in it
    by ~day 120.
 8. **Portability:** by 31 Jan 2027 a second programme goes live in ≤2 founder-days
@@ -115,10 +121,13 @@ the emotional cost; no decision to change — revisit if response decays).
 
 **This week — blockers (mostly Nikita):**
 1. Get + read both agreements (T5); solicitor eyeball.
-2. Draft the two papers (N2/T1/T17): **Ted licence DRAFTED ✅ 2026-07-11** →
-   `legal/Milestamp-Pilot-Licence-Agreement-DRAFT.docx` (+ cover email in
-   `legal/ted-cover-email.md`; blanks to fill: entity names/addresses, Ted +
-   Cassie surnames, payment method, governing law — then solicitor review).
+2. Draft the two papers (N2/T1/T17): **Ted licence DRAFTED ✅ 2026-07-11,
+   re-issued same day at PRICING.md §3 terms** ($397/mo founding rate, list
+   $797 stated, 12-month Initial Term from first payment, unlimited students +
+   fair-use 1,000) → `legal/Milestamp-Pilot-Licence-Agreement-DRAFT.docx`
+   (+ cover email with Ted's ROI paragraph in `legal/ted-cover-email.md`;
+   blanks to fill: entity names/addresses, Ted + Cassie surnames, payment
+   method, governing law — then solicitor review).
    **Makenna one-pager still to draft ⬜.**
 3. ~~Delete the sandbag line~~ ✅ done 2026-07-11. (T14)
 4. Vercel Hobby → paid plan. (T21)
@@ -140,7 +149,8 @@ the emotional cost; no decision to change — revisit if response decays).
 
 **During pilot:** win-card copy translation + disclosure (T16); payment-plan-missed
 as a red-flag category for Cassie (T12); Sep–Oct: ACL Rehab template on the new
-schema → live demo → £33×3 offer; Capital Closer clone after NLS launch (T7/T20).
+schema → live demo → founding offer ($397/mo Standard, 12-month lock, PRICING.md
+§4); Capital Closer clone after NLS launch (T7/T20).
 
 **Parked until post-pilot:** Hermes/AI agents, WhatsApp (behind SMS), form→template
 generator, everything in BUILD_SPEC §10.

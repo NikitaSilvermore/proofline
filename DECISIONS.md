@@ -2,15 +2,58 @@
 
 Log anything that deviates from or clarifies BUILD_SPEC.md. Newest first.
 
+## 2026-07-11 — Pricing & packaging locked (PRICING.md is the source of truth)
+
+**The law (verbatim from PRICING.md §0):**
+
+> **MileStamp is priced per programme, flat fee, unlimited students. The price
+> never moves when the roster does. Tiers are separated only by delivery
+> richness, celebration art, and access — never by proof integrity, never by
+> student count, never by the customer's revenue or ticket size. The proof
+> engine is whole in every tier. The "Powered by MileStamp" mark is never for
+> sale.**
+
+- **Supersedes ALL earlier pricing** from the same-day risk entry below and
+  everywhere else: the £99/mo flat price, the warm-four £33×3 idea, the ACL
+  $199–299 idea, and register N4's per-student alternative — all dead.
+  Per-student / revenue-banded / ticket-banded pricing **rejected permanently**
+  (reasons in PRICING.md §0).
+- **Three tiers (working names, Nikita has veto): Core $397 / Standard $797 /
+  Signature $2,497 per month**, annual = 2 months free, prices in USD, flat per
+  programme, unlimited active students, fair-use 1,000/programme (contract
+  clause, never a meter). Tier names never "Lite", never "Gold".
+- **Founding-partner rate (first 10 customers incl. NLS + ACL): Standard at
+  $397/mo** — list $797 always stated in the contract; 12-month lock,
+  grandfathered while continuous; sweeteners = lock length, never lower price;
+  design partners always pay real money (no £0 pilots).
+- **Ted/All Out Sales heads of terms:** MileStamp Standard for NLS; $397/mo
+  founding rate (list $797 in contract); payment starts day 90 from go-live;
+  12-month term from first payment; flat, no calendar step, no growth linkage;
+  still two separate documents (Ted licence ≠ Makenna acknowledgment).
+  **Confirmed fact: NLS refunds claw back All Out Sales commission** (~$400 per
+  $10k refund) — Ted's ROI paragraph in PRICING.md §3 is commission-denominated.
+  New fact: **NLS October target ≈ $500k/month collected.**
+- **ACL Rehab offer (Sept–Oct):** Standard at the same $397/mo founding rate,
+  12-month lock (18-month lock as sweetener); in exchange: case-study rights,
+  two reference calls, co-design of the health-outcome template. Open input:
+  their annual enrolment volume.
+- **Outcome-based pricing (% of saves) rejected** for now — no save definition
+  until day-90 doc, attribution contested, audit lever. Revisit post-pilot as an
+  optional layer only.
+- **Build impact: none before pilot end.** Tiering is packaging + contracts, not
+  code; entitlement flags arrive with multi-tenant (§10). Only discipline now:
+  keep Milestone 9 feature boundaries flag-wrappable.
+- Dollar figures are founding-era hypotheses — held firm with Ted/ACL,
+  pressure-tested with three external design partners, firmed at day-90 review.
+
 ## 2026-07-11 — Risk engagement outcomes (commercial + product)
 
 Full register: [RISK-REGISTER.md](RISK-REGISTER.md). Decisions locked with Nikita:
 
-- **Price: £99/month post-pilot** for the first coaches; warm-four design partners
-  possibly £33/month × first 3 months. **Never free. NLS payment starts by day 90**
-  post-go-live even though measurement runs 6 months. Open judgment call (N4):
-  flat £99 vs per-active-student (£2–4/student/mo) — Nikita to pick before
-  external LOIs.
+- ~~Price: £99/month post-pilot; warm four £33×3; N4 open~~ — **SUPERSEDED later
+  the same day by the pricing entry above / PRICING.md** (founding rate $397/mo,
+  list $797; per-student rejected permanently). Still true: never free; **NLS
+  payment starts by day 90** post-go-live even though measurement runs 6 months.
 - **Pilot reshaped: 6 months, ~100 students min** (supersedes the spec's 90-day/
   ~25 framing for measurement purposes; the day-90 kill-or-pay gate remains).
   Backfill 30–50 students enrolled in the last two months (consent path needed).

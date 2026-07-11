@@ -5,8 +5,10 @@ fresh session; Nikita states next steps in chat and expects full context from
 here. **[BUILD_SPEC.md](BUILD_SPEC.md) is the frozen spec** (scope, data model,
 routes, flows, security); **[RISK-REGISTER.md](RISK-REGISTER.md) is the threat
 register + strike-order plan** from the 2026-07-11 red-team engagement — read it
-before planning any milestone, it reordered the roadmap; this file is the living
-session-to-session state —
+before planning any milestone, it reordered the roadmap; **[PRICING.md](PRICING.md)
+is the pricing source of truth** (2026-07-11 — supersedes every earlier price
+anywhere, including older £-figures still visible in the register's history);
+this file is the living session-to-session state —
 **update "Live state", "Roadmap", "Accounts & env", and "Decisions" whenever
 anything lands or is decided. Record account/domain/purchase/money facts
 immediately, not "at the end" — those are the ones that slip.**
@@ -62,7 +64,9 @@ console carries extra glow (Nikita's request).
 - **Warm four** (first external coaches after NLS proof, in order): Forbes Riley ·
   **ACL Rehab** (fork already live) · **Capital Closer** (taught Nikita closing;
   already on Close → first clone candidate) · **Six Figure Bookkeepers** (Becky's).
-  Design-partner pricing idea: **£33/mo for the first 3 months, then £99/mo**.
+  Design partners get the **founding-partner rate: Standard at $397/mo, 12-month
+  lock** (PRICING.md §2; sweeteners = lock length, never lower price; the earlier
+  £33×3 idea is dead).
 - **NLS Mentorship** — the speaking/coaching programme this pilot serves.
 - **Domains: Nikita owns the Milestamp domains** (bought them; e.g. `.com`/`.app`
   — confirm the exact one to use when wiring). Plan: point a Milestamp domain at
@@ -76,14 +80,23 @@ console carries extra glow (Nikita's request).
   Two independent pre-mortems (run on claude.ai against BUILD_SPEC + external
   strategy docs not in this repo) were compounded, rebutted with Nikita's context,
   and distilled into a threat register + strike-order plan. Headline commercial
-  facts that landed with it: **price = £99/mo post-pilot** (warm four possibly
-  £33/mo × 3 months; never free; **NLS payment starts by day 90**); **pilot
-  reshaped to 6 months / ~100 students** (backfill 30–50 existing students,
-  Jul–Aug 10–20 new/mo, Sep–Nov projected 30–40/mo); **contract path = Ted**
-  (All Out Sales) for licence/Close access **plus** a one-page Makenna
-  acknowledgment (data/brand/case-study rights, non-replication); pricing model
-  (flat £99 vs per-active-student) is an **open judgment call** (register N4).
-  The intake "modest baseline" sandbag line was deleted the same day (register T14).
+  facts that landed with it: **pilot reshaped to 6 months / ~100 students**
+  (backfill 30–50 existing students, Jul–Aug 10–20 new/mo, Sep–Nov projected
+  30–40/mo); **contract path = Ted** (All Out Sales) for licence/Close access
+  **plus** a one-page Makenna acknowledgment (data/brand/case-study rights,
+  non-replication). The intake "modest baseline" sandbag line was deleted the
+  same day (register T14).
+- **Pricing locked (2026-07-11, later the same day) → [PRICING.md](PRICING.md)** —
+  supersedes the risk engagement's £99/£33 figures and closes register N4.
+  **Three tiers: Core $397 / Standard $797 / Signature $2,497 per month** (USD,
+  flat per programme, unlimited students, fair-use 1,000, annual = 2 months
+  free; never per-student). **Founding-partner rate for the first 10 (incl. NLS
+  + ACL): Standard at $397/mo, 12-month lock, list $797 stated in every
+  contract.** NLS payment still starts day 90 from go-live. New facts inside:
+  **NLS refunds claw back All Out Sales commission (~$400/$10k refund)** and the
+  **NLS October target ≈ $500k/month collected** — Ted's ROI paragraph in
+  PRICING.md §3 is built on both. Tier names Core/Standard/Signature await
+  Nikita's veto (never "Lite", never "Gold").
 
 - **https://proofline-rosy.vercel.app** — LIVE (temporary URL; to be replaced by a
   Milestamp domain). Vercel (team **"silvermore"**, Hobby) auto-deploys every push
@@ -147,7 +160,8 @@ console carries extra glow (Nikita's request).
 - **Nikita-side blockers (this week, need his identity — prep so his part is
   copy-paste):** get + read both agreements from Ted (his ↔ All Out Sales, and
   All Out Sales ↔ NLS; solicitor eyeball for IP-assignment) ⬜ · the **two
-  papers** — **Ted licence DRAFTED ✅** (`legal/Milestamp-Pilot-Licence-Agreement-DRAFT.docx`
+  papers** — **Ted licence DRAFTED ✅ at PRICING.md §3 terms** ($397 founding /
+  list $797 / 12-month Initial Term; `legal/Milestamp-Pilot-Licence-Agreement-DRAFT.docx`
   + cover email `legal/ted-cover-email.md`; Nikita fills the yellow blanks +
   solicitor review; regenerate from `legal/ted-agreement.html` via Word COM if
   edited) · Makenna one-pager ⬜ — **both signed before student #1 enrols, no
