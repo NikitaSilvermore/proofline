@@ -169,8 +169,8 @@ export default function IntakeWizard({
                     <div className={styles.wp}>
                       <span className={styles.n}>03</span>
                       <span>
-                        Honest numbers only. This isn&apos;t a test — a modest baseline
-                        just makes the climb look bigger.
+                        Honest numbers only. This isn&apos;t a test — your real
+                        starting point is the only one worth measuring from.
                       </span>
                     </div>
                   </div>
