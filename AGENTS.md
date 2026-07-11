@@ -93,7 +93,8 @@ console carries extra glow (Nikita's request).
   Nikita is a client — partial tear, non-surgical; they'll be the FIRST coach pitched
   once NLS students are in and working). Lives at `Desktop\milestamp-acl` /
   github.com/NikitaSilvermore/milestamp-acl (private; own briefing in its `AGENTS.md`).
-  Code complete + rebranded; not yet deployed (its `DEPLOY-STEPS.md` is Nikita's part).
+  **LIVE at https://milestamp-acl.vercel.app since 2026-07-11** (own Supabase project;
+  push to its main = deploy).
   ACL Rehab's stack: TrueCoach (routines + workout logging) + a university-study Excel
   outcome measure — Milestamp complements both (drop-off reduction + proof/testimonials),
   never replaces them. Nothing in this repo changed; the NLS roadmap below is untouched.
