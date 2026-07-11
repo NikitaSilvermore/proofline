@@ -3,7 +3,10 @@
 Read this whole file before any task. It is the single source of truth for a
 fresh session; Nikita states next steps in chat and expects full context from
 here. **[BUILD_SPEC.md](BUILD_SPEC.md) is the frozen spec** (scope, data model,
-routes, flows, security); this file is the living session-to-session state —
+routes, flows, security); **[RISK-REGISTER.md](RISK-REGISTER.md) is the threat
+register + strike-order plan** from the 2026-07-11 red-team engagement — read it
+before planning any milestone, it reordered the roadmap; this file is the living
+session-to-session state —
 **update "Live state", "Roadmap", "Accounts & env", and "Decisions" whenever
 anything lands or is decided. Record account/domain/purchase/money facts
 immediately, not "at the end" — those are the ones that slip.**
@@ -36,9 +39,30 @@ console carries extra glow (Nikita's request).
   **`nikita.silvermore@gmail.com`** (use this — reliable) and
   `bryant.nikita@hotmail.com` (Hotmail silently drops transactional mail — avoid).
   GitHub **NikitaSilvermore**. Non-technical; builds via guided ELI5 steps.
-- **Becky** — NLS partner; the second dog-food student for Milestone 8.
-- **Makenna** — may get console read access (placeholder email in `team_allowlist`
-  — update before granting).
+- **Becky** — NLS partner; the second dog-food student for Milestone 8. Her own
+  accountancy mentorship, **Six Figure Bookkeepers**, is one of the warm-four
+  coach prospects.
+- **Makenna** — **NLS CEO / head of operations.** Decisions ultimately route
+  through her, but the day-to-day champion is Ted (below). She already
+  white-labels software (her GHL white-label is **"GST"**) — hence the
+  non-replication one-pager in RISK-REGISTER.md N2. May get console read access
+  (placeholder email in `team_allowlist` — update before granting).
+- **Ted** — Nikita's manager, NLS head of sales, owner of **All Out Sales** (the
+  agency Makenna hired to run the NLS sales team). **He moved the sales team from
+  GHL/GST to Close.io and pays for Close + the software stack** — Milestamp
+  integrates into Close through his authority, and the licence agreement can be
+  signed with him (a one-page Makenna acknowledgment covers data/brand/case-study
+  rights — RISK-REGISTER.md N2). Saw the demos: "incredible". Next step with him =
+  formalise agreement + action plan. **SMS verification is already accepted** on
+  the Close side.
+- **Cassie** — NLS support team, works under Ted; the main console touchpoint.
+  Add her to `team_allowlist`; her weekly logins = the team-adoption metric.
+- **Forbes** — the mentor behind NLS; **no involvement** in operations. Forbes
+  Riley is a separate warm-coach conversation in her own right.
+- **Warm four** (first external coaches after NLS proof, in order): Forbes Riley ·
+  **ACL Rehab** (fork already live) · **Capital Closer** (taught Nikita closing;
+  already on Close → first clone candidate) · **Six Figure Bookkeepers** (Becky's).
+  Design-partner pricing idea: **£33/mo for the first 3 months, then £99/mo**.
 - **NLS Mentorship** — the speaking/coaching programme this pilot serves.
 - **Domains: Nikita owns the Milestamp domains** (bought them; e.g. `.com`/`.app`
   — confirm the exact one to use when wiring). Plan: point a Milestamp domain at
@@ -46,7 +70,20 @@ console carries extra glow (Nikita's request).
   Resend for a branded email sender (`hello@<milestamp-domain>`). DNS: Nikita can
   manage it (did wordhoard.day on Cloudflare).
 
-## Live state (as of 2026-07-10)
+## Live state (as of 2026-07-11)
+
+- **Red-team engagement captured (2026-07-11) → [RISK-REGISTER.md](RISK-REGISTER.md).**
+  Two independent pre-mortems (run on claude.ai against BUILD_SPEC + external
+  strategy docs not in this repo) were compounded, rebutted with Nikita's context,
+  and distilled into a threat register + strike-order plan. Headline commercial
+  facts that landed with it: **price = £99/mo post-pilot** (warm four possibly
+  £33/mo × 3 months; never free; **NLS payment starts by day 90**); **pilot
+  reshaped to 6 months / ~100 students** (backfill 30–50 existing students,
+  Jul–Aug 10–20 new/mo, Sep–Nov projected 30–40/mo); **contract path = Ted**
+  (All Out Sales) for licence/Close access **plus** a one-page Makenna
+  acknowledgment (data/brand/case-study rights, non-replication); pricing model
+  (flat £99 vs per-active-student) is an **open judgment call** (register N4).
+  The intake "modest baseline" sandbag line was deleted the same day (register T14).
 
 - **https://proofline-rosy.vercel.app** — LIVE (temporary URL; to be replaced by a
   Milestamp domain). Vercel (team **"silvermore"**, Hobby) auto-deploys every push
@@ -70,11 +107,13 @@ console carries extra glow (Nikita's request).
   key, sender `onboarding@resend.dev`). Resend is in **test mode** → can only email
   the Resend account owner (`nikita.silvermore@gmail.com`), which is why that Gmail
   is the console owner in `team_allowlist`.
-- **CRM = Close (close.com)**, swapped from GHL (Nikita has no GHL access) — see
-  DECISIONS.md 2026-07-03. `src/lib/messaging.ts` defaults to
-  `MESSAGING_PROVIDER=log` — **nothing sends to students live yet.** Enrolment
-  webhook `/api/webhooks/close` is built and idempotent. Open: is the student
-  *sending* rail Close or Resend? Resend is already proven (auth) → likely path.
+- **CRM = Close (close.com)**, swapped from GHL — see DECISIONS.md 2026-07-03,
+  now **confirmed by the org itself**: Ted moved the whole NLS sales team to Close
+  and pays for it; the live webhook + env get wired **through Ted**.
+  `src/lib/messaging.ts` defaults to `MESSAGING_PROVIDER=log` — **nothing sends to
+  students live yet.** Enrolment webhook `/api/webhooks/close` is built and
+  idempotent (no fallback yet — register N1 wants one). Rail decision (register
+  N1): **trigger from Close, send from infrastructure we own (Resend)**.
 - **Marketing posting kit built** — see the Marketing section.
 - **Vercel domain quirk (resolved, may recur):** `proofline-rosy.vercel.app` once
   served a **stale/pinned** old build for a while even though the dashboard showed
@@ -102,22 +141,39 @@ console carries extra glow (Nikita's request).
 ## Roadmap — done and remaining
 
 - Milestones **1–7 ✅** (built, deployed, demonstrated live) + design/brand ✅ +
-  posting kit ✅.
-- **▶ NEXT SESSION STARTS HERE — turn on student email sending ⬜.** Nikita **owns
-  the Milestamp domains**, so DNS access is not a blocker. Steps: **verify a
-  Milestamp domain in Resend** (add its DNS records — guide him like wordhoard.day)
-  → **switch the Resend sender** from `onboarding@resend.dev` to
-  `hello@<milestamp-domain>` (lifts test-mode so it can email anyone) → set Vercel
-  env `MESSAGING_PROVIDER=resend`, `RESEND_API_KEY`, `RESEND_FROM`,
-  `MESSAGING_CHANNEL=email`. (Alt rail = Close: `CLOSE_*` env + point a Close
-  webhook at `/api/webhooks/close`.) **US students → SMS needs 10DLC registration;
-  start email-only.** Also worth doing while in DNS: **point a Milestamp domain at
-  the Vercel app** to replace `proofline-rosy` (update Supabase Auth Site URL +
-  redirect + `APP_BASE_URL` after).
+  posting kit ✅ + risk register ✅ (2026-07-11; sandbag line deleted same day).
+- **The full ordered plan now lives in RISK-REGISTER.md → "Strike-order to-do".**
+  Summary of what's next:
+- **Nikita-side blockers (this week, need his identity — prep so his part is
+  copy-paste):** get + read both agreements from Ted (his ↔ All Out Sales, and
+  All Out Sales ↔ NLS; solicitor eyeball for IP-assignment) ⬜ · draft the **two
+  papers** (Ted licence: £99, day-90 payment start, Close access; Makenna
+  one-pager: data/brand/case-study rights, non-replication) — **both signed
+  before student #1 enrols, no momentum exceptions** ⬜ · **Vercel Hobby → paid**
+  (Hobby bans commercial use) ⬜ · book UKIPO + USPTO + attorney trademark
+  searches (Milestone 9b hard-blocked until clear) ⬜.
+- **▶ Build side starts here — turn on student email sending ⬜** (= the "sends we
+  own" half of register N1). Nikita **owns the Milestamp domains**, so DNS is not
+  a blocker. Steps: **verify a Milestamp domain in Resend** (add its DNS records —
+  guide him like wordhoard.day) → **switch the Resend sender** from
+  `onboarding@resend.dev` to `hello@<milestamp-domain>` (lifts test-mode) → set
+  Vercel env `MESSAGING_PROVIDER=resend`, `RESEND_API_KEY`, `RESEND_FROM`,
+  `MESSAGING_CHANNEL=email`. While in DNS: **point a Milestamp domain at the
+  Vercel app** to replace `proofline-rosy` (update Supabase Auth Site URL +
+  redirect + `APP_BASE_URL` after). **SMS: verification is already accepted on
+  Close (per Nikita 2026-07-11)** — still launch email-first, add SMS once the
+  Close wiring lands.
+- **Then, before go-live** (register items): live Close webhook via Ted +
+  enrolment fallback ⬜ · schema generalisation `metric_value`/`metric_unit` ⬜ ·
+  label seeded demo data ⬜ · Cassie on `team_allowlist` ⬜ · backfill consent
+  path for the 30–50 existing students ⬜ · day-90 decision doc ⬜ · audited
+  baseline-amendment flow ⬜ · T4 response-decay contingency ladder written ⬜.
 - **Milestone 8 — dog-food gate ⬜** — Nikita + **Becky** enrol via the real
   trigger and live one full weekly cycle. **No real NLS student before this
   passes.** This also unlocks the first real **proof** marketing posts.
-- Status write-back (§6.4) — deferred nice-to-have. §10 deferrals unchanged.
+- Status write-back (§6.4) — deferred nice-to-have. §10 deferrals unchanged
+  (Hermes/AI-agent ideas, WhatsApp, form→template generator all live there —
+  post-pilot).
 
 ## Architecture map
 

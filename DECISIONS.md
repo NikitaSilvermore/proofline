@@ -2,6 +2,46 @@
 
 Log anything that deviates from or clarifies BUILD_SPEC.md. Newest first.
 
+## 2026-07-11 — Risk engagement outcomes (commercial + product)
+
+Full register: [RISK-REGISTER.md](RISK-REGISTER.md). Decisions locked with Nikita:
+
+- **Price: £99/month post-pilot** for the first coaches; warm-four design partners
+  possibly £33/month × first 3 months. **Never free. NLS payment starts by day 90**
+  post-go-live even though measurement runs 6 months. Open judgment call (N4):
+  flat £99 vs per-active-student (£2–4/student/mo) — Nikita to pick before
+  external LOIs.
+- **Pilot reshaped: 6 months, ~100 students min** (supersedes the spec's 90-day/
+  ~25 framing for measurement purposes; the day-90 kill-or-pay gate remains).
+  Backfill 30–50 students enrolled in the last two months (consent path needed).
+- **Contract = two papers before student #1**: Ted/All Out Sales licence (price,
+  payment start, Close access) + Makenna one-page acknowledgment (student-data
+  authority, NLS branding, case-study rights, non-replication). Signature is a
+  hard enrolment gate.
+- **Rail confirmed (N1): trigger from Close, send from Resend** (infrastructure we
+  own). Enrolment webhook needs a fallback path. SMS verification already accepted
+  on Close — email-first launch anyway.
+- **Save definition (T12):** red flag → logged intervention → green within 21 days
+  with payment plan intact, written up that week, acknowledged by Cassie. Nothing
+  else counts as a save.
+- **Response-decay contingency (T4):** wk4 <60% → 3 questions; wk6 → SMS-first +
+  send-time test; wk8 <40% → human-touch reds only + loop redesign. Streak
+  "stamp" reward to build. Plan on 45–55% response, not 60%+.
+- **Schema generalisation (T20, deviates from §4):** `value_confirmed` → generic
+  `metric_value` + `metric_unit` per track, so non-money tracks (ACL knees,
+  closer commissions, bookkeeping clients) fit without a rewrite. ~2h; before
+  NLS go-live.
+- **Intake copy (T14):** deleted "a modest baseline just makes the climb look
+  bigger" — it coached students to sandbag the baseline the whole product's trust
+  rests on. Replaced with an honesty line without the incentive.
+- **Win cards (T16):** virality via wins, not money — translate money-flavoured
+  milestone labels in card copy; light disclosure line; no income figures without
+  opt-in. Trademark knockout (UKIPO/USPTO/attorney) required before ANY public
+  card ships (T19).
+- **Demo honesty (T10):** seeded/demo data gets a "Sample data" label; the live
+  progress page's "nothing here is a guess" stays — it's true there (real rows
+  only).
+
 ## 2026-07-03 — Milestone 7: messaging + enrolment (Close CRM)
 
 - **CRM switched from GHL to Close (close.com)** at the user's request — they don't
