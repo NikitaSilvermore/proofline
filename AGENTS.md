@@ -115,9 +115,10 @@ console carries extra glow (Nikita's request).
   builds the gitignored **`milestamp-claude-project/`** mirror (8 docs + 3 mockups) →
   upload to the Milestamp Claude project (see "THE SECOND CORPUS" above). New
   `CLAUDE-CODE-PROMPT.md` = the law-forward kickoff. **Git email fixed** (hotmail →
-  `nikita.silvermore@outlook.com`; see git-identity gotcha below). ⬜ **Nikita's one
-  remaining step: re-upload the `milestamp-claude-project/` mirror folder to the
-  Milestamp Claude project** (replace its current attachments).
+  `nikita.silvermore@outlook.com`; see git-identity gotcha below). ✅ **Mirror folder
+  uploaded to the Milestamp Claude project 2026-07-16** — project attachments now
+  match HEAD. (Standing rule holds: after the next canonical-doc change, re-run the
+  sync + re-upload — see "THE SECOND CORPUS".)
 - **Red-team engagement captured (2026-07-11) → [RISK-REGISTER.md](docs/RISK-REGISTER.md).**
   Two independent pre-mortems (run on claude.ai against BUILD_SPEC + external
   strategy docs not in this repo) were compounded, rebutted with Nikita's context,
