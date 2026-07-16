@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 // Demo fonts (Bricolage Grotesque / Schibsted Grotesk / Spline Sans Mono) are
-// loaded from Google Fonts, matching the /design-reference/ demos exactly.
+// loaded from Google Fonts, matching the docs/mockups/ demos exactly.
 export default function RootLayout({
   children,
 }: {

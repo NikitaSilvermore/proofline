@@ -13,7 +13,7 @@ import {
 } from "@/lib/intake-options";
 import { submitIntake } from "./actions";
 
-// Faithful port of design-reference/nls_baseline_intake_demo.html, wired to real
+// Faithful port of docs/mockups/nls_baseline_intake_demo.html, wired to real
 // data. Welcome → 7 questions → consent → lock (BUILD_SPEC.md §3, §6.1).
 
 const TOTAL_QUESTIONS = 8; // revenue, gigs, track, confidence, target, blocker, own words, consent

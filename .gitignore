@@ -30,5 +30,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# marketing render output (regenerable via marketing/make-cards.mjs)
-/marketing/cards/
+# marketing render output (regenerable via docs/marketing/make-cards.mjs)
+/docs/marketing/cards/
+
+# Claude-project upload mirror (regenerable via scripts/sync-claude-project.mjs)
+/milestamp-claude-project/

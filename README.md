@@ -1,8 +1,8 @@
 # Proofline
 
 NLS Mentorship pilot — progress, proof, and payoff for every student.
-Single-tenant, 90-day pilot. See [BUILD_SPEC.md](BUILD_SPEC.md) for the full spec
-and [CLAUDE.md](CLAUDE.md) for the working protocol.
+Single-tenant, 90-day pilot. See [BUILD_SPEC.md](docs/BUILD_SPEC.md) for the full spec
+and [CLAUDE.md](CLAUDE.md) → [AGENTS.md](AGENTS.md) for the working protocol.
 
 **Stack:** Next.js (App Router, TypeScript) · Supabase · Tailwind · GHL delivery ·
 Vercel + Vercel Cron.
@@ -122,7 +122,14 @@ key) set in the environment — locally in `.env.local`, and in Vercel.
 ```
 src/app/            App Router pages (hello page today; real surfaces per §3)
 src/lib/supabase/   Supabase clients (browser, server, service-role)
-design-reference/   The three demo HTML files — the visual contract (§11)
-BUILD_SPEC.md       Source of truth
-DECISIONS.md        Deviations from the spec, newest first
+AGENTS.md           BRAIN — living project briefing + handoff (root)
+docs/BUILD_SPEC.md  LAW — the frozen spec (source of truth)
+docs/PRICING.md     LAW — pricing source of truth
+docs/RISK-REGISTER.md  SPEC — threat register + strike-order plan
+docs/DECISIONS.md   BRAIN — deviations from the spec, newest first
+docs/mockups/       The three demo HTML files — the visual contract (§11)
+docs/legal/         Licence agreement + cover email
+docs/marketing/     Posting kit + slide renders
+docs/ops/           Ops notes / deploy runbooks (empty scaffold)
+docs/historical/    Superseded docs (excluded from Claude-project sync)
 ```

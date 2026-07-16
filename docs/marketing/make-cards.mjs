@@ -1,5 +1,5 @@
 // Render carousels.html slides to post-ready PNGs via system Chrome.
-// Usage: npm i --no-save puppeteer-core && node marketing/make-cards.mjs
+// Usage: npm i --no-save puppeteer-core && node docs/marketing/make-cards.mjs
 import puppeteer from "puppeteer-core";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";

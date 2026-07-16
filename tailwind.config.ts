@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-// Design tokens ported verbatim from the three demo HTML files in /design-reference/.
+// Design tokens ported verbatim from the three demo HTML files in docs/mockups/.
 // These are the visual contract — do not drift from them (BUILD_SPEC.md §2, §11).
 const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],

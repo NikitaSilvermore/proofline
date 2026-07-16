@@ -2,10 +2,10 @@
 
 Read this whole file before any task. It is the single source of truth for a
 fresh session; Nikita states next steps in chat and expects full context from
-here. **[BUILD_SPEC.md](BUILD_SPEC.md) is the frozen spec** (scope, data model,
-routes, flows, security); **[RISK-REGISTER.md](RISK-REGISTER.md) is the threat
+here. **[BUILD_SPEC.md](docs/BUILD_SPEC.md) is the frozen spec** (scope, data model,
+routes, flows, security); **[RISK-REGISTER.md](docs/RISK-REGISTER.md) is the threat
 register + strike-order plan** from the 2026-07-11 red-team engagement — read it
-before planning any milestone, it reordered the roadmap; **[PRICING.md](PRICING.md)
+before planning any milestone, it reordered the roadmap; **[PRICING.md](docs/PRICING.md)
 is the pricing source of truth** (2026-07-11 — supersedes every earlier price
 anywhere, including older £-figures still visible in the register's history);
 this file is the living session-to-session state —
@@ -76,7 +76,7 @@ console carries extra glow (Nikita's request).
 
 ## Live state (as of 2026-07-11)
 
-- **Red-team engagement captured (2026-07-11) → [RISK-REGISTER.md](RISK-REGISTER.md).**
+- **Red-team engagement captured (2026-07-11) → [RISK-REGISTER.md](docs/RISK-REGISTER.md).**
   Two independent pre-mortems (run on claude.ai against BUILD_SPEC + external
   strategy docs not in this repo) were compounded, rebutted with Nikita's context,
   and distilled into a threat register + strike-order plan. Headline commercial
@@ -86,7 +86,7 @@ console carries extra glow (Nikita's request).
   **plus** a one-page Makenna acknowledgment (data/brand/case-study rights,
   non-replication). The intake "modest baseline" sandbag line was deleted the
   same day (register T14).
-- **Pricing locked (2026-07-11, later the same day) → [PRICING.md](PRICING.md)** —
+- **Pricing locked (2026-07-11, later the same day) → [PRICING.md](docs/PRICING.md)** —
   supersedes the risk engagement's £99/£33 figures and closes register N4.
   **Three tiers: Core $397 / Standard $797 / Signature $2,497 per month** (USD,
   flat per programme, unlimited students, fair-use 1,000, annual = 2 months
@@ -171,9 +171,9 @@ console carries extra glow (Nikita's request).
   copy-paste):** get + read both agreements from Ted (his ↔ All Out Sales, and
   All Out Sales ↔ NLS; solicitor eyeball for IP-assignment) ⬜ · the **two
   papers** — **Ted licence DRAFTED ✅ at PRICING.md §3 terms** ($397 founding /
-  list $797 / 12-month Initial Term; `legal/Milestamp-Pilot-Licence-Agreement-DRAFT.docx`
-  + cover email `legal/ted-cover-email.md`; Nikita fills the yellow blanks +
-  solicitor review; regenerate from `legal/ted-agreement.html` via Word COM if
+  list $797 / 12-month Initial Term; `docs/legal/Milestamp-Pilot-Licence-Agreement-DRAFT.docx`
+  + cover email `docs/legal/ted-cover-email.md`; Nikita fills the yellow blanks +
+  solicitor review; regenerate from `docs/legal/ted-agreement.html` via Word COM if
   edited) · Makenna one-pager ⬜ — **both signed before student #1 enrols, no
   momentum exceptions** · **Vercel Hobby → paid**
   (Hobby bans commercial use) ⬜ · book UKIPO + USPTO + attorney trademark
@@ -256,7 +256,7 @@ console carries extra glow (Nikita's request).
 - `node --experimental-strip-types <file>.mts` — run the pure-logic unit tests
   (rag/console). On Windows, import the target with a **relative** specifier +
   `.ts` extension (absolute `C:\` paths fail the ESM URL scheme).
-- `node marketing/make-cards.mjs` — render the posting-kit slides to PNGs.
+- `node docs/marketing/make-cards.mjs` — render the posting-kit slides to PNGs.
 
 ## Environment gotchas (hard-won — trust these)
 
@@ -284,7 +284,7 @@ console carries extra glow (Nikita's request).
 
 ## Marketing / posting kit
 
-`marketing/POSTING-KIT.md` + `marketing/captions.md` — the go-to-market kit.
+`docs/marketing/POSTING-KIT.md` + `docs/marketing/captions.md` — the go-to-market kit.
 Two voices: **@milestamp** (product/brand IG + other platforms) and **nikita.hts**
 (Nikita's personal founder account — his audience is high-ticket coaches + top
 closers who follow him; NOT the Silvermore brand). Angle: build-in-public *and*
@@ -293,10 +293,10 @@ students**, and any student shown as "proof" must have ticked the intake
 public-sharing consent (`consent.public_optin`). Launch sequence + captions/
 carousels/reels drafted with `[[slots]]` for real numbers.
 
-**Rendered slide designs**: `marketing/carousels.html` is the on-brand (Midnight &
+**Rendered slide designs**: `docs/marketing/carousels.html` is the on-brand (Midnight &
 Brass) source for **19 IG 4:5 slides** — 2 carousels (how-it-works, "5 signs a
 client is about to ghost"), 3 quote cards, 3 reel covers, 1 proof template. Render
-to PNGs with `node marketing/make-cards.mjs` → `marketing/cards/` (gitignored,
+to PNGs with `node docs/marketing/make-cards.mjs` → `docs/marketing/cards/` (gitignored,
 regenerable; uses puppeteer-core + system Chrome). Nikita's verdict: "absolutely
 superb." Not-yet-done: live-app **screenshot** showcase cards (the glowing graph /
 console) — the best asset, but needs a real student + console access first.
