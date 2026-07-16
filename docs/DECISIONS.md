@@ -4,6 +4,54 @@
 
 Log anything that deviates from or clarifies BUILD_SPEC.md. Newest first.
 
+## 2026-07-16 — Sensory design pass (group C ruled; ⏻ TWO REVERSALS)
+
+From the sensory research report
+([docs/research/sensory-design-report.md](research/sensory-design-report.md)) + triage
+group C. Rulings (Nikita, structured questions 2026-07-16):
+
+- **⏻ REVERSAL — the progress-page + revenue-graph FREEZE IS LIFTED** for this sensory
+  pass (Nikita chose "open the whole page"). The long-standing *"the student progress
+  page + its glowing revenue graph are perfect — do NOT restyle without being asked"*
+  rule (in AGENTS "What this is" + Live state + CLAUDE-CODE-PROMPT) **no longer blocks**
+  the sensory work. Changes still ship **gated** (preview to Nikita before deploy) and
+  it can be **re-frozen at any time**.
+- **⏻ REVERSAL — the console is CALMED, glow dropped.** Nikita's earlier "extra glow on
+  the console" request is reversed: follow the report — console becomes calm/clinical
+  (instant 100–150ms state changes, no glow, no sound, no stamps landing; hairline
+  structure, mono data, whitespace). The prior console glow-pass is wound back. The
+  *contrast* between a calm console and the ceremonial student view is itself the
+  quality signal.
+- **Build the ceremony (gated).** Gold-as-metal rendering + the heavy-spring
+  **stamp-impression** (baseline lock + weekly check-in) + **retire generic confetti**,
+  on all approved surfaces (now incl. the progress page). Build on branch
+  `sensory-pass`, preview, deploy on Nikita's push.
+- **Sound + haptics — PARKED** (report's Stage 3; build after the visual ceremonies
+  feel right). Haptics Android-only (iOS Safari has no Vibration API).
+
+**Design specifics to build (from the report; all tunable on-device):**
+- **Gold metal = compose the EXISTING tokens into a gradient** —
+  `linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 35%, var(--gold-soft) 50%,
+  var(--gold) 65%, var(--gold-deep) 100%)` (the `#a8863f→#c6a15b→#f3ead8` shades already
+  live in `globals.css`); a **one-shot sheen sweep on the earning moment only** (not a
+  constant shimmer); gold text via `background-clip: text`.
+- **Stamp-down spring:** stiffness 320 / damping 30 / mass 1.1; ~450–600ms —
+  approach-scale-rotate → synchronized impact → ink-spread (or gold sheen) → paper dip →
+  settle. Baseline lock = a heavier "LOCKED" emboss with the *immutable* copy line as the
+  peak (peak-end rule).
+- **Reduced-motion:** honour `prefers-reduced-motion` (movement → opacity crossfade; the
+  stamp still **appears** — it's proof, essential info).
+- **Celebration = the stamp itself + gold-rail fill + count-up**; reserve slow gold-leaf
+  flecks for rare payoff milestones; never generic multicoloured confetti.
+- **Ethics (already law-aligned):** gold = earned/immutable; never celebrate the
+  *company's* milestone (Robinhood precedent); say the "can't be edited later" line AT
+  the peak.
+
+**Build sequencing (report's stages), branch `sensory-pass`, all gated:** Stage 1 =
+gold token + reduced-motion tokens + console calm-down; Stage 2 = stamp ceremony (intake
+lock + check-in) with spring physics + retire confetti; Stage 3 = sound + haptics
+(parked).
+
 ## 2026-07-16 — Schema extension for measurement + verification (group A: design locked, build gated)
 
 From the verification research report

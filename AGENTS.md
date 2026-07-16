@@ -59,9 +59,13 @@ interpolation.
 
 **Design = "Midnight & Brass"** — a luxe dark theme (deep ink ground `#0a1119`,
 glowing brass/gold `#d8b978`/`#c6a15b`, glassy panels) applied across every
-surface. The **student progress page and its glowing revenue graph are considered
-perfect — do NOT restyle them without being asked** (Nikita said so twice). The
-console carries extra glow (Nikita's request).
+surface. **⏻ The progress-page + revenue-graph FREEZE WAS LIFTED 2026-07-16** (Nikita
+opted into the sensory pass — DECISIONS.md 2026-07-16): the page + graph may now be
+touched by that work; it still ships **gated** (preview before deploy) and can be
+re-frozen anytime. *(Superseded: the earlier "these are perfect — do NOT restyle,
+Nikita said so twice" rule.)* **⏻ The console is being CALMED, not glowed** — the
+earlier "extra glow on the console" request is reversed; per the sensory report the
+console becomes calm/clinical (instant, no glow/sound/stamps).
 
 ## People & accounts (roster)
 
@@ -104,6 +108,16 @@ console carries extra glow (Nikita's request).
 
 ## Live state (as of 2026-07-16)
 
+- **⏻ Sensory design pass RULED 2026-07-16 (group C) — build gated on branch
+  `sensory-pass`** (DECISIONS.md 2026-07-16). Two reversals: (1) **the progress-page +
+  revenue-graph FREEZE IS LIFTED** (Nikita opted into the full sensory pass; still ships
+  gated/preview-first, re-freezable); (2) **the console is CALMED** (earlier "extra
+  glow" reversed → calm/clinical). Building (gated): **gold-as-metal** gradient (compose
+  the existing `--gold*` tokens), the **heavy-spring stamp-impression** ceremony
+  (baseline lock + check-in; spring 320/30/1.1), **retire generic confetti**,
+  reduced-motion tokens. **Sound + haptics PARKED** (report Stage 3; iOS has no haptics).
+  Sequencing: Stage 1 gold token + reduced-motion + console calm; Stage 2 stamp ceremony;
+  Stage 3 (parked) sound/haptics.
 - **Two deep-research reports landed (2026-07-16) → `docs/research/` (REFERENCE).**
   From the Milestamp project chat: **`sensory-design-report.md`** (how to make the app
   *feel* like a $10k programme — gold-as-metal, ceremony motion, sound/haptics,
@@ -127,8 +141,9 @@ console carries extra glow (Nikita's request).
   `metric_value`+`metric_unit` (free-text unit, canonical set currency/count/
   events_per_month/percentage); ACL clinician-flag carried to the fork. ⬜ **Build is a
   gated milestone under T20** (the rename ripples through rag/progress/console/seed +
-  the frozen graph's data source and **deploys** — Nikita's call). **⬜ Still open:
-  group C (sensory, incl. the frozen-graph proposals).**
+  the frozen graph's data source and **deploys** — Nikita's call). **Group C (sensory)
+  RULED 2026-07-16** — see the sensory bullet at the top of Live state (freeze lifted,
+  console calmed, ceremony build gated). **All three research groups (A/B/C) now ruled.**
 - **PM-system + docs reorg landed (2026-07-16), mirrors Wordhoard — MERGED to `main`
   + DEPLOYED READY** (Vercel Production Ready, the first deploy on the fixed git
   email — no seat-block; branch `pm-system-from-wordhoard` merged fast-forward).
@@ -189,8 +204,9 @@ console carries extra glow (Nikita's request).
   deep ink) + a console **glow pass** (glowing stat numbers, RAG pills/dots,
   medals, buttons, filters, red halos on needs-attention, ambient wash, title
   glow). The pivot that clicked ("I fking love it") after a subtle light "Dossier"
-  version fell flat ("couldn't tell the difference"). **Student progress page +
-  graph frozen — do not touch.**
+  version fell flat ("couldn't tell the difference"). ⏻ **The progress-page + graph
+  freeze was LIFTED 2026-07-16 for the sensory pass, and the console glow-pass is being
+  wound back to calm/clinical** — see the sensory bullet below + DECISIONS.md 2026-07-16.
 - **Console login WORKS** end-to-end via Gmail. **Email fixed via Resend as
   Supabase custom SMTP** — Supabase's built-in emailer is unreliable (dropped mail
   to Hotmail *and* Gmail). Resend SMTP creds live in **Supabase → Auth → SMTP

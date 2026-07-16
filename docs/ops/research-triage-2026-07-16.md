@@ -60,20 +60,18 @@ rag/progress/console/seed + the frozen graph's data source; **deploys — Nikita
    grant to publish verified outcomes with student consent + commit published claims to
    the typicality standard. Flagged in RISK-REGISTER T22(d) + strike-order.
 
-## C. Sensory / design — ⚠ proposals against a FROZEN surface
+## C. Sensory / design — ✅ RULED 2026-07-16 (⏻ two reversals; build gated, DECISIONS.md 2026-07-16)
 
-9. **The frozen line holds.** Several top recs (animate the gold rail fill, pulse the
-   current milestone, re-render gold as metal, stamp-down ceremony) would touch the
-   **student progress page + revenue graph, which are frozen** ("do NOT restyle
-   without being asked" — Nikita, twice). Treat every progress-page/graph rec as a
-   *proposal that needs explicit go*, not a to-do.
-10. **Safe-to-explore now (don't touch the frozen graph):** gold-gradient rendering as
-    a token, reduced-motion tokens, the **console calm-down** (strip ceremony — it's
-    not frozen), sound system design (default-OFF), haptics as Android-only
-    enhancement. *Sensory report Recommendations "Stage 1".*
-11. **Ethics/brand line** (gold = earned/immutable, never celebrate the company's
-    milestone — the Robinhood confetti precedent) aligns with existing law; worth
-    lifting into BUILD_SPEC §1-adjacent copy when the ceremony work is scoped.
+9. ⏻ **REVERSED — the progress-page + graph FREEZE IS LIFTED** (Nikita chose "open the
+   whole page"). The rail-fill animation, current-milestone pulse, and gold-as-metal on
+   the graph are now buildable — gated (preview before deploy), re-freezable.
+10. ✅ **Building (gated, branch `sensory-pass`):** gold-as-metal token, reduced-motion
+    tokens, the **stamp-impression ceremony** (baseline lock + check-in), **retire
+    generic confetti**. ⏻ **Console CALMED** (earlier extra-glow reversed → clinical).
+    **Sound + haptics PARKED** (report Stage 3).
+11. ✅ **Ethics/brand line** (gold = earned/immutable; never celebrate the company's
+    milestone — Robinhood confetti precedent; "can't be edited later" said at the peak) —
+    carried into the ceremony build; lift into BUILD_SPEC §1-adjacent copy when scoped.
 
 ## D. Naming
 12. **Both reports spell it "MileStamp" (capital S).** Feeds the open "MileStamp vs

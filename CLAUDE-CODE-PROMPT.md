@@ -14,9 +14,11 @@ working style, and "THE SECOND CORPUS" standing rule).
 
 ## The laws (violating one fails the task, no exceptions)
 
-- **The student progress page + its glowing revenue graph are PERFECT — do NOT
-  restyle them without being asked** (Nikita has said so twice; `RevenueChart.tsx`
-  is frozen).
+- **The student progress page + revenue graph:** ⏻ the long-standing freeze ("do NOT
+  restyle") was **LIFTED 2026-07-16** for the sensory pass (DECISIONS.md 2026-07-16) —
+  the page + `RevenueChart.tsx` may be touched by that work, but it ships **gated**
+  (preview to Nikita before deploy) and can be re-frozen anytime. Outside the sanctioned
+  sensory pass, still don't restyle it unasked.
 - **Design = "Midnight & Brass"** across every surface (deep ink ground, glowing
   brass/gold, glassy panels). The console carries extra glow.
 - **No student logins, ever** — access is signed, unguessable link tokens. **No
