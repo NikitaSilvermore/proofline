@@ -115,8 +115,9 @@ console carries extra glow (Nikita's request).
   builds the gitignored **`milestamp-claude-project/`** mirror (8 docs + 3 mockups) →
   upload to the Milestamp Claude project (see "THE SECOND CORPUS" above). New
   `CLAUDE-CODE-PROMPT.md` = the law-forward kickoff. **Git email fixed** (hotmail →
-  `nikita.silvermore@outlook.com`; see git-identity gotcha below). ⬜ Nikita to
-  re-upload the mirror folder to the project + decide when to merge the branch.
+  `nikita.silvermore@outlook.com`; see git-identity gotcha below). ⬜ **Nikita's one
+  remaining step: re-upload the `milestamp-claude-project/` mirror folder to the
+  Milestamp Claude project** (replace its current attachments).
 - **Red-team engagement captured (2026-07-11) → [RISK-REGISTER.md](docs/RISK-REGISTER.md).**
   Two independent pre-mortems (run on claude.ai against BUILD_SPEC + external
   strategy docs not in this repo) were compounded, rebutted with Nikita's context,
@@ -143,16 +144,16 @@ console carries extra glow (Nikita's request).
   Milestamp domain). Vercel (team **"silvermore"**, Hobby) auto-deploys every push
   to `main` of **github.com/NikitaSilvermore/proofline**. **Pushing to main IS
   deploying** — `npm run build` must be green first.
-- **⚠ Vercel seat-block warning (discovered 2026-07-11 via wordhoard):** the
-  team's `milestamp-acl` project has ALL git deployments silently BLOCKED
-  ("commit author does not have contributing access", seatBlock
-  `TEAM_ACCESS_REQUIRED`) — same disease that froze wordhoard.day on a 3-day-old
-  build. Cause: commits authored `bryant.nikita@hotmail.com` don't map to a
-  member of the Pro team "silvermore". `proofline` itself deployed READY as of
-  2026-07-11 16:44 UTC, but verify after pushes; if it flips to BLOCKED, the fix
-  options live in the wordhoard `AGENTS.md` handoff (⚠ block at top): connect
-  GitHub↔Vercel login / add the hotmail email to the GitHub account, or a
-  one-off `npx vercel deploy --prod` (CLI authed on this machine).
+- **✅ Vercel seat-block RESOLVED 2026-07-16 (was: discovered 2026-07-11 via
+  wordhoard).** Root cause: commits authored `bryant.nikita@hotmail.com` (old
+  GitHub id 198476829) don't map to a member of the Pro team "silvermore", so
+  git deployments were silently BLOCKED (seatBlock `TEAM_ACCESS_REQUIRED`, shown
+  as UNKNOWN in `vercel ls`) — the same disease that froze wordhoard.day. **Fix =
+  set each repo's `git config user.email "nikita.silvermore@outlook.com"`** (the
+  email on Nikita's GitHub). Applied to **`proofline`** (this repo) and
+  **`milestamp-acl`** on 2026-07-16; both then deployed **Production Ready**
+  (verified via `npx vercel ls`). If a future deploy flips to UNKNOWN/BLOCKED,
+  check the commit author first — it's this again.
 - **§8 milestones 1–7 DONE**: deploy skeleton · schema+seeds · intake · progress
   page · weekly check-in loop + cron · team console · messaging/enrolment.
 - **Design & brand DONE**: renamed **Proofline → Milestamp** (visible name only —
