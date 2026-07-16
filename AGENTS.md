@@ -104,9 +104,10 @@ console carries extra glow (Nikita's request).
 
 ## Live state (as of 2026-07-16)
 
-- **PM-system + docs reorg landed (2026-07-16), mirrors Wordhoard — on branch
-  `pm-system-from-wordhoard` (pushed, NOT merged to `main`; merge = deploy = Nikita's
-  call).** Governing docs moved into a `docs/` tree (`git mv`, history kept):
+- **PM-system + docs reorg landed (2026-07-16), mirrors Wordhoard — MERGED to `main`
+  + DEPLOYED READY** (Vercel Production Ready, the first deploy on the fixed git
+  email — no seat-block; branch `pm-system-from-wordhoard` merged fast-forward).
+  Governing docs moved into a `docs/` tree (`git mv`, history kept):
   `docs/{BUILD_SPEC,PRICING,RISK-REGISTER,DECISIONS}.md`, `design-reference/`→
   `docs/mockups/`, `legal/`→`docs/legal/`, `marketing/`→`docs/marketing/`; new
   `docs/ops/` + `docs/historical/` scaffolds. Every governing/reference doc now opens
