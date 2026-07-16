@@ -38,6 +38,9 @@ const DOCS = [
   // — GTM reference (labelled REFERENCE: drafts + plan, not decisions) —
   "docs/marketing/POSTING-KIT.md",
   "docs/marketing/captions.md",
+  // — deep-research reports (labelled REFERENCE: evidence, NOT decisions) —
+  "docs/research/sensory-design-report.md",
+  "docs/research/milestones-measurement-verification-report.md",
 ];
 
 // Design contract: the demo mockups, kept in a mockups/ subfolder.

@@ -104,6 +104,18 @@ console carries extra glow (Nikita's request).
 
 ## Live state (as of 2026-07-16)
 
+- **Two deep-research reports landed (2026-07-16) → `docs/research/` (REFERENCE).**
+  From the Milestamp project chat: **`sensory-design-report.md`** (how to make the app
+  *feel* like a $10k programme — gold-as-metal, ceremony motion, sound/haptics,
+  retire-confetti, peak-end + ethics) and **`milestones-measurement-verification-report.md`**
+  (craft/payoff split, the FTC regime, a 5-rung verification ladder, a draft "MileStamp
+  Verified" standard, per-vertical taxonomy). **Reports = evidence, NOT decisions.** The
+  concrete calls they raise are triaged in **`docs/ops/research-triage-2026-07-16.md`**:
+  schema (verification_level + evidence table — bigger than the roadmap's
+  metric_value/unit item), FTC/claims exposure (propose a RISK-REGISTER threat +
+  typicality disclosure on proof marketing), and sensory recs — ⚠ **several of which
+  target the FROZEN progress page + revenue graph; those need Nikita's explicit go.**
+  Both added to the sync set. **⬜ Nikita to rule on the triage items.**
 - **PM-system + docs reorg landed (2026-07-16), mirrors Wordhoard — MERGED to `main`
   + DEPLOYED READY** (Vercel Production Ready, the first deploy on the fixed git
   email — no seat-block; branch `pm-system-from-wordhoard` merged fast-forward).
@@ -112,7 +124,7 @@ console carries extra glow (Nikita's request).
   `docs/mockups/`, `legal/`→`docs/legal/`, `marketing/`→`docs/marketing/`; new
   `docs/ops/` + `docs/historical/` scaffolds. Every governing/reference doc now opens
   with a **TIER banner** (LAW/BRAIN/SPEC/REFERENCE). New `scripts/sync-claude-project.mjs`
-  builds the gitignored **`milestamp-claude-project/`** mirror (8 docs + 3 mockups) →
+  builds the gitignored **`milestamp-claude-project/`** mirror (now 10 docs + 3 mockups) →
   upload to the Milestamp Claude project (see "THE SECOND CORPUS" above). New
   `CLAUDE-CODE-PROMPT.md` = the law-forward kickoff. **Git email fixed** (hotmail →
   `nikita.silvermore@outlook.com`; see git-identity gotcha below). ✅ **Mirror folder
