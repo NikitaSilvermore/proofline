@@ -102,8 +102,20 @@ console carries extra glow (Nikita's request).
   Resend for a branded email sender (`hello@<milestamp-domain>`). DNS: Nikita can
   manage it (did wordhoard.day on Cloudflare).
 
-## Live state (as of 2026-07-11)
+## Live state (as of 2026-07-16)
 
+- **PM-system + docs reorg landed (2026-07-16), mirrors Wordhoard — on branch
+  `pm-system-from-wordhoard` (pushed, NOT merged to `main`; merge = deploy = Nikita's
+  call).** Governing docs moved into a `docs/` tree (`git mv`, history kept):
+  `docs/{BUILD_SPEC,PRICING,RISK-REGISTER,DECISIONS}.md`, `design-reference/`→
+  `docs/mockups/`, `legal/`→`docs/legal/`, `marketing/`→`docs/marketing/`; new
+  `docs/ops/` + `docs/historical/` scaffolds. Every governing/reference doc now opens
+  with a **TIER banner** (LAW/BRAIN/SPEC/REFERENCE). New `scripts/sync-claude-project.mjs`
+  builds the gitignored **`milestamp-claude-project/`** mirror (8 docs + 3 mockups) →
+  upload to the Milestamp Claude project (see "THE SECOND CORPUS" above). New
+  `CLAUDE-CODE-PROMPT.md` = the law-forward kickoff. **Git email fixed** (hotmail →
+  `nikita.silvermore@outlook.com`; see git-identity gotcha below). ⬜ Nikita to
+  re-upload the mirror folder to the project + decide when to merge the branch.
 - **Red-team engagement captured (2026-07-11) → [RISK-REGISTER.md](docs/RISK-REGISTER.md).**
   Two independent pre-mortems (run on claude.ai against BUILD_SPEC + external
   strategy docs not in this repo) were compounded, rebutted with Nikita's context,
