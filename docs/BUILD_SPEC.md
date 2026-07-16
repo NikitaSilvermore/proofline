@@ -1,3 +1,5 @@
+> **TIER: LAW** — the frozen build spec. Invariants that fail the task if violated (scope, data model, routes, flows, security). Do not edit the body without an explicit unfreeze.
+
 # Proofline v1 — Build Spec (NLS Pilot)
 
 *Source of truth for the build. Hand this file to Claude Code at the start of the project and keep it in the repo root. Working title "Proofline"; run the pilot on a neutral subdomain so the naming decision stays open.*

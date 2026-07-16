@@ -1,3 +1,5 @@
+> **TIER: LAW** — the pricing source of truth. Supersedes every earlier figure anywhere (incl. older £-figures); the architecture is decided, the dollar figures are founding-era hypotheses firmed at the day-90 review.
+
 # MileStamp — Pricing & Packaging (v1)
 
 *July 2026. Companion to BUILD_SPEC.md and GROWTH_STRATEGY.md; lives in the repo root alongside them. This file is the pricing source of truth. It supersedes every earlier pricing idea discussed anywhere (per-student pricing, student bands, ticket bands, revenue-under-management bands — all rejected, reasons in §0). The **architecture** below is decided. The **specific dollar figures** are founding-era hypotheses: hold them with confidence in the Ted and ACL conversations, pressure-test them in the three external design-partner conversations, and firm them at the day-90 review.*

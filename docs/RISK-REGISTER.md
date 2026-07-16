@@ -1,3 +1,5 @@
+> **TIER: SPEC** — the threat register + strike-order plan. Governs roadmap order and its security invariants carry LAW force; read before planning any milestone. Dated 2026-07-11, may drift as items close.
+
 # Milestamp risk register
 
 **Provenance (2026-07-11):** two independent red-team "pre-mortem" engagements were

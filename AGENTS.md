@@ -1,3 +1,5 @@
+> **TIER: BRAIN** — the living project briefing + handoff. Current state / next steps; dated, may drift. Not design law.
+
 # Milestamp — full project briefing
 
 Read this whole file before any task. It is the single source of truth for a
@@ -16,6 +18,32 @@ immediately, not "at the end" — those are the ones that slip.**
 > Repo/folder are still named **Proofline** (the old working title). The product
 > is **Milestamp** (milestone + stamp). Students only ever see **NLS Mentorship**
 > branding.
+
+## THE SECOND CORPUS (standing rule)
+
+The Milestamp **Claude-project** attachments are a SECOND CORPUS. They feed every
+project-chat conversation, they have no git behind them, and they drift silently.
+The whole workflow this repo runs on is: **explore ideas in the Milestamp *project
+chat* → implement them here in the *code chat* → keep both mirrored.** That only
+works if the attachments are current. A stale attachment silently poisons every
+chat that reads it — this is exactly what happened to Wordhoard's project
+(2026-07-13: its attachments were months out of date, and every design
+conversation held in chat was reasoning from dead docs).
+
+**After ANY change to a canonical doc** (the set listed in
+`scripts/sync-claude-project.mjs`): **re-run `node scripts/sync-claude-project.mjs`
+and re-upload the whole `milestamp-claude-project/` folder to the Milestamp Claude
+project (replacing what's there), in the SAME TURN.** A doc is not shipped to the
+project until the folder is regenerated and re-uploaded.
+
+The attachment set is a **regenerated MIRROR, never a hand-edited fork.** The folder
+is wiped and rebuilt from the canonical docs every run. **Never edit files inside
+`milestamp-claude-project/`** — edit the source doc and re-sync. **Nothing
+HISTORICAL is ever included** (the script pulls only current docs; `docs/historical/*`
+is excluded — a superseded doc in the project is a doc an agent reads *without* its
+banner). And **verify every claim against the repo at HEAD, never against an
+attachment** — the repo is the source of truth; an attachment is a snapshot that may
+already be stale.
 
 ## What this is
 
@@ -268,8 +296,15 @@ console carries extra glow (Nikita's request).
   in Resend**.
 - **Run schema/seed SQL "without RLS"** in the Supabase SQL Editor (owner role);
   RLS would block the DDL + seed inserts.
-- **Git identity is repo-local** (Nikita Bryant / bryant.nikita@hotmail.com); no
-  global git identity. Commits get a `Co-Authored-By: Claude` line.
+- **⚠ Git identity — deploy-block fix APPLIED 2026-07-16.** This repo's
+  `user.email` was `bryant.nikita@hotmail.com`, which belongs to an OLD forgotten
+  GitHub account (id 198476829) that does NOT map to NikitaSilvermore (id
+  299243631) on the Pro team "silvermore" — the exact mismatch that made Vercel
+  **silently BLOCK** every Wordhoard deploy for 3 days and threatens
+  `milestamp-acl`. Because Milestamp deploys via that team, the repo identity is
+  now **`Nikita Bryant` / `nikita.silvermore@outlook.com`** (the email on Nikita's
+  GitHub). Set per-repo (no global git identity): `git config user.email
+  "nikita.silvermore@outlook.com"`. Commits get a `Co-Authored-By: Claude` line.
 - **gh CLI** is installed/authed as NikitaSilvermore but NOT on PATH (absent this
   session): `C:\Users\Nikita_2\AppData\Local\Microsoft\WinGet\Links\gh.exe`.
 - **Validate SQL before handing it to Nikita** with `pgsql-parser` (`npm i --no-save

@@ -1,3 +1,5 @@
+> **TIER: BRAIN** — the running decision log; dated, newest first, may drift. Records deviations from and clarifications of the LAW; it is not itself design law.
+
 # Decisions
 
 Log anything that deviates from or clarifies BUILD_SPEC.md. Newest first.

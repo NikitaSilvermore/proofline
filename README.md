@@ -1,3 +1,5 @@
+> **TIER: REFERENCE** — orientation for a human reader, not a decision. The law is [docs/BUILD_SPEC.md](docs/BUILD_SPEC.md) + [docs/PRICING.md](docs/PRICING.md); live state + handoff is [AGENTS.md](AGENTS.md) (BRAIN).
+
 # Proofline
 
 NLS Mentorship pilot — progress, proof, and payoff for every student.

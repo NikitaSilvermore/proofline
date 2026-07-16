@@ -1,3 +1,5 @@
+> **TIER: REFERENCE** — the go-to-market posting kit (drafts + launch plan), not a decision. Hard rule below stands: nothing posts until Milestamp is live with real NLS students.
+
 # Milestamp — posting kit
 
 The content engine for launching Milestamp. Two voices, one story. **Nothing

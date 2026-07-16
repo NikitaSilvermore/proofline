@@ -1,3 +1,5 @@
+> **TIER: REFERENCE** — draft captions/carousels/scripts with `[[slots]]` to fill, not decisions. Same posting rule as the kit.
+
 # Milestamp — captions, carousels & reel scripts
 
 Copy-paste-ready. `[[slots]]` = fill with real numbers before posting. Voices:

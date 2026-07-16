@@ -1,3 +1,5 @@
+> **TIER: REFERENCE** — a copy-paste draft for Nikita to send, not a decision or a signed document.
+
 # Cover email for Ted (copy-paste draft)
 
 Send with `Milestamp-Pilot-Licence-Agreement-DRAFT.docx` attached. Tone: warm,
