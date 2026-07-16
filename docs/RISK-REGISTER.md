@@ -93,6 +93,7 @@ Post-context odds estimate: ~1-in-3 (was ~1-in-5/1-in-8), conditional on N1+N2 l
 | T19 | Trademark unclear before public marks [B] | OPEN — action | UKIPO + USPTO + attorney knockout booked this month; win-cards/powered-by (Milestone 9b) HARD-BLOCKED until clear. Nikita |
 | T20 | Money-only schema doesn't generalise [A] | HALF-SURVIVES → build item | `value_confirmed` → generic `metric_value` + `metric_unit` per track (~2h) so knees/commissions/clients fit. Do before NLS go-live. Form→AI template generator = post-pilot (§10) |
 | T21 | Hygiene: GDPR rectification, WhatsApp promise, Vercel Hobby [A] | OPEN — actions | Audited-amendment path for baseline typos (superseded_by, never silent edit); Vercel → paid plan (Hobby bans commercial use); WhatsApp queued behind SMS |
+| T22 | FTC substantiation regime — any outcome/earnings claim needs a "reasonable basis" *before* it's published; Testimonials Rule (16 CFR 465, live Oct-2024, penalties cited up to $53,088/violation) + the Publishing.com $1.5M order against a **MileStamp-adjacent make-money-coaching ICP** + proposed Biz Opp Rule. NLS = an earnings vertical (highest enforcement). [research 2026-07-16] | **OPEN — policy set 2026-07-16** | Deepens T15/T16. Locked calls: (a) marketing proof-post disclosure = **MINIMAL for now** — consent (`public_optin`) + no false/misleading claims, per-post judgement (Nikita's call; consistent with T16's "light disclosure"; the fuller cohort-denominator + median/range **typicality format is documented as the escalation** to switch on before scaled proof marketing); (b) **"MileStamp Verified" PARKED** as a documented 5-rung standard → `docs/ops/milestamp-verified-standard-DRAFT.md`, **not built in v1**; (c) `verification_level` (0–4) + an `evidence` table fold into the T20 schema work; (d) Makenna paper must grant published-outcome rights + commit published claims to the typicality standard. Full evidence: `docs/research/milestones-measurement-verification-report.md`; open items: `docs/ops/research-triage-2026-07-16.md` |
 
 Left alone deliberately: the check-in "$ 0 is a fine answer" placeholder (T4 flagged
 the emotional cost; no decision to change — revisit if response decays).
@@ -130,7 +131,9 @@ the emotional cost; no decision to change — revisit if response decays).
    (+ cover email with Ted's ROI paragraph in `legal/ted-cover-email.md`;
    blanks to fill: entity names/addresses, Ted + Cassie surnames, payment
    method, governing law — then solicitor review).
-   **Makenna one-pager still to draft ⬜.**
+   **Makenna one-pager still to draft ⬜** — must, per T22(d), grant the right to
+   publish verified student outcomes (student `public_optin` = the per-student gate)
+   and commit any published claim to the typicality standard.
 3. ~~Delete the sandbag line~~ ✅ done 2026-07-11. (T14)
 4. Vercel Hobby → paid plan. (T21)
 5. Book UKIPO + USPTO + attorney trademark searches. (T19) **First settle the
@@ -157,4 +160,7 @@ schema → live demo → founding offer ($397/mo Standard, 12-month lock, PRICIN
 §4); Capital Closer clone after NLS launch (T7/T20).
 
 **Parked until post-pilot:** Hermes/AI agents, WhatsApp (behind SMS), form→template
-generator, everything in BUILD_SPEC §10.
+generator, everything in BUILD_SPEC §10, and the **"MileStamp Verified" standard +
+verification ladder** (documented at `docs/ops/milestamp-verified-standard-DRAFT.md`;
+the cheap `verification_level` field rides along with the T20 schema work, but the
+badge + third-party-data integrations are post-pilot — T22).

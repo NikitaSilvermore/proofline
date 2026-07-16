@@ -57,6 +57,18 @@ peers* — coaches and closers — as one of them. This account earns the trust;
 real student milestones (only from students who ticked the public-sharing consent
 at intake — Milestamp captures that, so it's clean).
 
+**FTC / claims rule (policy set 2026-07-16 — MINIMAL tier, Nikita's call).** A proof
+post is cleared when: (1) the student ticked `public_optin`, and (2) nothing in it is
+false or misleading. That's the current bar — no mandatory typicality boilerplate on
+every post. **But know the exposure** (RISK-REGISTER T22): NLS is an earnings vertical,
+the one the FTC enforces hardest (the Publishing.com $1.5M order was a near-identical
+ICP), so an outcome shown as *typical* ("students earn $10k") is the trap — keep proof
+framed as *this student's real win*, not a promise anyone will repeat it. **The
+escalation, ready to switch on before any scaled/paid proof marketing:** the full
+typicality format — cohort denominator + median/range + insider labels — per
+`docs/research/milestones-measurement-verification-report.md` §4. Until then, lean on
+honest single-story framing and the consent gate.
+
 ---
 
 ## Content pillars (rotate these)

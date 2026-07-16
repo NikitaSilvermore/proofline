@@ -115,7 +115,14 @@ console carries extra glow (Nikita's request).
   metric_value/unit item), FTC/claims exposure (propose a RISK-REGISTER threat +
   typicality disclosure on proof marketing), and sensory recs — ⚠ **several of which
   target the FROZEN progress page + revenue graph; those need Nikita's explicit go.**
-  Both added to the sync set. **⬜ Nikita to rule on the triage items.**
+  Both added to the sync set. **Group B (FTC/legal/marketing) RULED 2026-07-16:**
+  FTC threat added to RISK-REGISTER as **T22**; marketing proof-post disclosure =
+  **MINIMAL** (consent + no-false-claims — Nikita's call; fuller typicality format
+  documented as the escalation in POSTING-KIT); **"MileStamp Verified" PARKED** as a
+  documented standard (`docs/ops/milestamp-verified-standard-DRAFT.md`, not built in
+  v1); Makenna one-pager to carry published-outcome + typicality rights. **⬜ Still
+  open: group A (schema — verification_level/evidence table) + group C (sensory,
+  incl. the frozen-graph proposals).**
 - **PM-system + docs reorg landed (2026-07-16), mirrors Wordhoard — MERGED to `main`
   + DEPLOYED READY** (Vercel Production Ready, the first deploy on the fixed git
   email — no seat-block; branch `pm-system-from-wordhoard` merged fast-forward).

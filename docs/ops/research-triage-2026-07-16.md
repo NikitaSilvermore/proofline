@@ -33,21 +33,26 @@ Nikita's ruling first.
 4. **Health lane flag.** A `requires_clinician_attestation` flag on health milestones
    (ACL). *Rec 5.* — belongs with the milestamp-acl fork's schema, not necessarily NLS.
 
-## B. FTC / legal / marketing — real exposure, likely a RISK-REGISTER + PRICING/legal call
+## B. FTC / legal / marketing — ✅ RULED 2026-07-16 (walked through with Nikita)
 
-5. **Add an FTC unsubstantiated-claims threat to [RISK-REGISTER.md](../RISK-REGISTER.md).**
-   The Testimonials Rule (16 CFR 465, live since Oct 2024), the Publishing.com $1.5M
-   order against a *MileStamp-adjacent* ICP, and the proposed Biz Opp Rule make
-   outcome claims a civil-penalty risk. *Verification report Key Finding 4.* — propose
-   a new threat entry; Nikita's ruling to add.
-6. **Marketing captions must carry typicality disclosure.** Any "proof" post with an
-   earnings/results figure needs cohort denominator + median/range, never "students
-   earn $Y." Reinforces (does not replace) the existing consent hard-rule in
-   `docs/marketing/POSTING-KIT.md`. *Rec 4 + Part 4.*
-7. **Draft "MileStamp Verified" standard** (7-point, rung 3+ gated). A new product
-   concept — where it lives (BUILD_SPEC? a new spec doc?) is Nikita's call. *Part 4.*
-8. **Case-study/claim rights** intersect the Ted/Makenna papers — verified-outcome
-   rights + who can publish what. Cross-check against `docs/legal/`.
+5. ✅ **DONE — FTC threat added to [RISK-REGISTER.md](../RISK-REGISTER.md) as T22**
+   (Testimonials Rule 16 CFR 465, Publishing.com $1.5M order, proposed Biz Opp Rule).
+6. ✅ **RULED — marketing disclosure = MINIMAL** (Nikita's call): consent
+   (`public_optin`) + no false/misleading claims, per-post judgement — no mandatory
+   typicality boilerplate yet. The fuller cohort-denominator + median/range format is
+   **documented as the escalation** to switch on before scaled/paid proof marketing.
+   Written into `docs/marketing/POSTING-KIT.md`. ⚠ *Judgment call logged: Claude
+   flagged Minimal as light for an earnings vertical; Nikita chose it — the escalation
+   is one edit away.*
+7. ✅ **RULED — "MileStamp Verified" PARKED** as a documented standard →
+   [`milestamp-verified-standard-DRAFT.md`](milestamp-verified-standard-DRAFT.md).
+   Adopt its claim discipline now; `verification_level` field rides with schema group A
+   (T20); badge + integrations are post-pilot. Not built in v1.
+8. ⬜ **CARRIED to the Makenna one-pager** — the Ted agreement already routes
+   "case-study and testimonial rights" to that paper (clause D) and treats
+   refund/payment gains as joint (clause 7.2). The one-pager (still to draft) must add:
+   grant to publish verified outcomes with student consent + commit published claims to
+   the typicality standard. Flagged in RISK-REGISTER T22(d) + strike-order.
 
 ## C. Sensory / design — ⚠ proposals against a FROZEN surface
 
