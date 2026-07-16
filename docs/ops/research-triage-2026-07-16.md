@@ -17,21 +17,27 @@ Reports are **evidence, not decisions**. Below are the concrete calls they raise
 grouped by where a decision would land. **Nothing here is actioned** — each needs
 Nikita's ruling first.
 
-## A. Schema / BUILD_SPEC (LAW) — needs a spec decision, not a tweak
+## A. Schema / BUILD_SPEC — ✅ DESIGN LOCKED 2026-07-16 (build gated; DECISIONS.md 2026-07-16)
 
-1. **Verification ladder as a first-class field.** Add `verification_level` (0–4) to
-   every milestone (0 self-report → 4 independently audited). *Source: Verification
-   report Part 3.* — This is bigger than the `metric_value`/`metric_unit`
-   generalisation already on the roadmap.
-2. **Evidence table.** A dedicated `evidence` table (milestone_id, evidence_type,
-   source, artefact_url/hash, captured_at, verifier_identity, scope_note). *Part 3 +
-   Rec 1.*
-3. **Generalise `metric_unit` beyond currency** — enum covering currency · count ·
-   events/period · percentage · degrees (ROM) · kg/lb · cm/in · PROM points (0–100) ·
-   credit-score points · binary, plus a free-text label. *Rec 2.* — extends the
-   roadmap's schema-generalisation item.
-4. **Health lane flag.** A `requires_clinician_attestation` flag on health milestones
-   (ACL). *Rec 5.* — belongs with the milestamp-acl fork's schema, not necessarily NLS.
+Ruling (Nikita): **design + record only** — no SQL/code changed; build is a gated
+milestone under T20. **NLS-lean unit set.** Full design in
+[DECISIONS.md](../DECISIONS.md) 2026-07-16. In brief:
+
+1. ✅ **DESIGNED — `verification_level` (0–4) on `milestones`** (the claim-bearing
+   object; check-ins are inherently rung 0). Cheap half of the parked Verified work.
+2. ✅ **DESIGNED — `evidence` table** (milestone_id, evidence_type, source,
+   artefact_url/hash, captured_at, verifier_identity, scope_note) + its RLS.
+3. ✅ **DESIGNED — metric generalisation:** `checkins.value_confirmed` →
+   `metric_value` + `metric_unit`; `milestones` gain the same pair. `metric_unit` =
+   free text (no DB enum → no future migration), canonical NLS-lean set
+   **currency · count · events_per_month · percentage** + free-text label; health/
+   finance units added to the app list when ACL/finance need them. Extends T20.
+4. ➡ **CARRIED to the ACL fork** — `requires_clinician_attestation` is milestamp-acl's
+   schema, not this repo.
+
+⬜ **Build remains:** apply the additive columns + evidence table (idempotent
+`schema.sql`, no deploy) and the `value_confirmed→metric_value` rename (ripples through
+rag/progress/console/seed + the frozen graph's data source; **deploys — Nikita's call**).
 
 ## B. FTC / legal / marketing — ✅ RULED 2026-07-16 (walked through with Nikita)
 

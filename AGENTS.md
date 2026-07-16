@@ -120,9 +120,15 @@ console carries extra glow (Nikita's request).
   **MINIMAL** (consent + no-false-claims — Nikita's call; fuller typicality format
   documented as the escalation in POSTING-KIT); **"MileStamp Verified" PARKED** as a
   documented standard (`docs/ops/milestamp-verified-standard-DRAFT.md`, not built in
-  v1); Makenna one-pager to carry published-outcome + typicality rights. **⬜ Still
-  open: group A (schema — verification_level/evidence table) + group C (sensory,
-  incl. the frozen-graph proposals).**
+  v1); Makenna one-pager to carry published-outcome + typicality rights. **Group A
+  (schema) DESIGN LOCKED 2026-07-16** (DECISIONS.md 2026-07-16) — Nikita chose *design
+  + record only* + NLS-lean units: `milestones` gain `metric_value`/`metric_unit`/
+  `verification_level` (0–4), a new `evidence` table, `checkins.value_confirmed` →
+  `metric_value`+`metric_unit` (free-text unit, canonical set currency/count/
+  events_per_month/percentage); ACL clinician-flag carried to the fork. ⬜ **Build is a
+  gated milestone under T20** (the rename ripples through rag/progress/console/seed +
+  the frozen graph's data source and **deploys** — Nikita's call). **⬜ Still open:
+  group C (sensory, incl. the frozen-graph proposals).**
 - **PM-system + docs reorg landed (2026-07-16), mirrors Wordhoard — MERGED to `main`
   + DEPLOYED READY** (Vercel Production Ready, the first deploy on the fixed git
   email — no seat-block; branch `pm-system-from-wordhoard` merged fast-forward).

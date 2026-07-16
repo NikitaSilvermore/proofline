@@ -4,6 +4,69 @@
 
 Log anything that deviates from or clarifies BUILD_SPEC.md. Newest first.
 
+## 2026-07-16 — Schema extension for measurement + verification (group A: design locked, build gated)
+
+From the verification research report
+([docs/research/milestones-measurement-verification-report.md](research/milestones-measurement-verification-report.md))
++ triage group A. Extends BUILD_SPEC §4/§5 (data model / flags) and register **T20**.
+**Design only — no SQL/code changed yet.** The build is a **gated milestone** (it
+deploys; Nikita's call), sequenced under T20 "before NLS go-live." Decision (Nikita,
+2026-07-16): *design + record only; NLS-lean unit set.*
+
+**The agreed shape:**
+
+1. **Generalise the metric beyond dollars (T20).**
+   - `checkins.value_confirmed numeric` → **`metric_value numeric` + `metric_unit text`**.
+   - `milestones` gain **`metric_value numeric` + `metric_unit text`** so a payoff
+     milestone can carry its figure (e.g. First paid gig = `4000` / `currency`).
+     Milestones currently hold no number.
+   - `baselines` stay as-is for the pilot — `monthly_revenue`/`paid_gigs_12mo`/
+     `target_monthly` feed the **frozen** revenue graph; do NOT churn them. Generalise
+     later only if a non-currency track needs a baseline. *(Logged.)*
+
+2. **`metric_unit` = free text, app-validated against a canonical list** — NOT a DB
+   `check` constraint, so a new unit never needs a migration. **NLS-lean canonical set
+   (Nikita 2026-07-16):** `currency` · `count` · `events_per_month` · `percentage`,
+   plus a free-text label for anything else. Health/finance units (`degrees`,
+   `kg`/`lb`, `cm`/`inches`, `prom_points`, `credit_points`, `binary`) get added to the
+   app list **when ACL or a finance coach actually needs them** — the column already
+   stores them, so that's an app-list edit, not a schema change.
+
+3. **Verification level (the cheap half of the parked "MileStamp Verified" — B7/T22).**
+   - **`milestones.verification_level int default 0 check (verification_level between 0 and 4)`**
+     — 0 self-report → 4 audited (ladder in
+     [docs/ops/milestamp-verified-standard-DRAFT.md](ops/milestamp-verified-standard-DRAFT.md)).
+     Milestones are the claim-bearing objects, so the rung lives there.
+   - **Check-ins are inherently rung 0** (weekly self-report) — no column needed.
+   - No public "Verified" language/badge ships until rung-3 machinery exists (T15 holds).
+
+4. **New `evidence` table** (the filing cabinet), one row per artefact backing a milestone:
+   ```
+   evidence (
+     id uuid primary key default gen_random_uuid(),
+     milestone_id uuid references milestones(id) on delete cascade,
+     evidence_type text,     -- screenshot|contract|booking|invoice|processor|prom|photo|attestation|other
+     source text,            -- free text: 'Stripe','Close','coach:Cassie','clinic EMR'…
+     artefact_url text,      -- link or storage path
+     artefact_hash text,     -- optional integrity hash
+     captured_at timestamptz default now(),
+     verifier_identity text, -- who attests (named coach/clinician) — insider label per T22(5)
+     scope_note text         -- what's verified vs NOT (Carfax lesson, T22(6))
+   )
+   ```
+   Add `evidence` to the RLS loop (`team_all`; students never touch it — server /
+   service-role only, like every other table).
+
+5. **Health lane flag (A4) is OUT OF SCOPE here** — `requires_clinician_attestation`
+   belongs to the **milestamp-acl fork's** schema (different repo). Carried there.
+
+**Build ripple (for when greenlit):** the `value_confirmed → metric_value` rename
+touches `rag.ts`, `flags-service.ts`, `progress.ts`, `console.ts`, `seed.sql`, and the
+data source behind the **frozen** `RevenueChart` (plumbing only — the graph's look is
+untouched). The additive parts (milestone `metric_value`/`metric_unit`/
+`verification_level`, the `evidence` table) break nothing; all idempotent in
+`schema.sql`. **Pushing the code change deploys — Nikita's call; needs a verify pass.**
+
 ## 2026-07-11 — Pricing & packaging locked (PRICING.md is the source of truth)
 
 **The law (verbatim from PRICING.md §0):**
