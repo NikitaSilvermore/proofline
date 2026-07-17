@@ -142,9 +142,14 @@ console becomes calm/clinical (instant, no glow/sound/stamps).
   + record only* + NLS-lean units: `milestones` gain `metric_value`/`metric_unit`/
   `verification_level` (0–4), a new `evidence` table, `checkins.value_confirmed` →
   `metric_value`+`metric_unit` (free-text unit, canonical set currency/count/
-  events_per_month/percentage); ACL clinician-flag carried to the fork. ⬜ **Build is a
-  gated milestone under T20** (the rename ripples through rag/progress/console/seed +
-  the frozen graph's data source and **deploys** — Nikita's call). **Group C (sensory)
+  events_per_month/percentage); ACL clinician-flag carried to the fork. ✅ **BUILT on
+  branch `schema-metric-verification`** (pushed, NOT merged; tsc+build green, SQL
+  validated w/ pgsql-parser; rename is behaviour-identical, graph numbers unchanged;
+  verification_level/evidence recorded not yet surfaced = "record only"). ⚠ **Coordinated
+  deploy (Nikita): (1) run updated `supabase/schema.sql` in Supabase "without RLS" to
+  migrate the live DB (incl. the value_confirmed→metric_value rename), (2) re-run seed.sql
+  if refreshing demo, (3) merge→main to deploy code. The brief window is SAFE — no real
+  students yet.** **Group C (sensory)
   RULED 2026-07-16** — see the sensory bullet at the top of Live state (freeze lifted,
   console calmed, ceremony build gated). **All three research groups (A/B/C) now ruled.**
 - **PM-system + docs reorg landed (2026-07-16), mirrors Wordhoard — MERGED to `main`
