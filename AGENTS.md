@@ -108,16 +108,19 @@ console becomes calm/clinical (instant, no glow/sound/stamps).
 
 ## Live state (as of 2026-07-16)
 
-- **⏻ Sensory design pass RULED 2026-07-16 (group C) — build gated on branch
-  `sensory-pass`** (DECISIONS.md 2026-07-16). Two reversals: (1) **the progress-page +
-  revenue-graph FREEZE IS LIFTED** (Nikita opted into the full sensory pass; still ships
-  gated/preview-first, re-freezable); (2) **the console is CALMED** (earlier "extra
-  glow" reversed → calm/clinical). Building (gated): **gold-as-metal** gradient (compose
-  the existing `--gold*` tokens), the **heavy-spring stamp-impression** ceremony
-  (baseline lock + check-in; spring 320/30/1.1), **retire generic confetti**,
-  reduced-motion tokens. **Sound + haptics PARKED** (report Stage 3; iOS has no haptics).
-  Sequencing: Stage 1 gold token + reduced-motion + console calm; Stage 2 stamp ceremony;
-  Stage 3 (parked) sound/haptics.
+- **⏻ Sensory design pass (group C) — Stages 1–2 MERGED to `main` + DEPLOYED
+  2026-07-16** (DECISIONS.md 2026-07-16; branch `sensory-pass` merged fast-forward,
+  Production Ready). Two reversals stand: (1) **the progress-page + revenue-graph FREEZE
+  IS LIFTED**; (2) **the console is CALMED** (earlier "extra glow" reversed). **Shipped:**
+  gold-as-metal gradient + sheen + motion/reduced-motion tokens (`globals.css`); the
+  **console calm-down** (glow-pass wound back via an override layer in
+  `console.module.css`); the **hand-rolled CSS stamp-impression** on the baseline-lock
+  seal + check-in ✓ (gold-metal coins that press in, ~550ms, one-shot sheen); **confetti
+  RETIRED** → 16-fleck gold-leaf drift, milestone-earned only. *(Spring = dependency-free
+  cubic-bezier, not Framer Motion — Claude's logged call; swap up if richer motion
+  wanted.)* **⬜ Not yet done:** applying gold-metal + rail-fill/pulse to the **progress
+  page + graph itself** (now un-frozen but untouched so far); **Stage 3 sound + haptics
+  PARKED** (iOS has no Vibration API).
 - **Two deep-research reports landed (2026-07-16) → `docs/research/` (REFERENCE).**
   From the Milestamp project chat: **`sensory-design-report.md`** (how to make the app
   *feel* like a $10k programme — gold-as-metal, ceremony motion, sound/haptics,
