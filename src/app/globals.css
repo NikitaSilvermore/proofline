@@ -13,6 +13,13 @@
   --gold: #c6a15b;
   --gold-deep: #a8863f;
   --gold-soft: #f3ead8;
+  /* Sensory pass (DECISIONS.md 2026-07-16): gold rendered as METAL, not flat — a
+     dark→highlight→dark gradient so the eye reads a moving specular highlight.
+     Composed from the three gold tokens above; use on EARNED/gold surfaces only. */
+  --gold-metal: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 35%, var(--gold-soft) 50%, var(--gold) 65%, var(--gold-deep) 100%);
+  /* Motion budget: everyday micro-interactions fast; ceremony moments expressive. */
+  --dur-fast: 150ms;
+  --dur-ceremony: 500ms;
   --green: #177a53;
   --green-soft: #e4f2eb;
   --amber: #b9791b;
@@ -34,4 +41,44 @@ body {
   color: #eef2f8;
   font-family: var(--body);
   -webkit-font-smoothing: antialiased;
+}
+
+/* ── Sensory pass helpers (DECISIONS.md 2026-07-16) — additive, opt-in via class.
+   Stage 1 of branch `sensory-pass`; nothing here changes a surface until applied. ── */
+
+/* Earned gold as metal: fill text with the gold-metal gradient (crisp at any DPI,
+   selectable, screen-reader-readable). Fallback to flat gold where unsupported. */
+.gold-metal-text {
+  background: var(--gold-metal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold);
+}
+
+/* One-shot sheen: a bright band sweeps across a gold surface at the MOMENT OF
+   EARNING. Add the class when the stamp lands, remove after it plays — reserve
+   for the earning moment; a constant shimmer reads cheap. */
+.gold-sheen { position: relative; overflow: hidden; }
+.gold-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 248, 224, 0.55) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: gold-sheen-sweep var(--dur-ceremony) ease-out 1;
+  pointer-events: none;
+}
+@keyframes gold-sheen-sweep { to { transform: translateX(120%); } }
+
+/* Honour the OS reduced-motion flag everywhere: movement collapses to near-zero,
+   but content still APPEARS (a stamp is proof — essential info, never hidden). */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0.01ms; --dur-ceremony: 0.01ms; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
