@@ -283,18 +283,51 @@
 .success {
   text-align: center;
 }
+/* Sensory pass (DECISIONS.md 2026-07-16): the confirmation mark is a gold-METAL
+   stamp that presses in (heavy spring, one-shot sheen) — the mechanism IS the
+   reward. Reduced-motion handled globally (the mark still appears). */
 .bigCheck {
+  position: relative;
+  overflow: hidden;
   width: 68px;
   height: 68px;
   margin: 6px auto 20px;
   border-radius: 50%;
-  background: linear-gradient(160deg, var(--brass), var(--brass-deep));
+  background: var(--gold-metal);
   display: grid;
   place-items: center;
   color: var(--bg-1);
   font-size: 30px;
   font-weight: 800;
-  box-shadow: 0 0 40px -6px rgba(216, 185, 120, 0.9);
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 248, 224, 0.6);
+  animation: checkPress 0.55s cubic-bezier(0.22, 1, 0.32, 1) both;
+}
+.bigCheck::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 248, 224, 0.85) 50%, transparent 65%);
+  transform: translateX(-140%);
+  animation: checkSheen 0.6s ease-out 0.32s 1 both;
+  pointer-events: none;
+}
+@keyframes checkPress {
+  0% {
+    transform: translateY(-18px) scale(2.3) rotate(-9deg);
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+@keyframes checkSheen {
+  to {
+    transform: translateX(140%);
+  }
 }
 .success h4 {
   font-family: var(--display);
@@ -341,20 +374,25 @@
   box-shadow: 0 0 28px -8px rgba(216, 185, 120, 0.8);
 }
 
-.confetti {
+/* Sensory pass (DECISIONS.md 2026-07-16): generic multicolour confetti retired.
+   A restrained, slow GOLD-LEAF drift — few, large, gold-only flecks catching
+   light — is reserved for rare payoff (milestone-earned) moments only. Colour is
+   set inline in JS; reduced-motion skips creation entirely. */
+.goldLeaf {
   position: fixed;
-  width: 9px;
-  height: 14px;
-  top: -20px;
+  width: 12px;
+  height: 12px;
+  top: -26px;
   z-index: 60;
-  border-radius: 2px;
+  border-radius: 45% 55% 50% 50%;
   pointer-events: none;
-  animation: fall linear forwards;
+  opacity: 0.9;
+  animation: goldFall linear forwards;
 }
-@keyframes fall {
+@keyframes goldFall {
   to {
-    transform: translateY(105vh) rotate(540deg);
-    opacity: 0.15;
+    transform: translateY(108vh) rotate(210deg);
+    opacity: 0;
   }
 }
 

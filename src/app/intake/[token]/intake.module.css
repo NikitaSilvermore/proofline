@@ -416,12 +416,18 @@
     opacity: 1;
   }
 }
+/* Sensory pass (DECISIONS.md 2026-07-16): the seal is a gold-METAL coin that
+   presses into the page — a heavy, near-critically-damped stamp-down with a
+   one-shot sheen at impact. Reduced-motion is handled globally in globals.css
+   (the coin still appears, it just doesn't fly or glint). */
 .seal {
+  position: relative;
+  overflow: hidden;
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  border: 2px solid var(--brass);
-  color: var(--brass);
+  background: var(--gold-metal);
+  color: #0c1723;
   display: grid;
   place-items: center;
   font-family: var(--display);
@@ -429,7 +435,35 @@
   font-size: 11px;
   letter-spacing: 0.06em;
   margin-bottom: 22px;
-  box-shadow: 0 0 24px -6px rgba(216, 185, 120, 0.7);
+  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 248, 224, 0.6);
+  animation: sealPress 0.55s cubic-bezier(0.22, 1, 0.32, 1) both;
+}
+.seal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 248, 224, 0.85) 50%, transparent 65%);
+  transform: translateX(-140%);
+  animation: sealSheen 0.6s ease-out 0.32s 1 both;
+  pointer-events: none;
+}
+@keyframes sealPress {
+  0% {
+    transform: translateY(-18px) scale(2.3) rotate(-9deg);
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+@keyframes sealSheen {
+  to {
+    transform: translateX(140%);
+  }
 }
 .stampEyebrow {
   font-family: var(--mono);

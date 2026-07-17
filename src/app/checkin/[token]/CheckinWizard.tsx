@@ -215,28 +215,35 @@ function Success({
   done: Extract<CheckinResult, { ok: true }>;
   token: string;
 }) {
+  // Sensory pass (DECISIONS.md 2026-07-16): generic confetti retired. The stamp
+  // press IS the reward (CSS on .bigCheck). A restrained, slow gold-leaf drift —
+  // few, large, gold-only flecks — is reserved for rare payoff (milestone-earned)
+  // moments only. Reduced-motion skips it entirely.
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
-    const colors = ["#C6A15B", "#0E1A2B", "#177A53", "#E8D9B8", "#A8863F"];
+    if (reduce || !done.milestoneEarned) return;
+    const golds = ["#f3ead8", "#e8d9b8", "#c6a15b", "#a8863f"];
     const nodes: HTMLDivElement[] = [];
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 16; i++) {
       const c = document.createElement("div");
-      c.className = styles.confetti;
+      c.className = styles.goldLeaf;
       c.style.left = Math.random() * 100 + "vw";
-      c.style.background = colors[Math.floor(Math.random() * colors.length)];
-      c.style.animationDuration = 1.6 + Math.random() * 1.6 + "s";
-      c.style.animationDelay = Math.random() * 0.4 + "s";
-      c.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+      const s = 9 + Math.random() * 9;
+      c.style.width = s + "px";
+      c.style.height = s + "px";
+      c.style.background = golds[Math.floor(Math.random() * golds.length)];
+      c.style.animationDuration = 2.6 + Math.random() * 2 + "s";
+      c.style.animationDelay = Math.random() * 0.5 + "s";
+      c.style.opacity = String(0.55 + Math.random() * 0.35);
       document.body.appendChild(c);
       nodes.push(c);
     }
-    const t = setTimeout(() => nodes.forEach((n) => n.remove()), 4200);
+    const t = setTimeout(() => nodes.forEach((n) => n.remove()), 5200);
     return () => {
       clearTimeout(t);
       nodes.forEach((n) => n.remove());
     };
-  }, []);
+  }, [done.milestoneEarned]);
 
   return (
     <div className={styles.success}>
