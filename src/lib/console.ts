@@ -16,7 +16,7 @@ export type CCheckin = {
   week_no: number | null;
   sent_at: string | null;
   completed_at: string | null;
-  value_confirmed: number | null;
+  metric_value: number | null;
 };
 export type CMilestone = { student_id: string; state: string | null };
 export type CFlag = { student_id: string; rag: string | null; reasons: string[] | null };
@@ -149,7 +149,7 @@ export function buildConsole(input: {
       .at(-1) ?? null;
     const rel = relDays(lastCompleted, now);
 
-    const confirmed = done.reduce((t, c) => t + (c.value_confirmed ?? 0), 0);
+    const confirmed = done.reduce((t, c) => t + (c.metric_value ?? 0), 0);
     let vs: RosterRow["vsBaseline"];
     if (!base || base.monthly_revenue == null) {
       vs = { text: s.intake_completed_at ? "baseline set" : "no baseline", dir: "flat" };

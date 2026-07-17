@@ -333,8 +333,12 @@ console becomes calm/clinical (instant, no glow/sound/stamps).
   `APP_BASE_URL`. (Close alt: `CLOSE_API_KEY`, `CLOSE_SENDER`, `CLOSE_SMS_NUMBER`,
   `CLOSE_SIGNING_KEY`, `CLOSE_WEBHOOK_SECRET`.) Supabase keys are the new
   **Publishable** (→ anon) and **Secret** (→ service role) keys.
-- **Supabase** — Auth → URL Configuration set to the Vercel URL + `/auth/callback`
-  redirect. Custom SMTP = Resend (see Live state). Run schema/seed "without RLS".
+- **Supabase** — this app's project is **`silvermore`** in the Supabase dashboard
+  (⚠ NOT `milestamp-acl`, which is the ACL fork's separate DB — never run this repo's
+  schema there). Confirm you're in the right one: Table Editor shows `students`/
+  `checkins`/`team_allowlist`. Auth → URL Configuration set to the Vercel URL +
+  `/auth/callback` redirect. Custom SMTP = Resend (see Live state). Run schema/seed via
+  SQL Editor "without RLS" (owner role).
 - **Resend** — signed up with `nikita.silvermore@gmail.com`; test-mode sender
   `onboarding@resend.dev`. API key powers Supabase SMTP now; will also power app
   student sends once `MESSAGING_PROVIDER=resend`.

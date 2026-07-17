@@ -22,7 +22,7 @@ export type CheckinRow = {
   week_no: number | null;
   completed_at: string | null;
   pitched_count: number | null;
-  value_confirmed: number | null;
+  metric_value: number | null;
   confidence: number | null;
   win_text: string | null;
 };
@@ -98,7 +98,7 @@ export function buildProgress(input: {
   const { student, baseline } = input;
   const done = completed(input.checkins);
 
-  const confirmedTotal = done.reduce((s, c) => s + (c.value_confirmed ?? 0), 0);
+  const confirmedTotal = done.reduce((s, c) => s + (c.metric_value ?? 0), 0);
   const confidenceBaseline = baseline?.stage_confidence ?? null;
   const latest = done.length ? done[done.length - 1] : null;
   const confidenceLatest = latest?.confidence ?? confidenceBaseline;
@@ -118,7 +118,7 @@ export function buildProgress(input: {
   const chart: ChartPoint[] = [{ label: "Start", value: 0 }];
   let running = 0;
   for (const c of done) {
-    running += c.value_confirmed ?? 0;
+    running += c.metric_value ?? 0;
     chart.push({ label: `W${c.week_no}`, value: running });
   }
   const chartMax = Math.max(1000, ...chart.map((p) => p.value));
@@ -131,11 +131,11 @@ export function buildProgress(input: {
     .map((c) => ({
       title: c.win_text!.trim(),
       detail:
-        c.value_confirmed && c.value_confirmed > 0
-          ? `Week ${c.week_no} · $${c.value_confirmed.toLocaleString("en-US")} confirmed.`
+        c.metric_value && c.metric_value > 0
+          ? `Week ${c.week_no} · $${c.metric_value.toLocaleString("en-US")} confirmed.`
           : `Week ${c.week_no} check-in.`,
       date: c.completed_at,
-      medal: c.value_confirmed && c.value_confirmed > 0 ? "★" : "↗",
+      medal: c.metric_value && c.metric_value > 0 ? "★" : "↗",
     }));
 
   return {

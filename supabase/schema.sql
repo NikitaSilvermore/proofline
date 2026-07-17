@@ -68,7 +68,12 @@ create table if not exists milestones (
   layer text,
   state text default 'todo' check (state in ('todo','current','done')),
   progress_pct int default 0,
-  achieved_at timestamptz
+  achieved_at timestamptz,
+  -- Measurement + verification (DECISIONS.md 2026-07-16). A payoff milestone can
+  -- carry its figure + unit; verification_level is the 0–4 evidence rung.
+  metric_value numeric,
+  metric_unit text,
+  verification_level int default 0
 );
 create index if not exists ix_milestones_student on milestones (student_id);
 
@@ -79,7 +84,8 @@ create table if not exists checkins (
   sent_at timestamptz,
   completed_at timestamptz,
   pitched_count int,
-  value_confirmed numeric,                -- track-agnostic dollars
+  metric_value numeric,                   -- generalised weekly value (was value_confirmed)
+  metric_unit text,                       -- canonical: currency|count|events_per_month|percentage + free-text
   confidence int check (confidence between 1 and 10),
   win_text text,
   blocker text
@@ -108,6 +114,51 @@ create table if not exists team_allowlist (
   note text,
   added_at timestamptz default now()
 );
+
+-- Evidence for a milestone (DECISIONS.md 2026-07-16). One row per artefact/data
+-- snapshot backing a milestone; the verification ladder's filing cabinet. Server /
+-- service-role only, like every other table (students never touch it).
+create table if not exists evidence (
+  id uuid primary key default gen_random_uuid(),
+  milestone_id uuid references milestones(id) on delete cascade,
+  evidence_type text,                     -- screenshot|contract|booking|invoice|processor|prom|photo|attestation|other
+  source text,                            -- 'Stripe','Close','coach:Cassie','clinic EMR'…
+  artefact_url text,                      -- link or storage path
+  artefact_hash text,                     -- optional integrity hash
+  captured_at timestamptz default now(),
+  verifier_identity text,                 -- who attests (named coach/clinician) — insider label
+  scope_note text                         -- what's verified vs NOT (Carfax lesson)
+);
+create index if not exists ix_evidence_milestone on evidence (milestone_id);
+
+-- ─────────────────────────────────────────────────────────────────────────────
+-- 1b. Migrations for databases created before the measurement/verification model
+-- (DECISIONS.md 2026-07-16). Idempotent: safe on fresh and existing DBs alike.
+-- ─────────────────────────────────────────────────────────────────────────────
+-- checkins: value_confirmed → metric_value (+ metric_unit).
+do $$
+begin
+  if exists (select 1 from information_schema.columns
+             where table_name = 'checkins' and column_name = 'value_confirmed')
+     and not exists (select 1 from information_schema.columns
+             where table_name = 'checkins' and column_name = 'metric_value')
+  then
+    alter table checkins rename column value_confirmed to metric_value;
+  end if;
+end $$;
+alter table checkins  add column if not exists metric_value numeric;
+alter table checkins  add column if not exists metric_unit text;
+-- milestones: measurement + verification columns.
+alter table milestones add column if not exists metric_value numeric;
+alter table milestones add column if not exists metric_unit text;
+alter table milestones add column if not exists verification_level int default 0;
+do $$
+begin
+  if not exists (select 1 from pg_constraint where conname = 'milestones_verification_level_chk') then
+    alter table milestones
+      add constraint milestones_verification_level_chk check (verification_level between 0 and 4);
+  end if;
+end $$;
 
 -- ─────────────────────────────────────────────────────────────────────────────
 -- 2. Row Level Security (BUILD_SPEC §7)
@@ -140,7 +191,7 @@ declare t text;
 begin
   foreach t in array array[
     'students','baselines','milestone_templates','milestones',
-    'checkins','flags','events','team_allowlist'
+    'checkins','flags','events','team_allowlist','evidence'
   ] loop
     execute format('alter table %I enable row level security;', t);
     -- Team members get full access on every table.

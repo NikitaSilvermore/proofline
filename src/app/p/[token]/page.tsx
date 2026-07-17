@@ -61,7 +61,7 @@ export default async function ProgressPage({
         .maybeSingle(),
       db
         .from("checkins")
-        .select("week_no, completed_at, pitched_count, value_confirmed, confidence, win_text")
+        .select("week_no, completed_at, pitched_count, metric_value, confidence, win_text")
         .eq("student_id", student.id),
       db
         .from("milestones")
