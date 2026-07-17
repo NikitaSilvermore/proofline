@@ -16,7 +16,7 @@ export async function recomputeFlags(
       .maybeSingle(),
     db
       .from("checkins")
-      .select("week_no, sent_at, completed_at, pitched_count, value_confirmed, confidence, blocker")
+      .select("week_no, sent_at, completed_at, pitched_count, metric_value, confidence, blocker")
       .eq("student_id", studentId),
     db.from("milestones").select("layer, state").eq("student_id", studentId),
   ]);

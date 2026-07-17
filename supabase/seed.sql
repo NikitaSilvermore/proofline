@@ -51,7 +51,7 @@ where track in ('shared', 'paid_speaker');
 -- ── Jordan: check-ins (rebuilt each run) — rising confidence + confirmed value ─
 delete from checkins where student_id = '00000000-0000-0000-0000-000000000001';
 insert into checkins (student_id, week_no, sent_at, completed_at,
-                      pitched_count, value_confirmed, confidence, win_text, blocker)
+                      pitched_count, metric_value, confidence, win_text, blocker)
 values
   ('00000000-0000-0000-0000-000000000001', 1, now()-interval '63 days', now()-interval '62 days', 4, 0,    4, 'Pitched four local associations.',                 'Finding stages'),
   ('00000000-0000-0000-0000-000000000001', 2, now()-interval '56 days', now()-interval '55 days', 5, 0,    5, 'Two warm replies from organisers.',                'Finding stages'),
@@ -150,7 +150,7 @@ begin
     if s.weeks > 0 then
       for wk in 1..s.weeks loop
         insert into checkins (student_id, week_no, sent_at, completed_at,
-                              pitched_count, value_confirmed, confidence, win_text, blocker)
+                              pitched_count, metric_value, confidence, win_text, blocker)
         values (s.id, wk,
           now() - make_interval(days => s.last_gap + (s.weeks - wk) * 7),
           now() - make_interval(days => s.last_gap + (s.weeks - wk) * 7),

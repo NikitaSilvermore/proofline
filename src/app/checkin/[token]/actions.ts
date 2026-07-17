@@ -5,7 +5,7 @@ import { recomputeFlags } from "@/lib/flags-service";
 
 export type CheckinPayload = {
   pitched_count: number;
-  value_confirmed: number;
+  metric_value: number;
   confidence: number;
   win_text: string;
   blocker: string;
@@ -94,7 +94,10 @@ export async function submitCheckin(
     .update({
       completed_at: now.toISOString(),
       pitched_count: Math.max(0, Math.round(payload.pitched_count || 0)),
-      value_confirmed: Math.max(0, payload.value_confirmed || 0),
+      metric_value: Math.max(0, payload.metric_value || 0),
+      // NLS pilot captures a currency figure; unit is generalised at the schema
+      // level (canonical set: currency/count/events_per_month/percentage + label).
+      metric_unit: "currency",
       confidence: Math.min(10, Math.max(1, Math.round(payload.confidence || 1))),
       win_text: payload.win_text.trim() || null,
       blocker: payload.blocker.trim() || null,
@@ -104,7 +107,7 @@ export async function submitCheckin(
 
   // Auto-earn: first confirmed value ⇒ earn the first payoff milestone.
   let milestoneEarned: string | null = null;
-  if ((payload.value_confirmed || 0) > 0) {
+  if ((payload.metric_value || 0) > 0) {
     const { data: milestones } = await db
       .from("milestones")
       .select("id, position, label, layer, state")

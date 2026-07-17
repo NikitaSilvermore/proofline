@@ -112,13 +112,13 @@ export async function draftCaseStudy(studentId: string): Promise<string> {
       .maybeSingle(),
     db
       .from("checkins")
-      .select("value_confirmed, confidence, win_text, completed_at")
+      .select("metric_value, confidence, win_text, completed_at")
       .eq("student_id", studentId),
   ]);
 
   const done = (checkins ?? []).filter((c: { completed_at: string | null }) => c.completed_at);
   const confirmed = done.reduce(
-    (t: number, c: { value_confirmed: number | null }) => t + (c.value_confirmed ?? 0),
+    (t: number, c: { metric_value: number | null }) => t + (c.metric_value ?? 0),
     0,
   );
   const latestConf =
@@ -130,8 +130,8 @@ export async function draftCaseStudy(studentId: string): Promise<string> {
     done
       .filter((c: { win_text: string | null }) => c.win_text)
       .sort(
-        (a: { value_confirmed: number | null }, b: { value_confirmed: number | null }) =>
-          (b.value_confirmed ?? 0) - (a.value_confirmed ?? 0),
+        (a: { metric_value: number | null }, b: { metric_value: number | null }) =>
+          (b.metric_value ?? 0) - (a.metric_value ?? 0),
       )[0]?.win_text ?? null;
 
   const name = student?.name ?? "This student";

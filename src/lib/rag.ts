@@ -8,7 +8,7 @@ export type RagCheckin = {
   sent_at: string | null;
   completed_at: string | null;
   pitched_count: number | null;
-  value_confirmed: number | null;
+  metric_value: number | null;
   confidence: number | null;
   blocker: string | null;
 };
@@ -99,7 +99,7 @@ export function computeRag(input: RagInput): RagResult {
   }
   if (
     input.hasPaidMilestone &&
-    trailingRun(done, (c) => (c.value_confirmed ?? 0) === 0) >= 4
+    trailingRun(done, (c) => (c.metric_value ?? 0) === 0) >= 4
   ) {
     amber.push("No confirmed value for 4 weeks since first paid gig");
   }
@@ -114,7 +114,7 @@ export function computeRag(input: RagInput): RagResult {
   if (done.length >= 2 && done[0].confidence != null && done[1].confidence != null) {
     if (done[0].confidence > done[1].confidence) reasons.push("Confidence trending up");
   }
-  if (done[0] && (done[0].value_confirmed ?? 0) > 0) reasons.push("Value confirmed this week");
+  if (done[0] && (done[0].metric_value ?? 0) > 0) reasons.push("Value confirmed this week");
   if (done.length > 0) reasons.push(`${done.length} check-in${done.length === 1 ? "" : "s"} logged`);
   if (reasons.length === 0) reasons.push("On track");
 

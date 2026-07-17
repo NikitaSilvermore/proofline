@@ -55,7 +55,7 @@ export default async function ConsolePage() {
   ] = await Promise.all([
     db.from("students").select("id, name, token, status, enrolled_at, intake_completed_at"),
     db.from("baselines").select("student_id, monthly_revenue"),
-    db.from("checkins").select("student_id, week_no, sent_at, completed_at, value_confirmed"),
+    db.from("checkins").select("student_id, week_no, sent_at, completed_at, metric_value"),
     db.from("milestones").select("student_id, state"),
     db.from("flags").select("student_id, rag, reasons"),
     db.from("events").select("student_id, type, payload, created_at"),

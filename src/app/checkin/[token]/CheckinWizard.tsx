@@ -45,7 +45,7 @@ export default function CheckinWizard({
     startTransition(async () => {
       const res = await submitCheckin(token, {
         pitched_count: pitched ? Number(pitched) : 0,
-        value_confirmed: value ? Number(value) : 0,
+        metric_value: value ? Number(value) : 0,
         confidence,
         win_text: win,
         blocker: blocker === "Nothing" ? "" : blocker,
