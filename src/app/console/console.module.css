@@ -698,3 +698,42 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SENSORY PASS — CONSOLE CALM-DOWN (DECISIONS.md 2026-07-16; branch sensory-pass)
+   Nikita reversed the "extra glow on the console" request → the console becomes a
+   calm, clinical reading room: the dark ledger ground, hairline structure, RAG
+   colours and mono data stay, but the brass/RAG *glows* (text-shadow / box-shadow
+   halos + the ambient background washes) are removed. Appended as an override
+   layer so the change reads clearly in review and is trivial to revert.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Flat ledger ground — drop the two ambient brass washes. */
+.page {
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
+}
+/* Plain hairline under the masthead — no glowing gradient line. */
+.masthead::after { display: none; }
+/* Monogram: flat, no halo. */
+.monogram { background: none; box-shadow: none; }
+/* Keep the type, drop the glow. */
+.h1 { text-shadow: none; }
+.stat { box-shadow: none; }
+.statNum { text-shadow: none; }
+.stat.red .statNum,
+.stat.amber .statNum,
+.stat.green .statNum { text-shadow: none; }
+/* Needs-attention: keep the red left-bar + a quiet dark lift; drop the red halo. */
+.attn { box-shadow: 0 14px 40px -30px rgba(0, 0, 0, 0.6); }
+.attnAvatar { box-shadow: none; }
+/* Buttons / medals / filters / status pills + dots / login: flat, no neon. */
+.btnSm.primary { box-shadow: none; }
+.medal { box-shadow: none; }
+.filters button.on { box-shadow: none; }
+.status.green,
+.status.amber,
+.status.red { box-shadow: none; }
+.status.green :global(.d),
+.status.amber :global(.d),
+.status.red :global(.d) { box-shadow: none; }
+.loginBtn { box-shadow: none; }
