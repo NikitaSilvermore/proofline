@@ -142,14 +142,14 @@ console becomes calm/clinical (instant, no glow/sound/stamps).
   + record only* + NLS-lean units: `milestones` gain `metric_value`/`metric_unit`/
   `verification_level` (0–4), a new `evidence` table, `checkins.value_confirmed` →
   `metric_value`+`metric_unit` (free-text unit, canonical set currency/count/
-  events_per_month/percentage); ACL clinician-flag carried to the fork. ✅ **BUILT on
-  branch `schema-metric-verification`** (pushed, NOT merged; tsc+build green, SQL
-  validated w/ pgsql-parser; rename is behaviour-identical, graph numbers unchanged;
-  verification_level/evidence recorded not yet surfaced = "record only"). ⚠ **Coordinated
-  deploy (Nikita): (1) run updated `supabase/schema.sql` in Supabase "without RLS" to
-  migrate the live DB (incl. the value_confirmed→metric_value rename), (2) re-run seed.sql
-  if refreshing demo, (3) merge→main to deploy code. The brief window is SAFE — no real
-  students yet.** **Group C (sensory)
+  events_per_month/percentage); ACL clinician-flag carried to the fork. ✅ **BUILT +
+  DEPLOYED to PRODUCTION 2026-07-16** — Nikita ran the schema.sql migration on the
+  `silvermore` Supabase project (value_confirmed→metric_value rename + additive columns
+  + evidence table), then the code merged to main + deployed (Production Ready).
+  **Verified live end-to-end:** `/p/demo-jordan-token-0001` renders "$2,500 confirmed"
+  (metric_value read + formatted), console 307-redirects to login (not a 500). Rename was
+  behaviour-identical; verification_level/evidence are recorded but not yet surfaced
+  ("record only"). Closes register T20. **Group C (sensory)
   RULED 2026-07-16** — see the sensory bullet at the top of Live state (freeze lifted,
   console calmed, ceremony build gated). **All three research groups (A/B/C) now ruled.**
 - **PM-system + docs reorg landed (2026-07-16), mirrors Wordhoard — MERGED to `main`
