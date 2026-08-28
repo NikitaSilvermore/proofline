@@ -253,6 +253,27 @@ console becomes calm/clinical (instant, no glow/sound/stamps).
   outcome measure — Milestamp complements both (drop-off reduction + proof/testimonials),
   never replaces them. Nothing in this repo changed; the NLS roadmap below is untouched.
 
+## Design brief for a possible restyle (2026-08-29) — AWAITING NIKITA
+
+A paste-ready Claude Design brief now exists at
+**[docs/design/CLAUDE-DESIGN-PROMPT.md](docs/design/CLAUDE-DESIGN-PROMPT.md)**,
+written after the same exercise produced the ACL fork's build in one pass.
+**Nothing is decided and nothing is to be implemented until Nikita picks.**
+Three directions: **The Marquee** (theatre print — playbill/marquee craft on the
+dark ground he already likes; Claude's recommendation for student surfaces),
+**The House Account** (private-bank ledger, ivory + engraved; the bigger swing),
+and **hold Midnight & Brass** — explicitly a legitimate answer here, because
+unlike the ACL fork there is a design he already loves plus a shipped sensory
+pass. The brief encodes: every ruling that must survive any direction (gold =
+earned/immutable, one-shot sheen, stamp over confetti, **console stays calm**,
+reduced motion keeps the stamp because it is proof), the **white-label shell**
+requirement (NLS is the first of several coaches — brand block swappable, not a
+skin), and the `metric_unit` problem (the hero figure must read natively as
+currency / count / events_per_month / percentage).
+
+⚠ The brief is NOT in the `scripts/sync-claude-project.mjs` canonical set — add
+it only if Nikita wants it feeding the project chat.
+
 ## Roadmap — done and remaining
 
 - Milestones **1–7 ✅** (built, deployed, demonstrated live) + design/brand ✅ +
