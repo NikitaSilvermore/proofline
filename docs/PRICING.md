@@ -106,6 +106,43 @@ Numbers behind it: $500k × 4% = $20k/mo gross to All Out Sales; $397 ≈ 2.0% o
 
 ---
 
+## 4a. ⚠ OPEN — Nikita proposes offering ACL the product FREE (2026-08-29)
+
+**Status: PROPOSED, not decided.** Nikita: *"I'm also planning to offer this for
+free to ACL to make sure they accept because realistically I need them."*
+This **contradicts §2 and §4** (design partners always pay real money; ACL at the
+$397 founding rate). Recorded here so the reversal is visible; §4 below still
+stands until Nikita rules.
+
+**The case against £0, from this document's own reasoning:**
+- §2: *"A £0 pilot sets the reference point at zero and attracts non-buyers."*
+  The price at signing is the reference point every renewal is judged against —
+  £0 → $397 is a far harder conversation than $397 → $797.
+- §4 already establishes **price was never ACL's constraint** (~$60k/month net
+  income). Free solves a problem they do not have.
+- Free customers do not implement. Paying customers run the SQL, add their team
+  and chase their athletes; free ones leave it in a tab. That is the usual way
+  design partnerships die.
+- "I need them" is precisely the reason not to be free: free signals need, and a
+  priced founding deal signals scarcity. The asymmetry is legible to a buyer.
+
+**Ways to get the yes without a zero reference point** (any of these keeps the
+number on the page):
+1. **Deferred payment — the Ted structure.** $397/mo, nothing payable until day
+   90. Identical cash in the first quarter; completely different anchor. This is
+   the recommended option.
+2. **Waived months against list.** Contract at $397 with the first N months
+   credited **in exchange for** named deliverables (case-study rights, two
+   reference calls, co-design of the health-outcome template). The invoice
+   exists; the discount is visible and finite.
+3. **Longer lock as the sweetener** (18-month) — already the approved lever in §2.
+4. **A one-off setup fee** instead of a monthly, if a recurring charge is the
+   sticking point. Anything above zero preserves the reference.
+
+**Nikita's call.** If he still wants £0 after this, record the decision in
+DECISIONS.md, amend §2 and §4, and note the renewal conversation will need a
+value receipt (see `docs/ops/value-gap-2026-08-29.md`) to climb off zero.
+
 ## 4. ACL Rehab — design-partner offer (Sept–Oct conversation)
 
 - **Product: Standard.** They must experience the full stamp-book/celebration layer — they're proving the health-outcome template and becoming story #2.
