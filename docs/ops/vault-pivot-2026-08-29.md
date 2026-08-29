@@ -111,6 +111,75 @@ wasted — the vault *is* the shop window.
 
 ---
 
+## 3a. "But the average student makes nothing" (Nikita, same day)
+
+The obvious objection to §2, and the one that decides whether any of this
+sells: if a coach's median student gets no result, does making them hold a
+typicality figure simply make them unmarketable — and therefore make us
+unsellable?
+
+**First, the uncomfortable fact.** The duty already applies. A coach posting
+their best students today owes an accurate impression of generally expected
+results whether or not anyone measured. *Not* measuring is not a defence; it is
+the aggravating fact, because there is then no substantiation at all. We do not
+create that exposure. We make it visible — which is a real sales problem and an
+honest one.
+
+**Second, the mechanism that saves it: the denominator is chosen in advance.**
+"Generally expected results" attaches to the population the ad implies, and
+there are legitimate narrowings — *students who completed*, *students who did
+the work* — provided the threshold is **declared before outcomes are known** and
+applied to everyone who meets it. That is precisely the difference between:
+
+- **cherry-picking** — selecting after you see who won (indefensible), and
+- **a criterion** — "completed all twelve weeks", set on day one, applied
+  blind (defensible, and far more flattering).
+
+An immutable baseline plus a weekly record is the only way to prove which one
+you did. So the sellable, honest claim is not "our students make £50k". It is:
+
+> "Of the 61 students who completed all twelve weeks, the median revenue change
+> was £X. 38% saw no change. 12 did not complete."
+
+That number is dramatically better than the raw average, it is defensible
+*because* the threshold predates the outcomes, and the ad must carry the
+denominator with it — quoting the completer figure while implying the buyer
+figure is the trap.
+
+**Third, who this is actually for.** Be blunt in the sales conversation:
+
+- ✅ **Coaches who do get results but cannot prove them.** The largest honest
+  segment, and the one Nikita sits inside (NLS, ACL).
+- ✅ **Coaches who are already frightened** — an ad account gone, a chargeback
+  cluster, a processor reserve, a refund wave.
+- ✅ **Coaches raising price, selling to enterprise, or being acquired**, where
+  diligence asks these questions and nobody has an answer.
+- ❌ **Coaches whose programme genuinely does not work.** No framing fixes this.
+  They will not buy, and they must not be reference customers: their failure
+  becomes the mark's failure.
+
+**Fourth, the ladder that gets past the fear.** Do not open with earnings.
+Adherence is the on-ramp: *"83% of your students were still logging at week
+eight"* is a number a decent coach is proud of, carries almost no legal heat,
+and works in the health lane where money data does not exist. The outcome record
+then accumulates on its own, and the compliance file is the upgrade.
+
+### The rule that has to be in the licence
+
+> **Milestamp never publishes a coach's cohort figure. Only the coach can.**
+> We hold it, we produce it to them, and we will confirm it if *they* put it
+> forward. Without this in writing, nobody signs — a coach cannot hand their
+> failure rate to a third party who might one day publish it.
+
+The mark stays clean without ever publishing anyone's failure rate, via the
+enrolment-basis rule in §2: the proof page states the population a claim came
+from, and a coach who refuses that does not get the mark.
+
+⚠ For the attorney: whether a pre-declared completer denominator is an accepted
+basis for a typicality statement, and how it must be worded in the ad.
+
+---
+
 ## 4. What this changes in the build
 
 Nothing is urgent, and nothing here overrides PRICING.md.

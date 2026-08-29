@@ -344,6 +344,21 @@ enrolled"). Without it, a coach who baselines only their winners has broken the
 moat, and the mark collapses the first time a journalist asks how the twenty
 were chosen.
 
+**"But the average student makes nothing" (Nikita, same day) — answered in the
+doc §3a.** The duty already applies whether or not anyone measures, so we reveal
+the exposure rather than create it. What saves it: **the denominator is chosen
+in advance.** A threshold declared on day one and applied blind — *students who
+completed all twelve weeks* — is a defensible population; selecting after you
+see who won is not, and an immutable baseline is the only way to prove which you
+did. So the honest claim is "of the 61 who completed, median change was £X, 38%
+saw none", which is both defensible and far more flattering than the raw
+average. **Sell adherence first** ("83% still logging at week eight") — no legal
+heat, works in the health lane, and the outcome record accumulates on its own.
+**Not for coaches whose programme genuinely does not work**: they will not buy
+and must never be reference customers. ⚑ **Licence rule this creates: Milestamp
+NEVER publishes a coach's cohort figure — only the coach can.** Without that in
+writing nobody hands over their failure rate.
+
 Also ruled: ad-network bans are **not** addressable by our verification (no
 platform ingests it) — do not sell that; Stripe *reserves* are risk-priced, but
 delivery/engagement evidence is exactly what wins **chargeback representment**,
