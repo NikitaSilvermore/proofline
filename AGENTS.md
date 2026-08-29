@@ -274,6 +274,27 @@ currency / count / events_per_month / percentage).
 ⚠ The brief is NOT in the `scripts/sync-claude-project.mjs` canonical set — add
 it only if Nikita wants it feeding the project chat.
 
+## ⚠ The value gap (raised by Nikita 2026-08-29) — analysis in docs/ops/
+
+Playing with the live build, Nikita said he **could not justify $797/mo — it
+feels like a $19.99 tracker**. Analysed in
+**[docs/ops/value-gap-2026-08-29.md](docs/ops/value-gap-2026-08-29.md)**.
+**No price changed; PRICING.md is still law.** The finding: PRICING.md §0 already
+predicted this ("a tier missing any part of that can only be sold as a tracker,
+and trackers price at £9/month") — **what is built is the tracking half of a
+product priced on the P&L half**, and several Standard-tier promises are simply
+not built yet (win-card art system, stamp book, harvest automation, SMS, CRM
+write-back, closer's demo kit). Custom milestone architecture ✅ shipped in the
+ACL fork 2026-08-29.
+
+Three structural gaps beyond the feature list: **(a) the product never reports
+its own ROI**, **(b) nothing leaves the building** (no shareable artifact), **(c)
+the coach reads the console rather than works in it** (so switching cost ≈ 0).
+Recommended build order: **intervention tracking + a saves panel** (the ROI
+receipt — biggest perceived-value gain per unit of build) → **the win card** →
+drafted interventions + notes → refund-window register → testimonial capture at
+the peak. ⬜ **Awaiting Nikita's steer before building any of it.**
+
 ## Roadmap — done and remaining
 
 - Milestones **1–7 ✅** (built, deployed, demonstrated live) + design/brand ✅ +
