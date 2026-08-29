@@ -333,7 +333,27 @@ a coach using testimonials cannot currently answer. So the file sold is two
 documents: the **public verified claim** (`/v/[code]`) and the **private
 substantiation file** (the cohort figure, produced on demand, never published).
 
+⚑ **NEVER SELL THE BREACH (Nikita, same day — supersedes the go-to-market
+below; doc §3b).** *"Coming to them and saying hey if you pay me you can post
+worse adverts that won't be in breach and pay me for it will not sell anything.
+They'll say go away and let me forget you ever told me I am in breach."* He is
+right. Compliance is a **post-pain purchase**; telling a working coach they are
+in breach makes us the messenger and, read plainly, the offer is *pay me to make
+your adverts worse*. **The lead is RETENTION** ("fewer of them leave" — hits the
+P&L in 60 days, ledger already built), **show the testimonial engine** ("twenty
+case studies with real numbers instead of three screenshots"), and **never
+volunteer compliance** — at most one line of reassurance ("if anyone ever asks
+you to back a claim up, you send the link"), never a diagnosis. Compliance leads
+only for the already-burned (ad account gone, processor reserve, chargeback
+cluster, letter) or where diligence is imposed — inbound, don't chase.
+⚑ **Design consequence: the mark certifies RECORDS, NOT ADVERTISING.** We never
+review, approve or police a coach's ads — otherwise almost nobody qualifies, we
+become their unpaid compliance department, and we inherit liability for their
+copy. And the mark only becomes valuable when **students** start asking for it,
+which is a demand-side marketing problem, not coach-side fear.
+
 **Recommendation logged: sell B, deliver A as its visible output, build to C** —
+⚠ **BUILD order only, see the rule above** —
 A The Vault (per case study, easy, copyable), **B The Compliance File (per
 programme, monthly — the $797 tier's real argument)**, C The Mark. ⬜ Not
 decided.

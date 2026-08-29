@@ -37,7 +37,7 @@ someone holding the whole cohort's baselines can produce it.
 | 14 | The console shows where students drop off (e.g. 40% stall at week 3) | product | **Already built** — retention ledger, at-risk register, drift caught / acted on / came back. This is the existing $797 argument, unchanged. |
 | 15 | Market the platform as a Churn Prevention & Success System | positioning | **Accept as the buying reason for the console.** It is the half of the product a coach uses weekly; verification is the half they use quarterly. |
 | 16 | New angle: not "we prove how many of your students fail" | messaging | **Accept.** Nothing we publish should ever be a scorecard of a coach. |
-| 17 | Would a high-ticket coach pay for this? | question | **Yes — see §3.** With the caveat that what they will pay *most* for is the thing the proposal treats as a liability: the cohort data. |
+| 17 | Would a high-ticket coach pay for this? | question | **Yes, but not for compliance — see §3b.** With the caveat that what they will pay *most* for is the thing the proposal treats as a liability: the cohort data. |
 
 ---
 
@@ -91,7 +91,9 @@ This is a small addition to the scope disclosure already in
 | Price it supports | Low hundreds, transactional | **The $797 tier, and above** | Whatever adoption earns |
 | Weakness | A service, not a moat; easy to copy | Requires the coach to enrol everyone, which is the harder sell | Slow; worthless until adopted |
 
-**Recommendation: sell B, deliver A as its visible output, build towards C.**
+**Recommendation: sell B, deliver A as its visible output, build towards C** —
+⚠ **as a BUILD order only. See §3b: this was wrong as a go-to-market. The
+compliance file is never the pitch; retention is.**
 
 A alone is a nice service that anyone with a Notion template can imitate within a
 quarter. B is defensible because it requires the baseline discipline nobody else
@@ -177,6 +179,80 @@ from, and a coach who refuses that does not get the mark.
 
 ⚠ For the attorney: whether a pre-declared completer denominator is an accepted
 basis for a typicality statement, and how it must be worded in the ad.
+
+---
+
+## 3b. ⚠ SUPERSEDES §3's go-to-market — never sell the breach (Nikita, same day)
+
+Nikita, on the §2/§3a pitch: *"even good coaches who have success rates will be
+posting online in breach of what you have outlined. Coming to them and saying
+hey if you pay me you can post worse adverts that won't be in breach and pay me
+for it will not sell anything. They'll say go away and let me forget you ever
+told me I am in breach."*
+
+**He is right, and this kills the pitch, not the product.** The analysis in §2
+and §3a stands as *what to build*. It was wrong as *what to say*.
+
+**Why it fails, precisely:**
+
+1. **Compliance is a post-pain purchase.** Nobody buys it before the ban, the
+   reserve, the chargeback wave or the letter. Selling it to a coach whose
+   marketing is currently working is selling a problem, not a solution.
+2. **You become the messenger.** Telling someone they are in breach creates a
+   liability *for them* the moment they know — a knowing violation is worse than
+   an unknowing one. The rational response is to avoid the person who told them.
+3. **The offer, read plainly, is "pay me to make your adverts worse."** Weaker
+   claims, more caveats, lower conversion, and a monthly invoice for the
+   privilege. No.
+
+### What leads instead
+
+| | Lead | Why it works | Proof it lands |
+|---|---|---|---|
+| 1 | **Retention** — "fewer of them leave" | Hits the P&L inside 60 days, in numbers they already track. Refunds and drop-offs cost real cash (at NLS a refund also claws back ~$400 of commission). | The retention ledger is already built: drifts flagged / acted on / came back. |
+| 2 | **The testimonial engine** — "twenty case studies with real numbers instead of three vague screenshots" | Coaches buy conversion. Captured at the peak, with the figure and the video, automatically. | Win cards, the peak prompt, `/story`, the proof page — all built. |
+| 3 | **Compliance** | Only to the already-burned, or where diligence is imposed on them. | The substantiation file. |
+
+**Recommendation: lead 1, show 2, never volunteer 3.**
+
+### Compliance becomes a silent by-product
+
+It still gets built exactly as §2 describes. It is simply never the reason to
+buy. At most one line, framed as reassurance rather than diagnosis:
+
+> ✅ "And because it's collected this way — dated, before the outcome, never
+> edited — if anyone ever asks you to back a claim up, you just send the link."
+
+Never: *"your current adverts are non-compliant."* Not in a deck, not in a call,
+not in a DM. It is true, it is unwelcome, and it is not our business.
+
+### Design consequence: the mark certifies records, not advertising
+
+If the mark required a coach to fix their marketing to qualify, almost nobody
+would qualify and the mark would have no market. So:
+
+> **We certify the record behind one named claim, and state the population it
+> came from. We do not review, approve, or police anybody's advertising.** What
+> the coach puts in their ads is their decision and their exposure.
+
+That keeps us out of the "you're in breach" conversation permanently, and it
+keeps us from becoming an unpaid compliance department that inherits liability
+for a customer's copy.
+
+### The one segment where compliance leads
+
+They arrive already bleeding — ad account gone, processor holding a reserve, a
+chargeback cluster, a lawyer's letter — or they are being pushed into diligence
+by someone bigger (an acquisition, an enterprise contract, an affiliate network
+demanding substantiation). Narrow, rich, and inbound. Do not chase it; be
+findable by it.
+
+### And for the mark itself
+
+A certification mark only becomes valuable when **the student**, not the coach,
+starts asking whether a claim is verified. That is demand-side, and it is a
+marketing problem rather than a compliance one. Nothing about coach-side fear
+gets us there.
 
 ---
 
