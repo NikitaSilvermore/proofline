@@ -310,6 +310,46 @@ table → athlete-side evidence upload (private bucket) → a manual `/admin` re
 queue → the public proof page (the win card is already its visual half) →
 revocation → only then Stripe APIs.
 
+### ▶ The vault pivot (2026-08-29) — verify the wins, not the roster
+
+Nikita brought a proposal (drafted with another AI) to stop selling
+whole-roster audit and instead verify the **individual case studies a coach
+already markets with** — because industry completion rates are 5–15% and no
+coach will buy a product that publishes a grade of them. Granular pass with a
+ruling on all 17 claims: **[docs/ops/vault-pivot-2026-08-29.md](docs/ops/vault-pivot-2026-08-29.md)**.
+
+**Mostly accepted. One load-bearing correction:** verifying that a testimonial
+is *real* fixes falsity but not **typicality** — under the FTC Endorsement
+Guides a truthful but atypical result is still deceptive unless the ad conveys
+what consumers can generally expect, and "results not typical" stopped being a
+cure in 2009. So "we lock down your top 20 testimonials" is **not** a compliance
+shield, and must never be sold as one (a legal-outcome promise is itself a claim
+we would have to substantiate).
+
+**The flip:** the roster is not the liability the proposal thinks it is — it is
+the product. Only someone holding an unaltered baseline for *everyone who
+enrolled* can produce an honest typicality figure, and that is the single thing
+a coach using testimonials cannot currently answer. So the file sold is two
+documents: the **public verified claim** (`/v/[code]`) and the **private
+substantiation file** (the cohort figure, produced on demand, never published).
+
+**Recommendation logged: sell B, deliver A as its visible output, build to C** —
+A The Vault (per case study, easy, copyable), **B The Compliance File (per
+programme, monthly — the $797 tier's real argument)**, C The Mark. ⬜ Not
+decided.
+
+**Hard rule proposed:** every public proof page states its **enrolment basis**
+("verified from a cohort of 12 selected by the programme" vs "across all 140
+enrolled"). Without it, a coach who baselines only their winners has broken the
+moat, and the mark collapses the first time a journalist asks how the twenty
+were chosen.
+
+Also ruled: ad-network bans are **not** addressable by our verification (no
+platform ingests it) — do not sell that; Stripe *reserves* are risk-priced, but
+delivery/engagement evidence is exactly what wins **chargeback representment**,
+so sell that precisely. Console framing as churn prevention: accepted, already
+built.
+
 ⬜ **Open, for Nikita:** does the mark live under Milestamp or a separate
 entity? Who audits at scale? What is it called? And — decided in advance and
 published — what happens the first time a paying customer fails verification?
