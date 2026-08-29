@@ -274,6 +274,42 @@ currency / count / events_per_month / percentage).
 ⚠ The brief is NOT in the `scripts/sync-claude-project.mjs` canonical set — add
 it only if Nikita wants it feeding the project chat.
 
+## ⛔ NLS / TED — PAUSED (2026-08-29). Do not push this forward.
+
+Nikita: *"With Ted and [Makenna] it's complicated because at the moment we
+didn't have the best month so Ted's asked me just to focus on closing as much
+as possible. I still have my 1% manager comms but I'm not managing, I'm just
+closing. To say I'm working on this, he wouldn't be too happy with it so it's
+just not the right time or place. It's there and ready and I'm just waiting for
+the moment but it's not yet so we're just going to pause Ted for now."*
+
+**What this means, concretely:**
+- **NLS had a weak month.** Ted has redirected Nikita to closing only — he
+  keeps his 1% manager commission but is not managing.
+- **Raising Milestamp with Ted now would land badly.** Nikita's read, and his
+  call: it is his employer and his relationship. Do not suggest otherwise.
+- **PAUSED, not dead.** The product is built and ready; he is waiting for the
+  moment. The trigger to watch for is NLS back on target — around the October
+  ~$500k/month figure in PRICING.md §3, or simply a good month.
+- **Everything Ted-shaped is on hold**: the licence agreement
+  (`docs/legal/Milestamp-Pilot-Licence-Agreement-DRAFT.docx` + cover email),
+  the Makenna acknowledgment one-pager, the live Close webhook and env, and
+  Cassie on `team_allowlist`. All drafted, none to be chased.
+- **Do not send, schedule, or draft outreach to Ted or NLS staff** until Nikita
+  says the moment has come.
+
+**Consequence for the roadmap — the sequencing rule is now blocked.** The
+standing rule was "pitch ACL only after NLS students are live and working". NLS
+is paused indefinitely, so that gate cannot open on its own. **Either ACL
+becomes story #1 rather than #2, or the whole thing waits on Ted.** That is
+Nikita's call and it is not made — but it also bears directly on the
+free-vs-paid ACL question in PRICING.md §4a: if ACL becomes the reference
+customer rather than the second story, what they pay matters *more*, not less.
+
+⚠ **Name check:** Nikita wrote "Rakeena" where this briefing has recorded
+**Makenna** (NLS CEO). Likely dictation, but confirm the spelling before it is
+used in any document that reaches her.
+
 ## ⚠ The value gap (raised by Nikita 2026-08-29) — analysis in docs/ops/
 
 Playing with the live build, Nikita said he **could not justify $797/mo — it

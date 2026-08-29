@@ -90,6 +90,13 @@ Everything in Standard, plus **access** — expensive-feeling, strictly bounded,
 
 ## 3. Ted / All Out Sales — licence terms (heads of terms; solicitor formalises)
 
+> **⛔ PAUSED 2026-08-29.** NLS had a weak month and Ted has redirected Nikita
+> to closing only. Raising Milestamp with him now would land badly, so the whole
+> Ted conversation — this licence, the Makenna acknowledgment, Close access — is
+> on hold until Nikita judges the moment right. **Terms below stand; nothing is
+> to be sent or chased.** See AGENTS.md "NLS / TED — PAUSED".
+
+
 - Licence of **MileStamp Standard** for the NLS Mentorship programme
 - Fee: **$397/mo founding-partner rate** (list $797 stated in the contract)
 - Payment starts **day 90 from go-live** (as agreed); 12-month term from first payment
