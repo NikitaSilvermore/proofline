@@ -274,6 +274,46 @@ currency / count / events_per_month / percentage).
 ⚠ The brief is NOT in the `scripts/sync-claude-project.mjs` canonical set — add
 it only if Nikita wants it feeding the project chat.
 
+## ▶ THE DIRECTION (Nikita, 2026-08-29): become the proof layer
+
+Nikita's stated ambition — *"I want to become the proof layer for coaches in the
+info space, where they pay a membership to me to get a console and weekly
+student intake form which will be verified so that they can legally share
+testimonials and data"* — is now the strategic centre, not a post-pilot idea.
+Strategy: **[docs/ops/verification-business-2026-08-29.md](docs/ops/verification-business-2026-08-29.md)**,
+built on the already-drafted
+[milestamp-verified-standard-DRAFT.md](docs/ops/milestamp-verified-standard-DRAFT.md).
+
+**The corrections that shape it:** you cannot *become a regulator* (statutory,
+created by Parliament) — the achievable and more profitable thing is a
+**certification body operating a certification mark** (B Corp / Fairtrade / ISO
+model), whose authority is earned by adoption. NB a certification mark is a
+**distinct trademark type** (UK: file regulations governing use with the IPO;
+US: the owner generally may not use it on its own services) — raise it with the
+attorney alongside the Milestone 9b searches.
+
+**The moat is the immutable baseline, not the badge** — anyone can verify an
+ending; almost nobody holds an unfakeable *before*. **Certify method, not
+outcome** (notary, not auditor) — that is the liability answer. **The athlete
+owns the record, the coach licenses visibility** — that is the structural answer
+to the rating-agency conflict, and it is already how the code works.
+
+**Sequencing disagreement, logged:** ACL is the right first customer of the
+*product* but the wrong first market for the *mark* (health claims face the
+strictest scrutiny; there is no Stripe for knees, so rung 3 is out of reach).
+Recommendation: ACL proves the engine at rungs 0–2 sold as adherence evidence;
+**the closing/business mentorships are the first customers of the mark**, where
+Stripe/bank APIs make rung 3 real and FTC/CMA pressure creates urgency.
+
+**Build order for the evidence pipeline:** `verification_level` + `evidence`
+table → athlete-side evidence upload (private bucket) → a manual `/admin` review
+queue → the public proof page (the win card is already its visual half) →
+revocation → only then Stripe APIs.
+
+⬜ **Open, for Nikita:** does the mark live under Milestamp or a separate
+entity? Who audits at scale? What is it called? And — decided in advance and
+published — what happens the first time a paying customer fails verification?
+
 ## ⛔ NLS / TED — PAUSED (2026-08-29). Do not push this forward.
 
 Nikita: *"With Ted and [Makenna] it's complicated because at the moment we
