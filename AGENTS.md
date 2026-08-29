@@ -306,9 +306,8 @@ Nikita's call and it is not made — but it also bears directly on the
 free-vs-paid ACL question in PRICING.md §4a: if ACL becomes the reference
 customer rather than the second story, what they pay matters *more*, not less.
 
-⚠ **Name check:** Nikita wrote "Rakeena" where this briefing has recorded
-**Makenna** (NLS CEO). Likely dictation, but confirm the spelling before it is
-used in any document that reaches her.
+**Name confirmed 2026-08-29: it is Makenna** (Nikita's "Rakeena" was dictation).
+Safe to use in documents that reach her.
 
 ## ⚠ The value gap (raised by Nikita 2026-08-29) — analysis in docs/ops/
 
