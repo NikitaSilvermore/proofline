@@ -594,7 +594,12 @@ client is about to ghost"), 3 quote cards, 3 reel covers, 1 proof template. Rend
 to PNGs with `node docs/marketing/make-cards.mjs` → `docs/marketing/cards/` (gitignored,
 regenerable; uses puppeteer-core + system Chrome). Nikita's verdict: "absolutely
 superb." Not-yet-done: live-app **screenshot** showcase cards (the glowing graph /
-console) — the best asset, but needs a real student + console access first.
+console) — the best asset. The console half is now unblocked by the public
+**`/console/demo`** route (login-free, hardcoded fake roster through the real
+buildConsole + `<Console demo>`, actions inert, marked "Sample data"; added
+2026-09-18 so Nikita can view/share/screenshot the console without a sign-in —
+the real `/console` stays auth-gated). The progress-graph card still wants a real
+or seeded student page.
 (Wordhoard marketing goes on Nikita's *personal* once its Android app is live;
 Milestamp does NOT go on Silvermore.)
 

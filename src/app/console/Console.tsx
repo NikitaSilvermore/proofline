@@ -13,7 +13,7 @@ import {
 
 type Filter = "all" | "red" | "amber" | "green";
 
-export default function Console({ view }: { view: ConsoleView }) {
+export default function Console({ view, demo = false }: { view: ConsoleView; demo?: boolean }) {
   const [filter, setFilter] = useState<Filter>("all");
   const [nudged, setNudged] = useState<Set<string>>(
     new Set(view.needsAttention.filter((n) => n.nudged).map((n) => n.id)),
@@ -39,17 +39,32 @@ export default function Console({ view }: { view: ConsoleView }) {
   const rows = view.roster.filter((r) => filter === "all" || r.rag === filter);
 
   function doNudge(id: string) {
-    setNudged((s) => new Set(s).add(id));
+    setNudged((s) => new Set(s).add(id)); // local visual feedback either way
+    if (demo) return; // read-only demo: never call the server
     startTransition(() => void nudgeStudent(id));
   }
   function doRequest(id: string) {
     setRequested((s) => new Set(s).add(id));
+    if (demo) return;
     startTransition(() => void requestTestimonial(id));
   }
   function doMark(id: string) {
+    if (demo) return;
     startTransition(() => void markNextMilestone(id));
   }
   function doDraft(id: string, name: string) {
+    if (demo) {
+      setDraft({
+        name,
+        text:
+          `${name} came to NLS Mentorship starting from an honest baseline and, ` +
+          `across weekly check-ins, turned the stage into confirmed income — the ` +
+          `numbers below are drawn straight from their locked baseline and each ` +
+          `week they filed.\n\n[In the live console this is interpolated from the ` +
+          `student's real baseline + check-in rows. This is demo data.]`,
+      });
+      return;
+    }
     startTransition(async () => {
       const text = await draftCaseStudy(id);
       setDraft({ name, text });
@@ -58,7 +73,10 @@ export default function Console({ view }: { view: ConsoleView }) {
 
   return (
     <div className={styles.page}>
-      <div className={styles.ribbon}>Milestamp for NLS Mentorship &middot; Support console</div>
+      <div className={styles.ribbon}>
+        Milestamp for NLS Mentorship &middot; Support console
+        {demo && <> &middot; Sample data</>}
+      </div>
 
       <header className={styles.masthead}>
         <div className={styles.mastheadInner}>
@@ -73,9 +91,15 @@ export default function Console({ view }: { view: ConsoleView }) {
             <span className={styles.dateChip}>
               {dateChip} &middot; {view.activeCount} active
             </span>
-            <button className={styles.signout} onClick={() => startTransition(() => void signOut())}>
-              Sign out
-            </button>
+            {demo ? (
+              <span className={styles.dateChip} title="Sample data — a live console needs a sign-in">
+                Demo &middot; read-only
+              </span>
+            ) : (
+              <button className={styles.signout} onClick={() => startTransition(() => void signOut())}>
+                Sign out
+              </button>
+            )}
           </div>
         </div>
       </header>
