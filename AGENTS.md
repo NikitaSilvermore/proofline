@@ -609,12 +609,25 @@ repo's `AGENTS.md`. Start a family → pick goals → tap to stamp → points di
 big goal → family leaderboard with a shared target and gold seal → invite by
 WhatsApp. Built under the scoring assumptions above (still his to veto); people
 add themselves by name via the invite link, so no family list was needed.
-Verified locally (30 rule tests + a 31-check walk-through with two people on a
-phone-sized screen; production build green). **⬜ NOT deployed** — needs his
-accounts: `milestamp-family\DEPLOY-STEPS.md` (new Supabase project, one env var
-`DATABASE_URL`, Vercel import). ⚠ Not yet run against Supabase itself, only
-against local Postgres — re-run the walk-through on the live URL after deploy.
-Reminders not built (phone notifications recommended).
+
+**✅ LIVE the same evening: https://milestamp-family.vercel.app.** He then asked
+for it to be pinnable in the family WhatsApp group (built: one family link that
+joins new people and sends known phones to their own day), chose **free phone
+notifications** for a daily reminder at a time each person picks (built), and
+finally said *"just do everything … get it all up and live"*. He approved two
+logins and Claude deployed it from the command line: Vercel project
+`milestamp-family` (team `silvermore`, GitHub connected) and a **new Supabase
+project `milestamp-family`** (ref `uldabpyqfvhginyylvsl`, London). The full
+46-check walk-through passes on the live site. Not yet used on a real phone.
+
+⚠ **This bears on the NLS app:** the Supabase free plan allows two active
+projects, and they are now `milestamp-family` and `milestamp-acl`. **The NLS
+database is paused** — it is listed in Supabase as **"NikitaSilvermore's
+Project"** (ref `kpwysqefbkdwggtrweqg`, eu-west-1), not as `silvermore` —
+so `proofline-rosy.vercel.app` student links stay dead until it is restored,
+and restoring it means pausing one of the other two or paying for a plan.
+
+All detail lives in the new repo's `AGENTS.md`.
 
 ## ⛔ NLS / TED — PAUSED (2026-08-29). Do not push this forward.
 
