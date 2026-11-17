@@ -568,8 +568,42 @@ notifications for free — Claude's recommendation for v1. ⬜ His call.
 
 **Proposed shape if he says go:** its own small app (not the NLS or ACL fork),
 reusing the stamp/seal work; daily cadence, so a new check-in model.
-⬜ Awaiting: his reaction to the mock, the reminder choice, and her real
-habits / goal / first name.
+**⚑ HIS REACTION (2026-11-17) — direction now set, build not yet started:**
+*"I want it to look super expensive and bougie like the current Milestamp we
+have already built, with all the dials and gradients etc. But yes I like it,
+simple taps. When she starts she logs her daily goals. The big goal is really
+good. I like the family version, where everybody in the family stamps each day
+and then it shouldn't be 7 out of seven but you get points for stamping and
+there is a family leaderboard. We can run it as a family and if we like it share
+it with other families."*
+
+**Decided by him:**
+- **Look = the existing Milestamp luxe language** (Midnight & Brass: deep ink,
+  gold-as-metal, glowing dials). The warm-paper first mock is superseded.
+- **Simple taps** to stamp; **she sets her own daily goals on day one**; the
+  **one big goal** stays.
+- **Family is the core, not an option**: everyone stamps daily, **points instead
+  of "x of 7"**, and a **family leaderboard**.
+- **Rollout: his own family first; other families only if they like it.**
+
+**Second mock (v2) made to match →** `docs/design/mum-dashboard/family-mock.png`
+(+ `.html`): day-one goal picker, the daily screen with a points dial, and the
+family board.
+
+**Judgment calls Claude made in the mock — for his veto:**
+- **Scoring: everyone can earn up to 100 points a day, split across however many
+  daily goals they chose** (4 goals = 25 each). Reason: otherwise whoever sets
+  the most goals always wins.
+- **Leaderboard resets every Monday** (all-time totals kept), so nobody is
+  buried after one bad week.
+- **A shared family target** alongside the ranking — the family earns the week's
+  **gold seal** together (gold stays "earned", per the standing ruling).
+- Names Dad / Gran in the mock are placeholders, not facts about his family.
+
+**Proposed build if he says go:** its own small app (not the NLS or ACL fork);
+each person gets a private link as now, grouped into a family; no logins.
+⬜ Awaiting: go/no-go, the reminder choice (phone notification recommended),
+who is in the family (first names), and the scoring veto.
 
 ## ⛔ NLS / TED — PAUSED (2026-08-29). Do not push this forward.
 

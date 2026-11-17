@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Milestamp Family — mock v2 (Midnight &amp; Brass)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Schibsted+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a1119; --ink2:#101a26; --cream:#f4ecdc; --dim:#a9b3c0; --line:rgba(216,185,120,.22);
+    --brass:#d8b978; --brass2:#c6a15b;
+    --metal:linear-gradient(135deg,#f8e7b6 0%,#d8b978 34%,#a17d38 68%,#ecd396 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#05090e;font-family:"Schibsted Grotesk",system-ui,sans-serif;color:var(--cream);
+       padding:44px 36px 44px;display:flex;gap:44px;justify-content:center;align-items:flex-start}
+  .col{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .cap{font:700 14px/1.3 "Schibsted Grotesk";letter-spacing:.14em;text-transform:uppercase;color:#8d98a6}
+  .phone{width:392px;height:860px;border-radius:48px;padding:11px;background:linear-gradient(160deg,#3a3122,#14100a 30%,#0c0a07 70%,#3a3122);box-shadow:0 30px 70px rgba(0,0,0,.6),0 0 0 1px rgba(216,185,120,.25)}
+  .screen{width:100%;height:100%;border-radius:38px;overflow:hidden;position:relative;
+          background:radial-gradient(120% 60% at 50% -10%,rgba(216,185,120,.20),transparent 60%),radial-gradient(90% 50% at 100% 100%,rgba(60,110,160,.16),transparent 60%),var(--ink)}
+  .pad{padding:22px 20px 0}
+  .bar{display:flex;justify-content:space-between;align-items:center}
+  .word{font:700 12px/1 "Schibsted Grotesk";letter-spacing:.26em;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .chip{font:700 13px/1 "Schibsted Grotesk";border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--brass);background:rgba(216,185,120,.07)}
+  h1{font:700 30px/1.1 "Bricolage Grotesque",sans-serif;margin-top:16px;letter-spacing:-.01em}
+  .sub{font-size:17px;color:var(--dim);margin-top:5px}
+  .sec{font:700 12px/1 "Schibsted Grotesk";letter-spacing:.2em;text-transform:uppercase;color:#8d98a6;margin:18px 0 9px}
+  .glass{background:linear-gradient(180deg,rgba(255,255,255,.065),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}
+
+  /* dial */
+  .dial{position:relative;width:186px;height:186px;margin:12px auto 0}
+  .dial svg{width:100%;height:100%;display:block}
+  .dial .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .dial .n{font:700 58px/1 "Bricolage Grotesque";background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 14px rgba(216,185,120,.45))}
+  .dial .l{font:500 14px/1.2 "Schibsted Grotesk";color:var(--dim);margin-top:2px}
+
+  /* habit rows */
+  .row{display:flex;align-items:center;gap:13px;padding:9px 12px;margin-bottom:8px}
+  .tap{width:52px;height:52px;border-radius:50%;flex:none;border:2px dashed rgba(216,185,120,.5);display:grid;place-items:center;font:700 11px/1 "Schibsted Grotesk";letter-spacing:.1em;color:var(--brass)}
+  .coin{width:52px;height:52px;border-radius:50%;flex:none;background:var(--metal);display:grid;place-items:center;color:#3b2c0a;font:700 24px/1 "Bricolage Grotesque";transform:rotate(-8deg);
+        box-shadow:inset 0 0 0 3px rgba(255,255,255,.35),inset 0 0 0 6px rgba(90,65,15,.55),0 0 18px rgba(216,185,120,.5)}
+  .what{flex:1;min-width:0}
+  .what .t{font:700 20px/1.15 "Schibsted Grotesk"}
+  .what .s{font-size:15px;color:var(--dim);margin-top:2px}
+  .pts{font:700 17px/1 "Bricolage Grotesque";color:#6d7885}
+  .pts.on{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  .goal{padding:14px 15px}
+  .goal .t{font:700 20px/1.15 "Bricolage Grotesque"}
+  .track{height:12px;border-radius:99px;background:rgba(255,255,255,.08);margin:11px 0 8px;overflow:hidden}
+  .track i{display:block;height:100%;width:37%;background:var(--metal);border-radius:99px;box-shadow:0 0 14px rgba(216,185,120,.6)}
+  .goal .m{display:flex;justify-content:space-between;font-size:15px;color:var(--dim)}
+  .goal .m b{color:var(--cream)}
+
+  /* setup */
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+  .c{font:700 17px/1 "Schibsted Grotesk";padding:13px 16px;border-radius:999px;border:1.5px solid var(--line);color:var(--cream);background:rgba(255,255,255,.04)}
+  .c.on{background:var(--metal);color:#3b2c0a;border-color:transparent;box-shadow:0 0 16px rgba(216,185,120,.4)}
+  .field{padding:15px 15px;font-size:18px;color:var(--cream);margin-top:6px}
+  .field small{display:block;font:700 11px/1 "Schibsted Grotesk";letter-spacing:.18em;color:#8d98a6;margin-bottom:8px}
+  .cta{display:block;text-align:center;font:700 20px/1 "Schibsted Grotesk";padding:19px;border-radius:16px;background:var(--metal);color:#3b2c0a;margin-top:18px;box-shadow:0 0 26px rgba(216,185,120,.45),inset 0 1px 0 rgba(255,255,255,.5)}
+  .note{font-size:15px;color:var(--dim);text-align:center;margin-top:12px;line-height:1.4}
+
+  /* leaderboard */
+  .lead{display:flex;align-items:center;gap:12px;padding:12px 13px;margin-bottom:8px}
+  .rank{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;font:700 18px/1 "Bricolage Grotesque";border:1.5px solid var(--line);color:var(--dim)}
+  .rank.first{background:var(--metal);color:#3b2c0a;border:none;box-shadow:inset 0 0 0 3px rgba(255,255,255,.35),0 0 18px rgba(216,185,120,.55)}
+  .who{flex:1;min-width:0}
+  .who .t{font:700 20px/1.1 "Schibsted Grotesk"}
+  .mini{height:7px;border-radius:99px;background:rgba(255,255,255,.08);margin-top:8px;overflow:hidden}
+  .mini i{display:block;height:100%;background:var(--metal);border-radius:99px}
+  .score{font:700 24px/1 "Bricolage Grotesque";text-align:right}
+  .score small{display:block;font:500 12px/1 "Schibsted Grotesk";color:var(--dim);margin-top:4px;letter-spacing:.04em}
+  .first-score{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .fam{display:flex;align-items:center;gap:14px;padding:12px 14px;margin-top:4px}
+  .fam .dial{width:112px;height:112px;margin:0;flex:none}
+  .fam .dial .n{font-size:26px}
+  .fam .dial .l{font-size:11px}
+  .fam p{font-size:16px;line-height:1.4;color:var(--cream)}
+  .fam p b{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8e7b6"/><stop offset=".45" stop-color="#d8b978"/><stop offset="1" stop-color="#9c7a36"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+</svg>
+
+<!-- 1 · SETUP -->
+<div class="col">
+  <div class="cap">1 · Day one: she sets her goals</div>
+  <div class="phone"><div class="screen"><div class="pad">
+    <div class="bar"><span class="word">MILESTAMP</span><span class="chip">Step 1 of 2</span></div>
+    <h1>Hello, Mum. What will you do most days?</h1>
+    <div class="sub">Pick up to five. Tap to choose.</div>
+
+    <div class="sec">Daily goals</div>
+    <div class="chips">
+      <span class="c on">Morning walk</span>
+      <span class="c on">Drink water</span>
+      <span class="c">Read</span>
+      <span class="c on">Stretches</span>
+      <span class="c">Call a friend</span>
+      <span class="c on">Early night</span>
+      <span class="c">No sugar</span>
+      <span class="c">+ Add my own</span>
+    </div>
+
+    <div class="sec">One big goal</div>
+    <div class="glass field"><small>WHAT I WANT TO REACH</small>Walk 100 km by 1 March</div>
+
+    <div class="cta">Start stamping</div>
+    <div class="note">You can change these whenever you like.</div>
+  </div></div></div>
+</div>
+
+<!-- 2 · TODAY -->
+<div class="col">
+  <div class="cap">2 · Every day: tap to stamp</div>
+  <div class="phone"><div class="screen"><div class="pad">
+    <div class="bar"><span class="word">MILESTAMP</span><span class="chip">540 points this week</span></div>
+    <h1>Good morning, Mum.</h1>
+    <div class="sub">Tuesday 17 November</div>
+
+    <div class="dial">
+      <svg viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="92" fill="none" stroke="rgba(216,185,120,.45)" stroke-width="9" pathLength="100" stroke-dasharray="0.45 1.55"/>
+        <circle cx="100" cy="100" r="76" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="8"/>
+        <circle cx="100" cy="100" r="76" fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round" pathLength="100" stroke-dasharray="50 100" transform="rotate(-90 100 100)" filter="url(#glow)"/>
+      </svg>
+      <div class="mid"><div class="n">50</div><div class="l">of 100 today</div></div>
+    </div>
+
+    <div class="sec">Today</div>
+    <div class="glass row"><div class="coin">✓</div><div class="what"><div class="t">Morning walk</div><div class="s">Stamped at 8:10</div></div><div class="pts on">+25</div></div>
+    <div class="glass row"><div class="coin">✓</div><div class="what"><div class="t">Drink water</div><div class="s">Stamped at 9:45</div></div><div class="pts on">+25</div></div>
+    <div class="glass row"><div class="tap">TAP</div><div class="what"><div class="t">Stretches</div><div class="s">10 minutes</div></div><div class="pts">+25</div></div>
+    <div class="glass row"><div class="tap">TAP</div><div class="what"><div class="t">Early night</div><div class="s">In bed by 10:30</div></div><div class="pts">+25</div></div>
+
+    <div class="sec">My big goal</div>
+    <div class="glass goal">
+      <div class="t">Walk 100 km by 1 March</div>
+      <div class="track"><i></i></div>
+      <div class="m"><span><b>37 km</b> so far</span><span>2 km ahead</span></div>
+    </div>
+  </div></div></div>
+</div>
+
+<!-- 3 · FAMILY -->
+<div class="col">
+  <div class="cap">3 · The family leaderboard</div>
+  <div class="phone"><div class="screen"><div class="pad">
+    <div class="bar"><span class="word">MILESTAMP</span><span class="chip">Week 3</span></div>
+    <h1>The family board</h1>
+    <div class="sub">Points this week. Resets every Monday.</div>
+
+    <div class="sec">Leaderboard</div>
+    <div class="glass lead"><div class="rank first">1</div><div class="who"><div class="t">Mum</div><div class="mini"><i style="width:77%"></i></div></div><div class="score first-score">540<small>points</small></div></div>
+    <div class="glass lead"><div class="rank">2</div><div class="who"><div class="t">Nikita</div><div class="mini"><i style="width:71%"></i></div></div><div class="score">495<small>points</small></div></div>
+    <div class="glass lead"><div class="rank">3</div><div class="who"><div class="t">Dad</div><div class="mini"><i style="width:59%"></i></div></div><div class="score">410<small>points</small></div></div>
+    <div class="glass lead"><div class="rank">4</div><div class="who"><div class="t">Gran</div><div class="mini"><i style="width:54%"></i></div></div><div class="score">380<small>points</small></div></div>
+
+    <div class="sec">Together</div>
+    <div class="glass fam">
+      <div class="dial">
+        <svg viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="92" fill="none" stroke="rgba(216,185,120,.45)" stroke-width="9" pathLength="100" stroke-dasharray="0.45 1.55"/>
+          <circle cx="100" cy="100" r="76" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="9"/>
+          <circle cx="100" cy="100" r="76" fill="none" stroke="url(#gold)" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="91 100" transform="rotate(-90 100 100)" filter="url(#glow)"/>
+        </svg>
+        <div class="mid"><div class="n">1,825</div><div class="l">of 2,000</div></div>
+      </div>
+      <p><b>175 points to go</b> and the family earns this week's gold seal.</p>
+    </div>
+
+    <div class="note">Everyone can score up to 100 a day, however many goals they have.</div>
+  </div></div></div>
+</div>
+
+</body>
+</html>
