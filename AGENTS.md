@@ -602,8 +602,19 @@ family board.
 
 **Proposed build if he says go:** its own small app (not the NLS or ACL fork);
 each person gets a private link as now, grouped into a family; no logins.
-⬜ Awaiting: go/no-go, the reminder choice (phone notification recommended),
-who is in the family (first names), and the scoring veto.
+**✅ BUILT 2026-11-17 — he said "keep going".** The first working version is its
+own app: **`Desktop\milestamp-family`** · private repo
+**github.com/NikitaSilvermore/milestamp-family** · its own briefing in that
+repo's `AGENTS.md`. Start a family → pick goals → tap to stamp → points dial →
+big goal → family leaderboard with a shared target and gold seal → invite by
+WhatsApp. Built under the scoring assumptions above (still his to veto); people
+add themselves by name via the invite link, so no family list was needed.
+Verified locally (30 rule tests + a 31-check walk-through with two people on a
+phone-sized screen; production build green). **⬜ NOT deployed** — needs his
+accounts: `milestamp-family\DEPLOY-STEPS.md` (new Supabase project, one env var
+`DATABASE_URL`, Vercel import). ⚠ Not yet run against Supabase itself, only
+against local Postgres — re-run the walk-through on the live URL after deploy.
+Reminders not built (phone notifications recommended).
 
 ## ⛔ NLS / TED — PAUSED (2026-08-29). Do not push this forward.
 
