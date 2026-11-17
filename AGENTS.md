@@ -462,6 +462,40 @@ Contract read (All Out Sales IP/non-compete) still stands before taking money.
 
 ⬜ Awaiting: which pathway to explore, and the size/engagement of `nikita.hts`.
 
+### ⚑ IDEA (Nikita, 2026-11-17): calls fill the record in — no forms
+
+Nikita: *"Could we create an app that auto joins calls and then auto updates a
+dashboard/interface which will be Milestamp, it also populates trackers etc."*
+**Status: idea under exploration, nothing built, nothing decided.**
+
+**Why it matters:** it removes the weakness every version has hit — nobody
+fills in forms or uploads anything (his own words, Aug–Sep). Calls already
+happen; if the record is written from the call, the weekly check-in becomes
+optional and the product updates itself.
+
+**Shape offered:** call ends → transcript arrives → an LLM pulls the fixed
+fields (outcome, numbers, wins, blockers, next step) → the Milestamp page
+updates → a row lands in the tracker (Google Sheet / Close). ⚠ This uses an LLM,
+which the frozen NLS BUILD_SPEC rules out for v1 — fine for a new product, but
+it is a reversal to make knowingly.
+
+**The build choice put to him:** (a) **plug into the recorder people already
+use** — Fathom/Fireflies/Zoom/Close deliver a transcript by webhook or API; no
+bot to build, pennies per call, ~1–2 weeks; recommended first; vs (b) **our own
+joining bot** via a meeting-bot service such as Recall.ai — works for people
+with no recorder, adds per-hour cost and 1–2 more weeks; add later.
+
+**Cautions logged:** note-taking and CRM-sync from calls is a crowded,
+well-funded category — the open ground is the *output* (a closer's tracker and
+record, or a student's progress record), not the recording; competition not yet
+checked. Recording consent applies if we run our own bot. And prototyping on
+his NLS sales calls means using employer call data for a product Ted does not
+know about — use his own calls only if he is entitled to, else sample
+transcripts.
+
+⬜ Awaiting: whose calls (closers' sales calls vs coaches' client calls), and
+whether to prototype the extraction on a handful of transcripts.
+
 ## ⛔ NLS / TED — PAUSED (2026-08-29). Do not push this forward.
 
 Nikita: *"With Ted and [Makenna] it's complicated because at the moment we
