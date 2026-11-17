@@ -532,6 +532,23 @@ the edge is weekly-not-daily, the locked before, and witness-stamping.
 ⬜ Awaiting: which direction; offered a clickable mock of the invite post, the
 challenge page and the stamp moment before any build.
 
+### ⚑ ALL FOUR CONSUMER DIRECTIONS REJECTED → "a dashboard my mum can use" (same day)
+
+Nikita: *"No none of these jump out for me. I think I want to make an easy
+access dashboard that my mum can use to help her hit her goals."* **This is the
+live brief now: one real user (his mum), one job (hit her goals), one constraint
+(easy access).** Three option-menus in a row failed to excite him; the working
+method from here is **build for her specifically, then generalise only if she
+actually uses it** — not another market thesis.
+
+Defaults Claude proposed unless he says otherwise: no app install, no login,
+one private link saved to her home screen, large type, a single screen.
+⚠ Known constraint: reminders — only email is wired, and Resend test mode can
+only email Nikita; texting her needs a paid provider or a verified domain.
+
+⬜ Awaiting his answers on: what her goals are, her device, how she'd want
+reminding, and who else sees her progress.
+
 ## ⛔ NLS / TED — PAUSED (2026-08-29). Do not push this forward.
 
 Nikita: *"With Ted and [Makenna] it's complicated because at the moment we
