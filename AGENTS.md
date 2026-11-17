@@ -425,6 +425,43 @@ check-in → progress page → console with flags + retention ledger.
 ⬜ Awaiting: his route pick, whether the solo run happened, and whether anything
 has moved with Ted since August.
 
+### ⚑ A/B/C REJECTED — new brief: passive, self-serve, income by January (same day)
+
+Nikita: *"I don't really like any of these. I'm relaunching Wordhoard as a
+simple word of the day app with some monetisation possibilities. Is there a
+pathway for us to explore in a relaunch of Milestamp simplified with a more
+automated passive recurring income approach — something less hands on that can
+bring in income by Jan?"* So the goal is **hands-off recurring revenue, not the
+fastest first dollar** — no sales calls, no hand-built deploys. (Wordhoard's
+relaunch is live work on its own `simple-launch` branch; not touched from here.)
+
+**The structural insight offered:** if the PERSON pays instead of the coach,
+the product needs **no multi-tenancy at all** — it is already one row per person
+behind a private link. Stripe Checkout → webhook → create the record → email the
+intake link is the whole of "self-serve" (the Close enrolment webhook is the
+pattern). Console, flags, evidence, verification and coach actions all drop out.
+
+**Pathways put to him (NOT decided):**
+1. **The closer's record** — the NLS fork (revenue metric, glowing graph) sold
+   to individuals with a number to hit, through his own `nikita.hts` audience of
+   closers and coaches; ~$9–15/mo; New-Year/Q1 timing. ~1 week of build.
+   Claude's lean, *if* that audience is big and warm enough — size unknown, asked.
+2. **The comeback record** — the ACL fork sold to people in knee rehab; he is
+   the user; ~9-month natural retention; no owned audience, so slower start.
+   Same engine, second skin.
+3. **Self-serve coach plan** — coach pays ~$29–49/mo by card and adds their own
+   clients. Needs multi-tenancy (2–3 weeks). ⚠ Reverses PRICING.md's
+   never-a-tracker pricing — his call; his own "$19.99" instinct points this way.
+
+**Said plainly to him:** the software can run itself (Stripe bills, cron
+emails), the traffic cannot — some posting each week is the unavoidable
+non-passive part. First revenue by January is realistic; meaningful income by
+January is not on any passive route (hundreds, not thousands). Fixed costs for
+any of them ≈ $45/mo (Vercel Pro + Supabase Pro so the DB never pauses).
+Contract read (All Out Sales IP/non-compete) still stands before taking money.
+
+⬜ Awaiting: which pathway to explore, and the size/engagement of `nikita.hts`.
+
 ## ⛔ NLS / TED — PAUSED (2026-08-29). Do not push this forward.
 
 Nikita: *"With Ted and [Makenna] it's complicated because at the moment we
