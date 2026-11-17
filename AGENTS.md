@@ -389,6 +389,42 @@ built.
 entity? Who audits at scale? What is it called? And — decided in advance and
 published — what happens the first time a paying customer fails verification?
 
+## ▶ "SIMPLIFY, LAUNCH, MONETISE ASAP" (Nikita, 2026-11-17) — options put, NOT decided
+
+Nikita came back after two months asking for the fastest route to revenue.
+**State found that day:** both Supabase projects (`silvermore` and
+`milestamp-acl`) were **PAUSED** for inactivity — every student/athlete link on
+both live apps served "link not recognised", so any demo link sent to a prospect
+was dead. Fix is always **Restore** (data survives). Whether the ACL solo run
+(22 Sep → ~22 Dec) actually happened is **unknown — ask him**; a paused DB means
+at least the last week-plus had no check-ins.
+
+**Diagnosis offered:** nothing is missing from the product — far more is built
+than a first customer needs. What is missing is a customer. Every gate so far
+("NLS first", then "ACL solo run first") deferred the ask, and the two gates are
+not actually binding on the other warm prospects: **Capital Closer** and **Six
+Figure Bookkeepers** do not depend on Ted.
+
+**Options put to him (recommendation = A):**
+- **A · Concierge launch** — sell the existing product, set up by hand per
+  coach (a cloned deploy each; no multi-tenancy, signup or billing code), at the
+  founding rate already in PRICING.md ($397/mo, 12-month lock), paid by a Stripe
+  payment link. Needs only: Restore, Vercel Pro (Hobby bans commercial use), a
+  Milestamp domain verified in Resend (test mode can only email Nikita), a
+  one-page agreement, and **reading his own All Out Sales contract for
+  IP-assignment / non-compete before taking money**. ~an afternoon + ~$45/mo.
+- **B · Self-serve SaaS** — multi-tenancy + signup + Stripe billing. Weeks of
+  build before the first dollar, and it reprices toward tracker money.
+- **C · Wait for Ted / finish the solo run first** — zero cost, unknown date.
+
+**Proposed freeze under A** (none of it needed to charge customer #1): the
+certification mark, vault/compliance file, evidence surfacing, TrueCoach Zap,
+restyle briefs, sensory stage 3, SMS, CRM write-back. Keep: intake → weekly
+check-in → progress page → console with flags + retention ledger.
+
+⬜ Awaiting: his route pick, whether the solo run happened, and whether anything
+has moved with Ted since August.
+
 ## ⛔ NLS / TED — PAUSED (2026-08-29). Do not push this forward.
 
 Nikita: *"With Ted and [Makenna] it's complicated because at the moment we
