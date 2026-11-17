@@ -546,8 +546,30 @@ one private link saved to her home screen, large type, a single screen.
 ⚠ Known constraint: reminders — only email is wired, and Resend test mode can
 only email Nikita; texting her needs a paid provider or a verified domain.
 
-⬜ Awaiting his answers on: what her goals are, her device, how she'd want
-reminding, and who else sees her progress.
+**His answers (2026-11-17):** goals = **mainly daily health habits**, plus **a
+number to reach**, with a **project/skill as an option**; device = **Android
+phone**; reminders = **text or WhatsApp**; privacy = **private by default, but
+she can share with people or create group/family dashboards**.
+
+**First mock made and shown the same day** →
+`docs/design/mum-dashboard/mum-mock.png` (+ `.html` source). Two screens: her
+everyday screen (large type, tap a habit to stamp it, honest week dots, one big
+goal with a progress bar) and the "week stamped" moment (gold seal, share to
+WhatsApp, optional family board). Warm paper + ink, red ink stamps for daily,
+**gold kept for the earned weekly seal** (consistent with the gold = earned
+ruling). Fonts in the mock: Fraunces + Atkinson Hyperlegible (chosen for
+legibility). Placeholder content — her real habits, goal and name are not known.
+
+**Reminder reality put to him:** *sharing* to WhatsApp is free (her phone's
+share sheet); *reminders sent by* WhatsApp need WhatsApp's business service
+(approval, per-message fees, a week or more); text messages are simple at a few
+pence each; and on Android a home-screen web app can send ordinary phone
+notifications for free — Claude's recommendation for v1. ⬜ His call.
+
+**Proposed shape if he says go:** its own small app (not the NLS or ACL fork),
+reusing the stamp/seal work; daily cadence, so a new check-in model.
+⬜ Awaiting: his reaction to the mock, the reminder choice, and her real
+habits / goal / first name.
 
 ## ⛔ NLS / TED — PAUSED (2026-08-29). Do not push this forward.
 
