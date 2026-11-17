@@ -496,6 +496,42 @@ transcripts.
 ⬜ Awaiting: whose calls (closers' sales calls vs coaches' client calls), and
 whether to prototype the extraction on a handful of transcripts.
 
+### ⚑ COOLED on the call idea → exploring MILESTAMP FOR THE AVERAGE PERSON (same day)
+
+Nikita: *"This isn't getting me excited. Can we maybe expand this out for anyone
+in some way. So maybe a life dashboard, or gamified life dashboard maybe,
+something that I can share with any of my Facebook friends. How can we adapt
+Milestamp to the average person."* **The call-driven idea is parked (not
+killed). Nothing below is decided or built.**
+
+**What transfers to a consumer, already built:** the locked "before" + then/now
+fold, the stamps/seal/ribbon (the game layer), the 45-second WEEKLY check-in
+(not daily — the difference from streak apps), the win card PNG (already
+share-sized), private links with no login or app install, per-person rails and
+programme length.
+
+**Directions put to him:**
+1. **Life scorecard** — rate ~5 life areas on day one (locked), 45 seconds each
+   week, life-score seal + then/now + 52-week ribbon. Closest to the ACL fork;
+   days of build. Weak spot: no built-in reason to tell a friend.
+2. **The 12-week challenge with witnesses — Claude's pick.** One goal, a locked
+   baseline, weekly check-in, and friends invited as witnesses via a posted
+   link. **Hook: you cannot stamp your own card — a witness does** (the
+   coach-records / athlete-confirms flow, turned round). Every challenge
+   recruits its own audience; New-Year resolutions are the natural launch.
+3. **Life RPG** (XP, levels, character) — crowded (Habitica etc.), the game
+   design is the whole product, far from what exists. Advised against.
+4. **Sealed time capsule** (lock a "before", open it later) — a strong moment,
+   weak between-times; better as the opening ceremony inside 1 or 2.
+
+**Said plainly:** consumer products earn late — this trades January income for
+shareability and reach; realistic money is a small premium tier (~$3–5/mo or
+~$20–30/yr) or paid challenges, and is small at first. Category is crowded;
+the edge is weekly-not-daily, the locked before, and witness-stamping.
+
+⬜ Awaiting: which direction; offered a clickable mock of the invite post, the
+challenge page and the stamp moment before any build.
+
 ## ⛔ NLS / TED — PAUSED (2026-08-29). Do not push this forward.
 
 Nikita: *"With Ted and [Makenna] it's complicated because at the moment we
